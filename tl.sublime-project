@@ -1,0 +1,11 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/xinzhao/working/python/tl"
+		}
+	],
+	"settings": {
+		"python_interpreter": "/usr/local/bin/python3" 
+    }
+}
