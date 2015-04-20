@@ -22,6 +22,9 @@ class HelloHandler(RequestHandler):
         print('path_args', colored(self.path_args, 'yellow'))
         print('path_kwargs', colored(self.path_kwargs, 'yellow'))
         print('get_argument(\'test\', \'defulat\')', colored(self.get_argument('test', 'default'), 'yellow'))
+        print('applications.settings', colored(self.application.settings, 'yellow'))
+        self.write('hello')
+        self.set_header('abc', 'bcd')
 
     def post(self):
         self.write("post")
@@ -56,7 +59,8 @@ try:
     @gen.coroutine
     def visitServer(url, *args):
         response = yield httpclient.fetch(url)
-        cprint('response:{0}'.format(response.body), 'blue')
+        cprint('response.headers:{0}'.format(response.headers), 'blue')
+        cprint('response.body:{0}'.format(response.body), 'blue')
 
     visitServer('http://localhost:8888/')
     visitServer('http://localhost:8888/?test=113')
