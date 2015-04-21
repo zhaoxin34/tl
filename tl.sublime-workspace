@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"back",
+				"background-color"
+			],
+			[
+				"nav",
+				"navbar-tl-shadow"
+			],
+			[
+				"bgi",
+				"background-image"
+			],
+			[
+				"bs",
+				"bs3-label:info	bs3-label-info"
+			],
+			[
+				"exam",
+				"exam.tornado.hello	example:tornado hello world"
+			],
+			[
 				"get_arg",
 				"get_argument	function"
 			],
@@ -163,10 +183,46 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 107.0,
-		"last_filter": ":q",
+		"height": 363.0,
+		"last_filter": "angu",
 		"selected_items":
 		[
+			[
+				"angu",
+				"AngularJS: Rebuild Search Index"
+			],
+			[
+				"compl",
+				"CSS Completions: Delete Cache"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"upgra",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"git",
+				"GitGutter: Compare Against Origin"
+			],
+			[
+				"package upda",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"elast",
+				"Elasticsearch: Cat Health"
+			],
 			[
 				":q",
 				"Set Syntax: SQL"
@@ -178,10 +234,6 @@
 			[
 				"python",
 				"Set Syntax: Python"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"node",
@@ -198,14 +250,6 @@
 			[
 				"uuid",
 				"Generate UUID v4"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
-				"list",
-				"Package Control: List Packages"
 			],
 			[
 				"pyton",
@@ -294,10 +338,6 @@
 			[
 				"logba",
 				"Set Syntax: Logback"
-			],
-			[
-				"git",
-				"Github: Create Pull Request"
 			],
 			[
 				"logback",
@@ -596,9 +636,32 @@
 	],
 	"file_history":
 	[
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/xinzhao/working/python/tl/tl.sublime-project",
+		"/Users/xinzhao/working/python/tl/static/ng/test-ng.html",
+		"/Users/xinzhao/working/python/tl/static/ng/test/control.js",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-js-completions.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-completions.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/CSS Extended Completions/css_style_completions.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/xinzhao/working/python/tl/index.html",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/HTML.sublime-settings",
+		"/Users/xinzhao/working/python/tl/static/bs/3.3.4/css/bootstrap-theme.min.css",
+		"/Users/xinzhao/working/python/tl/static/css/theme.css",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/CSS.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/Users/xinzhao/working/python/tl/static/img/shadow-cl.png",
+		"/Users/xinzhao/working/python/tl/static/js/respond.js/1.4.2/respond.min.js",
+		"/Users/xinzhao/working/python/tl/static/js/html5shiv/3.7.2/html5shiv.min.js",
+		"/Users/xinzhao/working/python/tl/static/js/asserts/ie8-responsive-file-warning.js",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/GitGutter.sublime-settings",
+		"/Users/xinzhao/working/python/tl/static/js/assert/ie-emulation-modes-warning.js",
 		"/Users/xinzhao/working/python/tl/test.py",
 		"/usr/local/lib/python3.4/site-packages/tornado/web.py",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/usr/local/lib/python3.4/site-packages/tornado/escape.py",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Elasticsearch.sublime-settings",
 		"/usr/local/lib/python3.4/site-packages/tornado/httpclient.py",
 		"/Users/xinzhao/working/python/tl/pycurltest.py",
 		"/Users/xinzhao/working/python/tl/test2.py",
@@ -607,12 +670,10 @@
 		"/usr/local/lib/python3.4/site-packages/tornado/httputil.py",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/io.py",
 		"/usr/local/lib/python3.4/site-packages/termcolor.py",
 		"/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/types.py",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
-		"/Users/xinzhao/working/python/tl/tl.sublime-project",
 		"/usr/local/lib/python3.4/site-packages/tornado/gen.py",
 		"/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/trace.py",
 		"/Users/xinzhao/working/python/scrpay/nodejs/spiders/node.py",
@@ -702,12 +763,7 @@
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Emmet.sublime-settings",
 		"/Users/xinzhao/.Trash/bash.sublime-snippet",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/shell/date_today.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/shell/date_yesterday.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/biuld/shell_run.sublime-build",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/shell_today.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/shell_date_today.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/snippet/shell.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/snippet/shell"
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/shell/date_yesterday.sublime-snippet"
 	],
 	"find":
 	{
@@ -726,6 +782,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"auto_complete_selector",
+			"MyController",
+			"panel-heading",
+			"shadow",
+			"10px",
+			"5CB85C",
+			"transparent",
+			"border-bottom: 8px solid #000;",
+			"2px",
+			"6c6d6f",
+			"#6c6d6f",
+			"D5D5D5",
+			"555",
+			"activ",
+			"5E5E5E",
+			"777",
+			".navbar-default",
+			"navbar-tl-shadow",
+			" <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\">\n            <img alt=\"Brand\" src=\"static/img/watch.png\">\n          </a>\n        </div>\n      </div>\n      <div class=\"container\">\n        <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a class=\"navbar-brand\" href=\"#\">Bootstrap theme</a>\n        </div>\n        <div id=\"navbar\" class=\"navbar-collapse collapse\">\n          <ul class=\"nav navbar-nav\">\n            <li class=\"active\"><a href=\"#\">Home</a></li>\n            <li><a href=\"#about\">About</a></li>\n            <li><a href=\"#contact\">Contact</a></li>\n            <li class=\"dropdown\">\n              <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\" role=\"menu\">\n                <li><a href=\"#\">Action</a></li>\n                <li><a href=\"#\">Another action</a></li>\n                <li><a href=\"#\">Something else here</a></li>\n                <li class=\"divider\"></li>\n                <li class=\"dropdown-header\">Nav header</li>\n                <li><a href=\"#\">Separated link</a></li>\n                <li><a href=\"#\">One more separated link</a></li>\n              </ul>\n            </li>\n          </ul>\n        </div><!--/.nav-collapse -->\n      </div>",
+			"round",
+			"nav",
+			"response",
 			"serverrequest",
 			"util",
 			"^class request",
@@ -831,29 +909,7 @@
 			"default",
 			" [\"",
 			"default",
-			"    ",
-			"   ",
-			"  ",
-			"    ",
-			"   ",
-			"  ",
-			"tomcat_log",
-			"beginning",
-			"open_file",
-			" =>",
-			"=>",
-			".\n",
-			"${}",
-			"date",
-			"\\\"\\\\$(",
-			"lsjdf",
-			"sdlfkj",
-			"d",
-			"content",
-			"'",
-			"foobar",
-			"5",
-			"sdf"
+			"    "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -907,6 +963,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.CSS Extended Completions":
+	{
+		"height": 0.0
+	},
 	"output.aaa_package_dev":
 	{
 		"height": 100.0
@@ -940,6 +1000,26 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"cont",
+				"static/ng/test/control.js"
+			],
+			[
+				"min",
+				"static/bs/3.3.4/css/bootstrap-theme.min.css"
+			],
+			[
+				"the",
+				"static/css/theme.css"
+			],
+			[
+				"thememin",
+				"static/bs/3.3.4/css/bootstrap-theme.min.css"
+			],
+			[
+				"them",
+				"static/css/theme.css"
+			],
 			[
 				"node",
 				"nodejs/spiders/node.py"
@@ -1066,7 +1146,7 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "es",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
