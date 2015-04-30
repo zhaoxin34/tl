@@ -187,6 +187,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4915,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "static/css/theme.css",
+			"settings":
+			{
+				"buffer_size": 2539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ace/index.html",
+			"settings":
+			{
+				"buffer_size": 23177,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -211,10 +235,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 187.0,
-		"last_filter": "pyton",
+		"height": 127.0,
+		"last_filter": "remove",
 		"selected_items":
 		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"project",
+				"Project Manager"
+			],
 			[
 				"pyton",
 				"Set Syntax: Python"
@@ -224,20 +260,12 @@
 				"Set Syntax: Python"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"log",
 				"Set Syntax: Logstash"
 			],
 			[
 				"inst",
 				"Package Control: Install Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"html",
@@ -548,13 +576,15 @@
 				"View: Toggle Open Files in Side Bar"
 			]
 		],
-		"width": 584.0
+		"width": 575.0
 	},
 	"console":
 	{
 		"height": 238.0,
 		"history":
 		[
+			"sublime.log_commands(False)",
+			"sublime.log_commands(True)",
 			"/python",
 			"/@python",
 			"print(a.groups())",
@@ -680,9 +710,7 @@
 			"print \"var %s = require(\\\"%s\\\");\" % ('adf', 'sdflk')",
 			"print \"var %s = require(\\\"%s\\\")\\;\" % ('adf', 'sdflk')",
 			"print \"var %s = require(\\\"%s\\\");\" % ('adf', 'sdflk')",
-			"view.show_popup('Hello, <b>World!</b><br><a href=\"moo\">Click Me</a>', on_navigate=print)",
-			"print(view.syntax)",
-			"print(view)"
+			"view.show_popup('Hello, <b>World!</b><br><a href=\"moo\">Click Me</a>', on_navigate=print)"
 		]
 	},
 	"distraction_free":
@@ -696,28 +724,40 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/xinzhao/working/python/tl"
+		"/Users/xinzhao/working/python/tl/ace",
+		"/Users/xinzhao/working/python/tl/ace/Dashboard_files"
 	],
 	"file_history":
 	[
+		"/Users/xinzhao/working/python/tl/static/bs/3.3.4/css/bootstrap-theme.min.css",
+		"/Users/xinzhao/working/python/tl/ace/index.html",
+		"/Users/xinzhao/working/python/tl/index.html",
+		"/Users/xinzhao/working/python/tl/tl.sublime-project",
+		"/Users/xinzhao/working/python/tl/server.py",
+		"/Users/xinzhao/working/python/tl/new_index.html",
+		"/Users/xinzhao/Downloads/logstash-template.json",
+		"/usr/local/lib/python3.4/site-packages/tornado/web.py",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/Example.sublime-keymap",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Settings/SideBarEnhancements.json",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Project Manager/pm.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/pm.sublime-settings",
+		"/Users/xinzhao/working/python/tl/static/css/theme.css",
+		"/Users/xinzhao/working/python/tl/static/ng/1.3.15/angular-route.js",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/xinzhao/working/python/tl/test-ng/phone-detail.html",
 		"/Users/xinzhao/working/python/tl/test-ng/phone-list.html",
 		"/Users/xinzhao/working/python/tl/test-ng/index.html",
 		"/Users/xinzhao/working/python/tl/test-ng/js/controller.js",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
-		"/Users/xinzhao/working/python/tl/tl.sublime-project",
-		"/Users/xinzhao/working/python/tl/index.html",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/SideBarEnhancements/Default (OSX).sublime-keymap",
-		"/Users/xinzhao/working/python/tl/server.py",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/HTML.sublime-settings",
 		"/Users/xinzhao/working/python/tl/static/ng/test-view.html",
 		"/Users/xinzhao/working/python/tl/static/ng/test.html",
 		"/Users/xinzhao/working/python/tl/static/ng/test/controller.js",
 		"/Users/xinzhao/working/python/tl/static/ng/test-ng.html",
 		"/Users/xinzhao/working/python/tl/test/test2.py",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
-		"/usr/local/lib/python3.4/site-packages/tornado/web.py",
 		"/usr/local/lib/python3.4/site-packages/tornado/httputil.py",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/Users/xinzhao/working/python/tl/test/test.py",
@@ -732,7 +772,6 @@
 		"/usr/local/lib/python3.4/site-packages/tornado/util.py",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-		"/Users/xinzhao/working/python/tl/static/bs/3.3.4/css/bootstrap-theme.min.css",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/CSS.sublime-settings",
 		"/Users/xinzhao/working/python/tl/static/bs/3.3.4/js/bootstrap.js",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
@@ -745,7 +784,6 @@
 		"/Users/xinzhao/working/python/tl/static/ng/test/control.js",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/CSS Extended Completions/css_style_completions.sublime-settings",
-		"/Users/xinzhao/working/python/tl/static/css/theme.css",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
 		"/Users/xinzhao/working/python/tl/static/img/shadow-cl.png",
 		"/Users/xinzhao/working/python/tl/static/js/respond.js/1.4.2/respond.min.js",
@@ -758,7 +796,6 @@
 		"/Users/xinzhao/working/python/tl/pycurltest.py",
 		"/Users/xinzhao/working/python/tl/test2.py",
 		"/usr/local/lib/python3.4/site-packages/tornado/ioloop.py",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/io.py",
 		"/usr/local/lib/python3.4/site-packages/termcolor.py",
 		"/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/types.py",
@@ -805,7 +842,6 @@
 		"/Users/xinzhao/working/sublime/my-snippets.sublime-workspace",
 		"/Users/xinzhao/working/life/making/nodejs/g_document/get_html.js",
 		"/Users/xinzhao/Downloads/sm-2015-03-19.log",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/Example.sublime-keymap",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/shell/bash.sublime-completions",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/java/logback/contextName.sublime-snippet",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Nodejs.sublime-settings",
@@ -820,14 +856,7 @@
 		"/Users/xinzhao/working/life/making/java_example/example/Mk5OrderApplyExampleExtra.java",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/java/logback/logback.JSON-tmLanguage",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/java/logback/pattern.file.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/java/logback/included.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/Default.sublime-theme",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/biuld/shell_run.sublime-build",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/shell/bash.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/java/logback/appender.RollingFileAppender.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/java/logback/appender.FileAppender.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/logstash/output-elasticsearch.sublime-snippet",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/logstash/lgostash.sublime-completions"
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/my sublime/snippet/java/logback/included.sublime-snippet"
 	],
 	"find":
 	{
@@ -846,6 +875,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"jqstooltip",
+			"jqsfield",
+			"toggle",
+			"col",
+			"super",
+			"keys",
 			"<div class=\"collapse navbar-collapse navbar-tl\" id=\"bs-example-navbar-collapse-1\">",
 			"<div class=\"container-fluid\">",
 			"init",
@@ -967,13 +1002,7 @@
 			"sldf",
 			"type:",
 			"nodedir",
-			"build",
-			"parent",
-			"name=\"http.Server",
-			"name=\"Server",
-			"dealObject",
-			"import types\n\ndir = \"nodejs\"\n\nclass Nodejs():\n	def loadNodejsDocs(self):\n		files = os.listdir(dir)\n		for f in files:\n			print f \n			fi = file(dir + '/' + f)\n			j = json.load(fi)\n			# for a in j['modules'][0]['properties']:\n			# for module in j['modules']:\n			# 	print '+ module name %s' % module['name']\n			# 	for p1 in module:\n			# 		print '++%s.[%s]' % (module['name'] , p1)\n			# 		if p1 in ['classes', 'properties', 'methods']:\n			# 			for p2 in module[p1]:\n			# 				print '+++ %s.%s.[%s]' % (module['name'], p1, p2['name'])\n			# 				if p1 == 'methods':\n			# 					dealMethod(module['name'], p1)\n			self.dealObject(j)\n	def dealArray(self, array):\n		pass\n	def dealObject(self, obj):\n		pass\n			# 		print \"++ %s.%s\" % (module['name'], prop)\n			# 		for p in prop:\n			# 			print \"+++ %s.%s.%s\" % (module['name'], prop, p)\n\n",
-			"dir"
+			"build"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -992,8 +1021,354 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4915,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								680,
+								680
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python"
+								},
+								{
+									"characters": ".",
+									"selector": "source.js"
+								},
+								{
+									"characters": "ng-controller=\"*",
+									"selector": "punctuation.definition.string"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 75.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "static/css/theme.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2235,
+								2235
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python"
+								},
+								{
+									"characters": ".",
+									"selector": "source.js"
+								},
+								{
+									"characters": "ng-controller=\"*",
+									"selector": "punctuation.definition.string"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 1121.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ace/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23177,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python"
+								},
+								{
+									"characters": ".",
+									"selector": "source.js"
+								},
+								{
+									"characters": "ng-controller=\"*",
+									"selector": "punctuation.definition.string"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1052,6 +1427,10 @@
 	{
 		"height": 100.0
 	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
 	"pinned_build_system": "Packages/User/my sublime/build/python3.sublime-build",
 	"project": "tl.sublime-project",
 	"replace":
@@ -1066,16 +1445,36 @@
 		"selected_items":
 		[
 			[
+				"theme",
+				"static/css/theme.css"
+			],
+			[
+				"index",
+				"ace/index.html"
+			],
+			[
+				"ser",
+				"server.py"
+			],
+			[
+				"web",
+				"/usr/local/lib/python3.4/site-packages/tornado/web.py"
+			],
+			[
+				"serv",
+				"server.py"
+			],
+			[
+				"server",
+				"server.py"
+			],
+			[
 				"phon",
 				"test-ng/phone-list.html"
 			],
 			[
 				"con",
 				"test-ng/js/controller.js"
-			],
-			[
-				"serv",
-				"server.py"
 			],
 			[
 				"testng",
@@ -1235,12 +1634,12 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "",
+		"last_filter": "es",
 		"selected_items":
 		[
 			[
 				"es",
-				"~/working/python/es/es.sublime-workspace"
+				"~/working/python/es/es.sublime-project"
 			],
 			[
 				"sn",
@@ -1295,12 +1694,16 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
-		"last_filter": "",
+		"height": 392.0,
+		"last_filter": "par",
 		"selected_items":
 		[
+			[
+				"par",
+				"parseRoute"
+			]
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"selected_group": 0,
 	"settings":
