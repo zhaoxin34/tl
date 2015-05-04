@@ -1,114 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="static/favicon.ico">
-
-    <title>timeline</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="static/bs/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="static/bs/3.3.4/css/bootstrap-theme.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="static/css/theme.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="static/js/asserts/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="static/js/asserts/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="static/js/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="static/js/respond.js/1.4.2/respond.min.js"></script>
+    <title>Dashboard - Ace Admin</title>
+    <meta name="description" content="overview &amp; stats">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="static/ace/bootstrap.min.css">
+    <link rel="stylesheet" href="static/ace/font-awesome.min.css">
+    <!-- page specific plugin styles -->
+    <!-- text fonts -->
+    <link rel="stylesheet" href="static/ace/gfont-family.css">
+    <!-- ace styles -->
+    <link rel="stylesheet" href="static/ace/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
+    <!--[if lte IE 9]>
+            <link rel="stylesheet" href="static/ace/ace-part2.min.css" class="ace-main-stylesheet" />
+        <![endif]-->
+    <!--[if lte IE 9]>
+          <link rel="stylesheet" href="static/ace/ace-ie.min.css" />
+        <![endif]-->
+    <!-- inline styles related to this page -->
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+    <!--[if lte IE 8]>
+        <script src="static/js/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="static/js/response.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-tl navbar-fixed-top">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">
-            <div>
-            <img src="static/img/watch.png">
-            <img src="static/img/title.png">
-            </div>
-          </a>
-        </div>
+</head>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-tl" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+<body class="no-skin" cz-shortcut-listen="true">
+    <div id="navbar" class="navbar navbar-default">
+        <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed');
+        } catch (e) {}
+        </script>
+        <div class="navbar-container" id="navbar-container">
+            <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                <span class="sr-only">Toggle sidebar</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-header pull-left">
+                <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#" class="navbar-brand">
+                    <small>
+                        <i class="fa fa-leaf"></i>
+                        Ace Admin
+                    </small>
+                </a>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-      <div class="navbar-tl-shadow">
-        <div class="navbar-tl-shadow-left"></div>
-        <div class="navbar-tl-shadow-right"></div>
-      </div>
-    </nav>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-3">
-          <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="panel-title">这是一个故事</h3></div>
-            <div class="panel-body">
-              This goes right in the stomach of panel
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="grey">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                            <i class="ace-icon fa fa-tasks"></i>
+                            <span class="badge badge-grey">4</span>
+                        </a>
+                        <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-check"></i> 4 Tasks to complete
+                            </li>
+                            <li class="dropdown-content ace-scroll" style="position: relative;">
+                                <div class="scroll-track" style="display: none;">
+                                    <div class="scroll-bar"></div>
+                                </div>
+                                <div class="scroll-content" style="max-height: 200px;">
+                                    <ul class="dropdown-menu dropdown-navbar">
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Software Update</span>
+                                                    <span class="pull-right">65%</span>
+                                                </div>
+                                                <div class="progress progress-mini">
+                                                    <div style="width:65%" class="progress-bar"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Hardware Upgrade</span>
+                                                    <span class="pull-right">35%</span>
+                                                </div>
+                                                <div class="progress progress-mini">
+                                                    <div style="width:35%" class="progress-bar progress-bar-danger"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Unit Testing</span>
+                                                    <span class="pull-right">15%</span>
+                                                </div>
+                                                <div class="progress progress-mini">
+                                                    <div style="width:15%" class="progress-bar progress-bar-warning"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">Bug Fixes</span>
+                                                    <span class="pull-right">90%</span>
+                                                </div>
+                                                <div class="progress progress-mini progress-striped active">
+                                                    <div style="width:90%" class="progress-bar progress-bar-success"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown-footer">
+                                <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                        See tasks with details
+                                        <i class="ace-icon fa fa-arrow-right"></i>
+                                    </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="purple">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                            <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                            <span class="badge badge-important">8</span>
+                        </a>
+                        <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-exclamation-triangle"></i> 8 Notifications
+                            </li>
+                            <li class="dropdown-content ace-scroll" style="position: relative;">
+                                <div class="scroll-track" style="display: none;">
+                                    <div class="scroll-bar"></div>
+                                </div>
+                                <div class="scroll-content" style="max-height: 200px;">
+                                    <ul class="dropdown-menu dropdown-navbar navbar-pink">
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">
+                                                        <i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+                                                        New Comments
+                                                    </span>
+                                                    <span class="pull-right badge badge-info">+12</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <i class="btn btn-xs btn-primary fa fa-user"></i> Bob just signed up as an editor ...
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">
+                                                        <i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
+                                                        New Orders
+                                                    </span>
+                                                    <span class="pull-right badge badge-success">+8</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                                <div class="clearfix">
+                                                    <span class="pull-left">
+                                                        <i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
+                                                        Followers
+                                                    </span>
+                                                    <span class="pull-right badge badge-info">+11</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown-footer">
+                                <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                        See all notifications
+                                        <i class="ace-icon fa fa-arrow-right"></i>
+                                    </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="green">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                            <i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
+                            <span class="badge badge-success">5</span>
+                        </a>
+                        <ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+                            <li class="dropdown-header">
+                                <i class="ace-icon fa fa-envelope-o"></i> 5 Messages
+                            </li>
+                            <li class="dropdown-content ace-scroll" style="position: relative;">
+                                <div class="scroll-track" style="display: none;">
+                                    <div class="scroll-bar"></div>
+                                </div>
+                                <div class="scroll-content" style="max-height: 200px;">
+                                    <ul class="dropdown-menu dropdown-navbar">
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#" class="clearfix">
+                                                <img src="static/img/ace/avatar.png" class="msg-photo" alt="Alex&#39;s Avatar">
+                                                <span class="msg-body">
+                                                    <span class="msg-title">
+                                                        <span class="blue">Alex:</span> Ciao sociis natoque penatibus et auctor ...
+                                                </span>
+                                                <span class="msg-time">
+                                                        <i class="ace-icon fa fa-clock-o"></i>
+                                                        <span>a moment ago</span>
+                                                </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#" class="clearfix">
+                                                <img src="static/img/ace/avatar3.png" class="msg-photo" alt="Susan&#39;s Avatar">
+                                                <span class="msg-body">
+                                                    <span class="msg-title">
+                                                        <span class="blue">Susan:</span> Vestibulum id ligula porta felis euismod ...
+                                                </span>
+                                                <span class="msg-time">
+                                                        <i class="ace-icon fa fa-clock-o"></i>
+                                                        <span>20 minutes ago</span>
+                                                </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#" class="clearfix">
+                                                <img src="static/img/ace/avatar4.png" class="msg-photo" alt="Bob&#39;s Avatar">
+                                                <span class="msg-body">
+                                                    <span class="msg-title">
+                                                        <span class="blue">Bob:</span> Nullam quis risus eget urna mollis ornare ...
+                                                </span>
+                                                <span class="msg-time">
+                                                        <i class="ace-icon fa fa-clock-o"></i>
+                                                        <span>3:15 pm</span>
+                                                </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#" class="clearfix">
+                                                <img src="static/img/ace/avatar2.png" class="msg-photo" alt="Kate&#39;s Avatar">
+                                                <span class="msg-body">
+                                                    <span class="msg-title">
+                                                        <span class="blue">Kate:</span> Ciao sociis natoque eget urna mollis ornare ...
+                                                </span>
+                                                <span class="msg-time">
+                                                        <i class="ace-icon fa fa-clock-o"></i>
+                                                        <span>1:33 pm</span>
+                                                </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#" class="clearfix">
+                                                <img src="static/img/ace/avatar5.png" class="msg-photo" alt="Fred&#39;s Avatar">
+                                                <span class="msg-body">
+                                                    <span class="msg-title">
+                                                        <span class="blue">Fred:</span> Vestibulum id penatibus et auctor ...
+                                                </span>
+                                                <span class="msg-time">
+                                                        <i class="ace-icon fa fa-clock-o"></i>
+                                                        <span>10:09 am</span>
+                                                </span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="dropdown-footer">
+                                <a href="http://responsiweb.com/themes/preview/ace/1.3.3/inbox.html">
+                                        See all messages
+                                        <i class="ace-icon fa fa-arrow-right"></i>
+                                    </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="light-blue">
+                        <a data-toggle="dropdown" href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#" class="dropdown-toggle">
+                            <img class="nav-user-photo" src="static/img/ace/user.jpg" alt="Jason&#39;s Photo">
+                            <span class="user-info">
+                                    <small>Welcome,</small>
+                                    Jason
+                                </span>
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                            <li>
+                                <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                    <i class="ace-icon fa fa-cog"></i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://responsiweb.com/themes/preview/ace/1.3.3/profile.html">
+                                    <i class="ace-icon fa fa-user"></i> Profile
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="http://responsiweb.com/themes/preview/ace/1.3.3/index.html#">
+                                    <i class="ace-icon fa fa-power-off"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-          </div>
         </div>
-      </div>
+        <!-- /.navbar-container -->
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <div class="main-container" id="main-container"></div>
+    <!-- /.main-container -->
+    <!-- basic scripts -->
+    <!--[if !IE]> -->
+    <script src="static/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <![endif]-->
+    <!--[if IE]>
     <script src="static/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="static/bs/3.3.4/js/bootstrap.min.js"></script>
-  </body>
+    <![endif]-->
+    <script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='static/ace/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    </script>
+</body>
+
 </html>
