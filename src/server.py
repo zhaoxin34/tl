@@ -8,8 +8,11 @@ import tornado.options
 import tornado.web
 
 from tornado.options import define, options
+from tornado.log import app_log
+# from utils.logger import webLogger
 
 define("port", default=8888, help="run on the given port", type=int)
+define("webroot", default="/Users/xinzhao/working/python/tl/web", help="the web root dir", type=str)
 # define("mysql_host", default="127.0.0.1:3306", help="blog database host")
 # define("mysql_database", default="blog", help="blog database name")
 # define("mysql_user", default="blog", help="blog database user")
@@ -35,22 +38,23 @@ class BaseHandler(tornado.web.RequestHandler):
 class Application(tornado.web.Application):
     def __init__(self):
         settings = dict(
-            template_path=os.path.join(os.path.dirname(__file__), "templates"),
-            static_path=os.path.join(os.path.dirname(__file__), "static"),
-            xsrf_cookies=True,
+            template_path=os.path.join(options.webroot, "templates"),
+            static_path=os.path.join(options.webroot, "static"),
+            # xsrf_cookies=True,
             cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
             debug=True,
         )
         handlers = [
             (r"/", HomeHandler),
+            (r"/login", LoginHandler),
             (
                 r"/test-ng/(.*)",
                 tornado.web.StaticFileHandler,
-                {"path": os.path.join(os.path.dirname(__file__), "test-ng")}),
+                {"path": os.path.join(options.webroot, "test-ng")}),
             (
                 r"/(.*)\.html",
                 HtmlHandler,
-                {"path": os.path.join(os.path.dirname(__file__), "")}),
+                {"path": os.path.join(options.webroot, "")}),
             (r"/phone/(.*)", PhoneHandler, dict(), "a rest api from json")
         ]
         super(Application, self).__init__(handlers, **settings)
@@ -77,6 +81,11 @@ class PhoneHandler(BaseHandler):
     def get(self, key):
         if key in self.data:
             self.write({'data': PhoneHandler.data[key]})
+
+class LoginHandler(BaseHandler):
+    def post(self):
+        app_log.debug(self.request.body_arguments)
+        self.write({'name': 'zhaoxin', 'gender': '男'})
 
 def main():
     tornado.options.parse_command_line()
