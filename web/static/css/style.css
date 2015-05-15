@@ -6,6 +6,46 @@
     padding-bottom: 0;
     height: auto;
 }
+
 .user-info > a, small {
 	color: #FFF;
+}
+
+.navbar-tl-shadow {
+	margin: 0;
+	padding: 0;
+	height: 8px;
+	background-color: #6c6c6c;
+}
+.navbar-tl-shadow-left {
+	width: 9px;
+	height: 8px;
+	float: left;
+	background-image: url('../img/shadow-cl.png')
+}
+.navbar-tl-shadow-right {
+	height: 8px;
+	width: 9px;
+	float: right;
+	background-image: url('../img/shadow-cr.png')
+}
+
+.tl-search-input > input {
+	border-left: 0;
+	border-right: 0;
+}
+.tl-search-input > .input-group-addon {
+	background-color: transparent;
+}
+.tl-search-input-left {
+	padding:6px 6px 6px 12px;
+	border-radius: 15px 0px 0px 15px;
+	-moz-border-radius: 15px 0px 0px 15px;
+	-webkit-border-radius: 15px 0px 0px 15px;
+}
+.tl-search-input-right {
+	padding:6px 6px;
+	border-radius: 0px 15px 15px 0px;
+	-moz-border-radius: 0px 15px 15px 0px;
+	-webkit-border-radius: 0px 15px 15px 0px;
 }

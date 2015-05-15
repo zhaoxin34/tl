@@ -16,9 +16,8 @@
   <link rel="stylesheet" href="static/ace/gfont-family.css">
   <!-- ace styles -->
   <link rel="stylesheet" href="static/ace/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
-  <link rel="stylesheet" href="static/ace/ace-rtl.min.css" >
+  <link rel="stylesheet" href="static/ace/ace-rtl.min.css">
   <!-- Custom styles for this template -->
-  <link href="static/css/style.css" rel="stylesheet">
   <!--[if lte IE 9]>
             <link rel="stylesheet" href="static/ace/ace-part2.min.css" class="ace-main-stylesheet" />
         <![endif]-->
@@ -31,6 +30,7 @@
         <script src="static/js/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="static/js/response.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+  <link href="static/css/style.css" rel="stylesheet">
 </head>
 
 <body class="no-skin" cz-shortcut-listen="true" ng-app="tlApp">
@@ -55,7 +55,7 @@
           </div>
         </a>
       </div>
-      <div class="navbar-buttons navbar-header pull-right" role="navigation"  ng-controller="tlLoginCtrl">
+      <div class="navbar-buttons navbar-header pull-right" role="navigation" ng-controller="tlLoginCtrl">
         <input type="hidden" ng-model="loginInfo" />
         <ul class="nav ace-nav">
           <li class="light-blue" ng-include="loginInfo.url">
@@ -64,12 +64,146 @@
       </div>
     </div>
     <!-- /.navbar-container -->
-    <!--          <div class="navbar-tl-shadow">
-                <div class="navbar-tl-shadow-left"></div>
-                <div class="navbar-tl-shadow-right"></div>
-            </div> -->
   </div>
-  <div class="main-container" id="main-container"></div>
+  <div class="main-container">
+    <div class="navbar-tl-shadow">
+      <div class="navbar-tl-shadow-left"></div>
+      <div class="navbar-tl-shadow-right"></div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="space-4"></div>
+    <div class="row">
+      <div class="col-sm-6 col-lg-3">
+        <div class="input-group tl-search-input ">
+          <span class="input-group-addon tl-search-input-left">
+            <i class="ace-icon fa fa-circle green"></i>
+          </span>
+          <input type="text" class="input-sm" style="width:100%;">
+          <span class="input-group-addon tl-search-input-right">
+            <i class="ace-icon glyphicon glyphicon-search grey" style="cursor:pointer;padding-right:4px;"></i>
+            <i class="ace-icon glyphicon glyphicon-plus grey" style="cursor:pointer;"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" id="main-container">
+    <div class="row">
+      <!-- one panel -->
+      <div class="col-sm-6 col-lg-3 widget-container-col ui-sortable">
+        <div class="widget-box transparent ui-sortable-handle">
+          <div class="widget-header">
+            <h4 class="widget-title lighter">Transparent Box</h4>
+            <div class="widget-toolbar no-border">
+              <a href="#" data-action="settings">
+                <i class="ace-icon fa fa-cog"></i>
+              </a>
+              <a href="#" data-action="reload">
+                <i class="ace-icon fa fa-refresh"></i>
+              </a>
+              <a href="#" data-action="collapse">
+                <i class="ace-icon fa fa-chevron-up"></i>
+              </a>
+              <a href="#" data-action="close">
+                <i class="ace-icon fa fa-times"></i>
+              </a>
+            </div>
+          </div>
+          <div class="widget-body">
+            <div class="widget-main padding-6 no-padding-left no-padding-right">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis. Nullam interdum massa vel nisl fringilla sed viverra erat tincidunt. Phasellus in ipsum velit. Maecenas id erat vel sem convallis blandit. Nunc aliquam enim ut arcu aliquet adipiscing. Fusce dignissim volutpat justo non consectetur.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.one panel -->
+      <!-- one panel -->
+      <div class="col-sm-6 col-lg-3 widget-container-col ui-sortable">
+        <div class="widget-box transparent ui-sortable-handle">
+          <div class="widget-header">
+            <h4 class="widget-title lighter">Transparent Box</h4>
+            <div class="widget-toolbar no-border">
+              <a href="#" data-action="settings">
+                <i class="ace-icon fa fa-cog"></i>
+              </a>
+              <a href="#" data-action="reload">
+                <i class="ace-icon fa fa-refresh"></i>
+              </a>
+              <a href="#" data-action="collapse">
+                <i class="ace-icon fa fa-chevron-up"></i>
+              </a>
+              <a href="#" data-action="close">
+                <i class="ace-icon fa fa-times"></i>
+              </a>
+            </div>
+          </div>
+          <div class="widget-body">
+            <div class="widget-main padding-6 no-padding-left no-padding-right">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis. Nullam interdum massa vel nisl fringilla sed viverra erat tincidunt. Phasellus in ipsum velit. Maecenas id erat vel sem convallis blandit. Nunc aliquam enim ut arcu aliquet adipiscing. Fusce dignissim volutpat justo non consectetur.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.one panel -->
+      <!-- one panel -->
+      <div class="col-sm-6 col-lg-3 widget-container-col ui-sortable">
+        <div class="widget-box transparent ui-sortable-handle">
+          <div class="widget-header">
+            <h4 class="widget-title lighter">Transparent Box</h4>
+            <div class="widget-toolbar no-border">
+              <a href="#" data-action="settings">
+                <i class="ace-icon fa fa-cog"></i>
+              </a>
+              <a href="#" data-action="reload">
+                <i class="ace-icon fa fa-refresh"></i>
+              </a>
+              <a href="#" data-action="collapse">
+                <i class="ace-icon fa fa-chevron-up"></i>
+              </a>
+              <a href="#" data-action="close">
+                <i class="ace-icon fa fa-times"></i>
+              </a>
+            </div>
+          </div>
+          <div class="widget-body">
+            <div class="widget-main padding-6 no-padding-left no-padding-right">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis. Nullam interdum massa vel nisl fringilla sed viverra erat tincidunt. Phasellus in ipsum velit. Maecenas id erat vel sem convallis blandit. Nunc aliquam enim ut arcu aliquet adipiscing. Fusce dignissim volutpat justo non consectetur.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.one panel -->
+      <!-- one panel -->
+      <div class="col-sm-6 col-lg-3 widget-container-col ui-sortable">
+        <div class="widget-box transparent ui-sortable-handle">
+          <div class="widget-header">
+            <h4 class="widget-title lighter">Transparent Box</h4>
+            <div class="widget-toolbar no-border">
+              <a href="#" data-action="settings">
+                <i class="ace-icon fa fa-cog"></i>
+              </a>
+              <a href="#" data-action="reload">
+                <i class="ace-icon fa fa-refresh"></i>
+              </a>
+              <a href="#" data-action="collapse">
+                <i class="ace-icon fa fa-chevron-up"></i>
+              </a>
+              <a href="#" data-action="close">
+                <i class="ace-icon fa fa-times"></i>
+              </a>
+            </div>
+          </div>
+          <div class="widget-body">
+            <div class="widget-main padding-6 no-padding-left no-padding-right">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis. Nullam interdum massa vel nisl fringilla sed viverra erat tincidunt. Phasellus in ipsum velit. Maecenas id erat vel sem convallis blandit. Nunc aliquam enim ut arcu aliquet adipiscing. Fusce dignissim volutpat justo non consectetur.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.one panel -->
+    </div>
+  </div>
   <!-- /.main-container -->
   <!-- basic scripts -->
   <!--[if !IE]> -->
@@ -86,4 +220,5 @@
   <script type="text/javascript" src="static/bs/3.3.4/js/bootstrap.min.js"></script>
   <script src="static/js/ctrls/controller.js"></script>
 </body>
+
 </html>

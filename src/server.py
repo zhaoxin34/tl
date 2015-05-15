@@ -46,7 +46,7 @@ class Application(tornado.web.Application):
         )
         handlers = [
             (r"/", HomeHandler),
-            (r"/login", LoginHandler),
+            (r"/(login|logout)", LoginHandler),
             (
                 r"/test-ng/(.*)",
                 tornado.web.StaticFileHandler,
@@ -64,6 +64,9 @@ class HtmlHandler(tornado.web.StaticFileHandler):
     def get(self, path, include_body=True):
         tornado.web.StaticFileHandler.get(self, path + ".html", include_body)
 
+    def set_extra_headers(self, path):
+        # Disable cache
+        self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
 
 class HomeHandler(BaseHandler):
     def get(self):
@@ -83,9 +86,13 @@ class PhoneHandler(BaseHandler):
             self.write({'data': PhoneHandler.data[key]})
 
 class LoginHandler(BaseHandler):
-    def post(self):
-        app_log.debug(self.request.body_arguments)
-        self.write({'name': 'zhaoxin', 'gender': '男'})
+    def post(self, path):
+        if path == 'login':
+            app_log.debug(self.request.body_arguments)
+            self.write({'name': 'zhaoxin', 'gender': '男'})
+        elif path == 'logout':
+            app_log.debug(self.request.body_arguments)
+            self.write({})
 
 def main():
     tornado.options.parse_command_line()

@@ -5,9 +5,15 @@ var tlApp = angular.module('tlApp', [
 
 var tlControllers = angular.module('tlControllers', []);
 
+// 登陆退出以及用户信息controller
 tlControllers.controller('tlLoginCtrl', ['$scope', '$http',
     function($scope, $http) {
+        // 初始化参数
     	$scope.user = {username: '', password: ''};
+        $scope.loginInfo = {
+            url: 'nav-login.html'
+        };
+        // 登陆
         $scope.login = function() {
             var req = {
                 method: 'POST',
@@ -21,8 +27,18 @@ tlControllers.controller('tlLoginCtrl', ['$scope', '$http',
             	$('#loginWindow').modal('hide');
             });
         };
-        $scope.loginInfo = {
-            url: 'nav-login.html'
+        // 退出登陆
+        $scope.logout = function() {
+            var req = {
+                method: 'POST',
+                url: '/logout',
+                headers: {
+                },
+                data: {}
+            };
+            $http(req).success(function(data) {
+                $scope.loginInfo.url = '/nav-login.html';
+            });
         };
     }
 ]);
