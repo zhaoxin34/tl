@@ -36,3 +36,15 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams',
         $scope.phoneId = $routeParams.phoneId;
     }
 ]);
+
+phonecatApp.directive('myDiretive', function() {
+    return {
+        restrict: 'A',
+        replace: true,
+        scope: {
+            myUrl: '@',
+            myLinkText: '@'
+        },
+        template:'<a href="{{myUrl}}">{{myLinkText}}</a>'
+    };
+});

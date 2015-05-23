@@ -35,6 +35,14 @@ class BaseHandler(tornado.web.RequestHandler):
         for k, v in request.body_arguments.items():
             request.arguments.setdefault(k, []).extend(v)
 
+    def writeData(self, header=None, body=None):
+        """
+        write response data, based header and body
+        """
+        defaultHeader = {'status': 0}
+        defaultBody = {}
+        self.write({'header': header or defaultHeader, 'body': body or defaultBody})
+
 class Application(tornado.web.Application):
     def __init__(self):
         settings = dict(
@@ -87,12 +95,13 @@ class PhoneHandler(BaseHandler):
 
 class LoginHandler(BaseHandler):
     def post(self, path):
+        # self.set_status(409)
         if path == 'login':
             app_log.debug(self.request.body_arguments)
-            self.write({'name': 'zhaoxin', 'gender': '男'})
+            self.writeData(None, {'username': 'zhaoxin', 'gender': '男'})
         elif path == 'logout':
             app_log.debug(self.request.body_arguments)
-            self.write({})
+            self.writeData(None, {})
 
 def main():
     tornado.options.parse_command_line()

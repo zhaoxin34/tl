@@ -11,7 +11,7 @@ tlControllers.controller('tlLoginCtrl', ['$scope', '$http',
         // 初始化参数
     	$scope.user = {username: '', password: ''};
         $scope.loginInfo = {
-            url: 'nav-login.html'
+            status: false
         };
         // 登陆
         $scope.login = function() {
@@ -23,7 +23,8 @@ tlControllers.controller('tlLoginCtrl', ['$scope', '$http',
                 data: $scope.user
             };
             $http(req).success(function(data) {
-            	$scope.loginInfo.url = '/nav-userinfo.html';
+                $scope.user = data.body;
+            	$scope.loginInfo.status = true;
             	$('#loginWindow').modal('hide');
             });
         };
@@ -37,7 +38,8 @@ tlControllers.controller('tlLoginCtrl', ['$scope', '$http',
                 data: {}
             };
             $http(req).success(function(data) {
-                $scope.loginInfo.url = '/nav-login.html';
+                $scope.user = {username: '', password: ''};
+                $scope.loginInfo.status = false;
             });
         };
     }
