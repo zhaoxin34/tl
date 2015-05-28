@@ -1,3 +1,13 @@
+.margin-top-6 {
+	font-size: 0;
+	line-height: 0;
+	margin-top: 6px;
+}
+.margin-top-10 {
+	font-size: 0;
+	line-height: 0;
+	margin-top: 10px;
+}
 
 .navbar .navbar-brand {
     color: #fff;
@@ -9,16 +19,22 @@
 }
 
 .nav-userinfo > li > a{
+	margin-right: 10px;
 	padding: 5px 15px;
+}
+.nav-userinfo > li > .dropdown-menu {
+	padding: 0;
+	border: 0;
 }
 
 .dropdown-menu a {
 	white-space:normal;
 }
 .dropdown-menu > li {position:relative;}
+
 .dropdown-menu > li > i{
 	position:absolute;left:6;top:6px;
-	margin-left: 4px;
+	margin-left: 8px;
 }
 
 .nav-user-photo {
@@ -69,4 +85,17 @@
 #loginWindow {
 	margin-top: 100px;
 }
+
+
+/*share*/
+.content-slider li{
+    background-color: #ed3020;
+    text-align: center;
+    color: #FFF;
+}
+.content-slider h3 {
+    margin: 0;
+    padding: 70px 0;
+}
+
 

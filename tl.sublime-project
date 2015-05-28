@@ -4,9 +4,13 @@
 		{
 			"folder_exclude_patterns":
 			[
-				"logs"
+				"logs", "node_modules"
 			],
-			"path": "/Users/xinzhao/working/python/tl"
+			"file_exclude_patterns":
+			[
+				"*.log"
+			],
+			"path": "/Users/xinzhao/working/python/tl/"
 		}
 	],
 	"settings":
@@ -16,6 +20,9 @@
 			"folders":
 			[
 			]
+		},
+		"FuzzyFilePath":
+		{
 		},
 		"python_interpreter": "/usr/local/bin/python3"
 	}
