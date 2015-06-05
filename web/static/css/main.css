@@ -88,14 +88,24 @@
 
 
 /*share*/
-.content-slider li{
-    background-color: #ed3020;
+#content-slider > li > article{
+    background-color: #f00;
     text-align: center;
-    color: #FFF;
+    color: #000;
+    width: 300px;
+    height: 300px;
+    overflow: scroll;
+}
+
+#content-slider > li > article > section {
+	text-indent: 2em;
+}
+
+/*.content-slider li{
+    background-color: #ed3020;
+    color: #fff;
 }
 .content-slider h3 {
     margin: 0;
     padding: 70px 0;
-}
-
-
+}*/

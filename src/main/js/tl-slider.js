@@ -3,12 +3,13 @@ $(document).ready(function() {
     $('#content-slider').lightSlider({
         item: 1,
         loop: false,
-        slideMove: 2,
+        slideMove: 1,
         easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
         speed: 600,
         controls: true,
         gallery: false,
         pager: false,
+        autoWidth:true,
         responsive: [{
             breakpoint: 800,
             settings: {

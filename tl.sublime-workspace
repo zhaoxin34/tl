@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"col-",
+				"col-md-6	 bootstrap.min.css"
+			],
+			[
+				"sendre",
+				"sendRequest	function"
+			],
+			[
 				"col-sm",
 				"col-sm-6	 bootstrap.css"
 			],
@@ -252,10 +260,10 @@
 	"buffers":
 	[
 		{
-			"file": "src/test/python/testbase64.py",
+			"file": "web/index.html",
 			"settings":
 			{
-				"buffer_size": 119,
+				"buffer_size": 11309,
 				"line_ending": "Unix"
 			}
 		}
@@ -283,10 +291,34 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 247.0,
-		"last_filter": "instal",
+		"height": 267.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"css",
+				"CSS Completions: Prune Cache"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"css pu",
+				"CSS Completions: Prune Cache"
+			],
+			[
+				"upgra",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				":w",
+				":w - Save"
+			],
 			[
 				"instal",
 				"Package Control: Install Package"
@@ -306,14 +338,6 @@
 			[
 				"intall",
 				"Package Control: Install Package"
-			],
-			[
-				"upgra",
-				"Package Control: Upgrade Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
 			],
 			[
 				"todo",
@@ -396,10 +420,6 @@
 				"CSS Completions: Delete Cache"
 			],
 			[
-				"list",
-				"Package Control: List Packages"
-			],
-			[
 				"git",
 				"GitGutter: Compare Against Origin"
 			],
@@ -478,10 +498,6 @@
 			[
 				"build",
 				"Build: Build"
-			],
-			[
-				":w",
-				":w - Save"
 			],
 			[
 				":0",
@@ -632,10 +648,6 @@
 				"Set Syntax: HTML"
 			],
 			[
-				"css",
-				"Set Syntax: CSS"
-			],
-			[
 				"ex",
 				"Emmet: Expand Abbreviation"
 			],
@@ -648,13 +660,58 @@
 				"View: Toggle Open Files in Side Bar"
 			]
 		],
-		"width": 575.0
+		"width": 530.0
 	},
 	"console":
 	{
-		"height": 238.0,
+		"height": 254.0,
 		"history":
 		[
+			"sublime.active_window().active_view().substr(sublime.Region(0, 20))",
+			"sublime.active_window().active_view().substr(sublime.Region(0, 10))",
+			"sublime.active_window().active_view().substr(sublime.Ragion(0, 10))",
+			"sublime.active_window().run_command('show_panle', 'output.test')",
+			"sublime.active_window().views()",
+			"sublime.active_window().create_output_panel('test')",
+			"sublime.active_window().views()",
+			"view.substr(4)",
+			"content.substr(1)",
+			"view.substr(sublime.Region(view.sel()[0].begin() - 7, view.sel()[0].end()))",
+			"view.substr(sublime.Region(",
+			"view.substr(19)",
+			"view.substr(18)",
+			"view.substr(1, 2)",
+			"view.substr(1)",
+			"view.substr(1",
+			"view.substr(20)",
+			"view.substr(1, 20)",
+			"print(content)",
+			"content = file.read()",
+			"file = open('/Users/xinzhao/working/python/tl/web/static/lib/font-awesome.min.css', 'r')",
+			"file = open('/Users/xinzhao/workspace/python/tl/web/static/lib/font-awesome.min.css', 'r')",
+			"file = open('/Users/zhaoxin/workspace/python/tl/web/static/lib/font-awesome.min.css', 'r')",
+			"file = open('web/static/lib/font-awesome.min.css', 'r')",
+			"dir(sublime.active_window())",
+			"view.name()",
+			"view.name",
+			"scratch_view",
+			"sublime.active_window().run_command('show_panel', 'output.CSS Extended Completions')",
+			"sublime.active_window().run_command('show_panel', 'output.css')",
+			"sublime.active_window().run_command('show_panel', panel='css')",
+			"sublime.active_window().run_command('show_panel', 'css')",
+			"view.show_panel('css')",
+			"sublime.active_window().show_panel('css')",
+			"sublime.active_window().create_output_panel('css')",
+			"view.match_selector(l, 'source.python')",
+			"l = view.sel()[0].begin()",
+			"p.settings().get('repl', False)",
+			"p.settings().get('repl', false)",
+			"p = sublime.active_window().create_output_panel('css')",
+			"show_panel",
+			"view.sel().show_panel('output')",
+			"view.sel()",
+			"view.cur()",
+			"cur_view()",
 			"sublime.log_commands(False)",
 			"sublime.log_commands(True)",
 			"/python",
@@ -737,52 +794,7 @@
 			"dir(sax)",
 			"import xml.sax",
 			"dir(xml)",
-			"dir(sax)",
-			"dir(saxutils)",
-			"saxutils.unescape('&#39;')",
-			"import xml.sax.saxutils",
-			"dir(html)",
-			"import html",
-			"dir(html)",
-			"print('a')",
-			"print()",
-			"dir(str)",
-			"dir(deque)",
-			"view.command_history(0)",
-			"view.command_history()",
-			"view.command_hidtory()",
-			"view.substr(sublime.Region(0, view.size()))",
-			"location",
-			"location = view.rowcol(view.sel()[0].begin())",
-			"location",
-			"location = view.rowcol(view.sel()[0].begin())",
-			"location",
-			"location = view.rowcol(view.sel()[0].begin())",
-			"dir(EventListener)",
-			"dir(sublime_plugin)",
-			"dir(ublime_plugin)",
-			"dir(sublime_plugin.EventListener)",
-			"print(view.__doc__)",
-			"print(sublime.COOPERATE_WITH_AUTO_COMPLETE.__doc__)",
-			"sublime.COOPERATE_WITH_AUTO_COMPLETE.__doc__",
-			"dir(view.sel)",
-			"view.sel.__docs__",
-			"dir(view)",
-			"view.sel.__doc__",
-			"view.show_popup('<i style=\"color:red\">▇</i><i style=\"color:blue\">▇</i><i style=\"color:green\">▇</i>', on_navigate=print)",
-			"view.sel()",
-			"view.scope_name(0)",
-			"view.scope_name()",
-			"view.settings()",
-			"view.settings().get('syntax')",
-			"view.show_popup('Hello, <b>World!</b><br><a href=\"moo\">Click Me</a>', on_navigate=print)",
-			"print 'sdlfkj'",
-			"print sdljf",
-			"print \"lskdjf\"",
-			"print \"var %s = require(\\\"%s\\\");\" % ('adf', 'sdflk')",
-			"print \"var %s = require(\\\"%s\\\")\\;\" % ('adf', 'sdflk')",
-			"print \"var %s = require(\\\"%s\\\");\" % ('adf', 'sdflk')",
-			"view.show_popup('Hello, <b>World!</b><br><a href=\"moo\">Click Me</a>', on_navigate=print)"
+			"dir(sax)"
 		]
 	},
 	"distraction_free":
@@ -797,35 +809,47 @@
 	"expanded_folders":
 	[
 		"/Users/xinzhao/working/python/tl",
-		"/Users/xinzhao/working/python/tl/src",
-		"/Users/xinzhao/working/python/tl/src/conf",
-		"/Users/xinzhao/working/python/tl/src/main",
-		"/Users/xinzhao/working/python/tl/src/main/python",
-		"/Users/xinzhao/working/python/tl/src/test",
-		"/Users/xinzhao/working/python/tl/src/test/python",
 		"/Users/xinzhao/working/python/tl/web",
 		"/Users/xinzhao/working/python/tl/web/static",
-		"/Users/xinzhao/working/python/tl/web/static/css",
-		"/Users/xinzhao/working/python/tl/web/static/js"
+		"/Users/xinzhao/working/python/tl/web/static/lib"
 	],
 	"file_history":
 	[
-		"/Users/xinzhao/working/python/tl/web/index.html",
-		"/Users/xinzhao/working/python/tl/src/main/js/tl-slider.js",
-		"/Users/xinzhao/working/python/tl/src/Gruntfile.js",
-		"/Users/xinzhao/working/python/tl/src/package.json",
-		"/Users/xinzhao/working/python/tl/web/static/css/main.css",
-		"/Users/xinzhao/working/python/tl/web/index_ace.html",
-		"/Users/xinzhao/working/python/tl/src/.jshintrc",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/xinzhao/working/python/tl/web/index.html",
+		"/Users/xinzhao/working/python/tl/web/static/lib/icon-fonts/font-awesome-4.1.0/css/font-awesome.css",
+		"/Users/xinzhao/working/python/tl/web/static/css/main.css",
+		"/Users/xinzhao/working/python/tl/web/static/bootstrap-3.3.4/css/bootstrap.css",
+		"/Users/xinzhao/working/python/tl/web/static/lib/lightslider/css/lightslider.min.css",
+		"/Users/xinzhao/working/python/tl/web/static/ace/bootstrap.min.css",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/xinzhao/working/python/tl/web/static/bootstrap-3.3.4/css/bootstrap-theme.css",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/LESS/README.md",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/CSS Extended Completions/css_style_completions.sublime-settings",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/css_style_completions.sublime-settings",
+		"/Users/xinzhao/working/python/tl/web/static/lib/lightslider/css/lightslider.css",
+		"/Users/xinzhao/working/python/tl/src/test/python/testbase64.py",
+		"/Users/xinzhao/working/python/tl/src/main/js/tl-slider.js",
+		"/Users/xinzhao/working/python/tl/src/main/js/tl-history.js",
+		"/Users/xinzhao/working/python/tl/web/static/js/timeline.js",
+		"/Users/xinzhao/working/python/tl/src/Gruntfile.js",
+		"/Users/xinzhao/working/python/tl/src/test/python/test.py",
+		"/Users/xinzhao/working/python/tl/src/test/python/pycurltest.py",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/xinzhao/working/python/tl/src/.jshintrc",
+		"/Users/xinzhao/working/python/tl/web/static/lib/highcharts.js",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/xinzhao/working/python/tl/src/main/python/server.py",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/xinzhao/working/python/tl/src/main/js/.jshintrc",
+		"/Users/xinzhao/working/python/tl/tl.sublime-project",
+		"/Users/xinzhao/working/python/tl/src/package.json",
+		"/Users/xinzhao/working/python/tl/web/index_ace.html",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/bh_core.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/bh_core.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/bh_wrapping.sublime-settings",
-		"/Users/xinzhao/working/python/tl/src/main/python/server.py",
 		"/Users/xinzhao/working/python/tl/web/icon-picker.html",
-		"/Users/xinzhao/working/python/tl/web/static/bootstrap-3.3.4/css/bootstrap-theme.css",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/FileSystem Autocompletion/Default (OSX).sublime-keymap",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/FileSystem Autocompletion/FilesystemAutocompletion.sublime-settings",
 		"/Users/xinzhao/working/python/tl/web/test-ng/test-interceptor.html",
@@ -843,12 +867,10 @@
 		"/Users/xinzhao/working/python/tl/web/static/bs/3.3.4/css/bootstrap.css",
 		"/Users/xinzhao/working/python/tl/src/server.py",
 		"/usr/local/lib/python3.4/site-packages/tornado/log.py",
-		"/Users/xinzhao/working/python/tl/tl.sublime-project",
 		"/Users/xinzhao/working/python/tl/web/static/ng/1.3.15/angular.js",
 		"/Users/xinzhao/working/python/tl/srcjs/hello.js",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/TodoReview/TodoReview.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/TodoReview.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
 		"/Users/xinzhao/working/python/tl/srcjs/package.json",
 		"/Users/xinzhao/working/python/tl/web/index_first.html",
@@ -883,12 +905,10 @@
 		"/Users/xinzhao/Downloads/logstash-template.json",
 		"/usr/local/lib/python3.4/site-packages/tornado/web.py",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/Example.sublime-keymap",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Settings/SideBarEnhancements.json",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Project Manager/pm.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/pm.sublime-settings",
 		"/Users/xinzhao/working/python/tl/static/ng/1.3.15/angular-route.js",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/xinzhao/working/python/tl/test-ng/phone-detail.html",
 		"/Users/xinzhao/working/python/tl/test-ng/phone-list.html",
 		"/Users/xinzhao/working/python/tl/test-ng/index.html",
@@ -922,22 +942,7 @@
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
 		"/Users/xinzhao/working/python/tl/static/ng/test/control.js",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/CSS Extended Completions/css_style_completions.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
-		"/Users/xinzhao/working/python/tl/static/img/shadow-cl.png",
-		"/Users/xinzhao/working/python/tl/static/js/respond.js/1.4.2/respond.min.js",
-		"/Users/xinzhao/working/python/tl/static/js/html5shiv/3.7.2/html5shiv.min.js",
-		"/Users/xinzhao/working/python/tl/static/js/asserts/ie8-responsive-file-warning.js",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/GitGutter.sublime-settings",
-		"/Users/xinzhao/working/python/tl/static/js/assert/ie-emulation-modes-warning.js",
-		"/Users/xinzhao/working/python/tl/test.py",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Elasticsearch.sublime-settings",
-		"/Users/xinzhao/working/python/tl/pycurltest.py",
-		"/Users/xinzhao/working/python/tl/test2.py",
-		"/usr/local/lib/python3.4/site-packages/tornado/ioloop.py",
-		"/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/io.py",
-		"/usr/local/lib/python3.4/site-packages/termcolor.py",
-		"/usr/local/Cellar/python3/3.4.2_1/Frameworks/Python.framework/Versions/3.4/lib/python3.4/types.py"
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu"
 	],
 	"find":
 	{
@@ -958,6 +963,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"set_la",
+			"post",
+			"kwargs",
+			"123123",
+			"get",
 			".nav-userinfo",
 			"icon-fonts",
 			"iconpicker",
@@ -1080,12 +1090,7 @@
 			"parent",
 			"'trigger':",
 			"'type':",
-			"\")",
-			"'trigger'",
-			"'])\n",
-			"\"type\": \"class\"",
-			"\"type\": \"",
-			"close"
+			"\")"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1118,19 +1123,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "src/test/python/testbase64.py",
+					"file": "web/index.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 119,
+						"buffer_size": 11309,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								119,
-								119
+								492,
+								492
 							]
 						],
 						"settings":
@@ -1161,70 +1166,71 @@
 							],
 							"bh_regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"incomplete_sync": null,
-							"open_with_edit": true,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1272,6 +1278,10 @@
 	{
 		"height": 100.0
 	},
+	"output.css":
+	{
+		"height": 0.0
+	},
 	"output.exec":
 	{
 		"height": 340.0
@@ -1292,6 +1302,10 @@
 	{
 		"height": 0.0
 	},
+	"output.test":
+	{
+		"height": 0.0
+	},
 	"pinned_build_system": "Packages/User/my sublime/build/Python3.sublime-build",
 	"project": "tl.sublime-project",
 	"replace":
@@ -1306,20 +1320,88 @@
 		"selected_items":
 		[
 			[
-				"package",
-				"src/package.json"
+				"index",
+				"web/index.html"
 			],
 			[
-				"indexace",
-				"web/index_ace.html"
+				"font",
+				"web/static/lib/icon-fonts/font-awesome-4.1.0/css/font-awesome.css"
+			],
+			[
+				"bootstrap.min",
+				"web/static/ace/bootstrap.min.css"
+			],
+			[
+				"lig",
+				"web/static/lib/lightslider/css/lightslider.min.css"
+			],
+			[
+				"bootstrap.cs",
+				"web/static/bootstrap-3.3.4/css/bootstrap.css"
+			],
+			[
+				"bootstrap.the",
+				"web/static/bootstrap-3.3.4/css/bootstrap-theme.css"
+			],
+			[
+				"li",
+				"web/static/lib/lightslider/css/lightslider.css"
 			],
 			[
 				"main",
 				"web/static/css/main.css"
 			],
 			[
-				"index",
-				"web/index.html"
+				"timelin",
+				"web/static/js/timeline.js"
+			],
+			[
+				"tl-hi",
+				"src/main/js/tl-history.js"
+			],
+			[
+				".",
+				"src/.jshintrc"
+			],
+			[
+				"grun",
+				"src/Gruntfile.js"
+			],
+			[
+				"tl-",
+				"src/main/js/tl-slider.js"
+			],
+			[
+				"test",
+				"src/test/python/pycurltest.py"
+			],
+			[
+				"testcu",
+				"src/test/python/pycurltest.py"
+			],
+			[
+				"testbas",
+				"src/test/python/testbase64.py"
+			],
+			[
+				"server",
+				"src/main/python/server.py"
+			],
+			[
+				"tl-sl",
+				"src/main/js/tl-slider.js"
+			],
+			[
+				"sli",
+				"src/main/js/tl-slider.js"
+			],
+			[
+				"package",
+				"src/package.json"
+			],
+			[
+				"indexace",
+				"web/index_ace.html"
 			],
 			[
 				"bootstrapthe",
@@ -1336,10 +1418,6 @@
 			[
 				"contro",
 				"web/test-ng/js/controller.js"
-			],
-			[
-				"server",
-				"src/main/python/server.py"
 			],
 			[
 				"controller",
@@ -1428,10 +1506,6 @@
 			[
 				"jquery",
 				"web/static/jquery/2.1.1/jquery.min.js"
-			],
-			[
-				"font",
-				"web/static/ace/font-awesome.min.css"
 			],
 			[
 				"theme",
@@ -1662,7 +1736,7 @@
 	"settings":
 	{
 	},
-	"show_minimap": false,
+	"show_minimap": true,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,

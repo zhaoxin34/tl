@@ -17,6 +17,7 @@
   <!-- ace styles -->
   <link rel="stylesheet" href="static/ace/ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
   <link rel="stylesheet" href="static/ace/ace-rtl.min.css">
+  <script type="text/javascript" src="static/lib/snap.svg/snap.svg.js"></script>
   <!-- Custom styles for this template -->
   <!--[if lte IE 9]>
             <link rel="stylesheet" href="static/ace/ace-part2.min.css" class="ace-main-stylesheet" />
@@ -30,37 +31,58 @@
         <script src="static/js/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="static/js/response.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <link href="static/css/style.css" rel="stylesheet">
-  <style type="text/css">
-  .container {
-    display: table;
-  }
+  <!--[if !IE]> -->
+  <script src="static/jquery/2.1.1/jquery.min.js"></script>
+  <!-- <![endif]-->
+  <!--[if IE]>
+  <script src="static/jquery/1.11.2/jquery.min.js"></script>
+  <![endif]-->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      // First lets create our drawing surface out of existing SVG element
+      // If you want to create new surface just provide dimensions
+      // like s = Snap(800, 600);
+      var s = Snap("#svg");
+      // Lets create big circle in the middle:
+      s.path(Snap.format("M{x},{y}h{dim.width}v{dim.height}h{dim['negative width']}z", {
+        x: 10,
+        y: 20,
+        dim: {
+            width: 40,
+            height: 50,
+            "negative width": -40
+        }
+      }));
+      console.log(Snap.angle(0,0, -150, 0));
+      console.log(Snap.rad(90)/Math.PI);
+      console.log(Snap.deg(1*Math.PI));
 
-  .row {
-    display: table-row;
-  }
+      var rect = s.rect(0, 0, 10, 10);
+      Snap.animate(0, 10, function (val) {
+          rect.attr({
+              x: val
+          });
+      }, 1000);
+      // in given context is equivalent to
+      // rect.animate({x: 10}, 1000);
+      for (var i = 0; i < 5; i++) {
+        s.circle(10 + 25 * i, 100, 10)
+        .attr({fill: "#000"})
+        .data("i", i)
+        .click(function () {
+           alert(this.data("i"));
+        });
+      }
+      var t1 = s.text(100, 50, "Snap");
+      var t2 = s.text(100, 80, ["S","n","a","p"]);
 
-  .cell {
-    display: table-cell;
-    width: 100px;
-    height: 100px;
-    border: 1px solid blue;
-    padding: 1em;
-  }
-  </style>
+    });
+  </script>
 </head>
 
-<body>
-  <svg width="100%" height="100%" version="1.1">
-    <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+<body style="width:100%; height: 800px;">
+  <svg id="svg" width="100%" height="100%" version="1.1">
   </svg>
-  <div class="container">
-    <div class="row">
-      <div class="cell">CELL A</div>
-      <div class="cell">CELL B</div>
-      <div class="cell">CELL C</div>
-    </div>
-  </div>
 </body>
 
 </html>
