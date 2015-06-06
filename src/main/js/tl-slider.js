@@ -1,5 +1,8 @@
 $(document).ready(function() {
     'use strict';
+    if (!$('#content-slider')) {
+        return;
+    }
     $('#content-slider').lightSlider({
         item: 1,
         loop: false,
