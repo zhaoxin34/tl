@@ -16,45 +16,124 @@
 //
 
 (function($) {
-    /**
-     * create hispanle
-     * @param {[type]} config [description]
-     */
-    function HisPanel(config) {
-        var obj = this;
-        var conf = {
-            id: '#history',
-            cellWidth: 60,
-            infoCellHeight: 60,
-            tlCellHeight: 30,
-            // span count per tl cell
-            tlSpanCount:5,
-            tlSpanLineStrokeWidth:2,
-            tlSpanLineStrokeColor: '#999',
-            tlSpanVLineLength: 5,
-            tlSpanVLineStrokeWidth: 1,
-            tlSpanVLineStrokeColor: '#666',
-            tlSpanTextAttr: {
+    var TIMELINECONF = {
+        id: '#history',
+        cell: {
+            base: {
+                x: 0,
+                y: 0,
+                width: 60,
+                height: 30
+            },
+            cellText: {
+                base: {
+                    content: 'text',
+                    align: 'left', //align:'left|middle|right',
+                    vAlign: 'center' //vAlign:'top|bottom|center'
+                },
+                attr: {
+                    'font-family': '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
+                    'font-size'  : 11,
+                    fill       : '#000'
+                }
+            }
+        },
+        cellBorder: {
+            base: {
+                roundRadius: 2
+            },
+            attr: {
+                'fill-opacity': 0,
+                stroke: '#0f0',
+                strokeWidht: 2
+            }
+        },
+        tlCell: {
+            height: 30,
+            spanCount: 5,// span count per tl cell
+            lineAttr: {
+                stroke: '#999',
+                'stroke-width': 2
+            },
+            vLineLength: 5,
+            vLineAttr: {
+                stroke: '#999',
+                'stroke-width': 2
+            },
+            textSpan: 2,
+            spanTextAttr:{
                 'font-family': '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
                 'font-size'  : 11,
                 // stroke     : '#00ff00',
                 fill       : '#999'
+            }
+        },
+        startDateTime: {
+            year: 2015,
+            month: 1,
+            date: 1
+        },
+        endDateTime: {
+            year: 2015,
+            month: 12,
+            date: 1
+        },
+        // must be integer, if > 0, year = year * 10^scale if < 0 second = second / 10 ^(-scale)
+        scale: 0,
+        cellIcon: {
+            base:{
+                content:'&#xf21e',
+                align:'middle', //align:'left|middle|right',
+                vAlign: 'center', //vAlign:'top|bottom|center'
             },
-            tlTextSpan:2,
-            startDateTime: {
-                year: 2015,
-                month: 1,
-                date: 1
+            attr: {
+                'font-family':'FontAwesome',
+                'font-size': 24,
+                fill: '#f00',
+                transform: 'translate(0, -3)',
+                cursor: 'pointer'
+            }
+        },
+        toolTip:{
+            base: {
+                x: 0,
+                y: 0,
+                width: 100,
+                height: 70,
+                cornerWidth: 6,
+                cornerHeight: 6,
+                title: 'this is title',
+                content:['content1', 'content2']
             },
-            endDateTime: {
-                year: 2015,
-                month: 12,
-                date: 1
+            rectAttr: {
+                stroke: '#f7a35c',
+                'stroke-width': 1,
+                fill: 'rgba(249, 249, 249, .85)',
+                transform: ''
             },
-            scale: 0
-        };
+            titleAttr: {
+                'font-family': '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
+                'font-size'  : 11,
+                'font-weight': 'bold',
+                fill       : '#000',
+                transform: 'translate(5 20)',
+            },
+            contentAttr: {
+                'font-family': '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
+                'font-size'  : 11,
+                fill       : '#000',
+                transform: 'translate(5 40)',
+            },
+        }
+    };
+    /**
+     * create hispanle
+     * @param {[type]} config [description]
+     */
+    function HisPanel() {
+        var obj = this;
 
-        $.extend(true, conf, config);
+        var conf = TIMELINECONF;
         var snap = new Snap('#history');
         // var circle = snap.circle(100, 150, 50);
         // circle.attr({
@@ -63,37 +142,55 @@
         var container = this.container = $(conf.id);
         this.width = container.innerWidth();
         this.height = container.innerHeight();
-        this.cellCountX = this.width / conf.cellWidth;
+        this.cellCountX = this.width / conf.cell.base.width;
         this.cellCountY = this.height / conf.cellHeight;
         this.infoCells = [];
         this.tlCells = [];
-        this.toolTip = new ToolTip(snap);
-        this.toolTip.setTitle('this is title');
-        this.toolTip.setContent(['content1', 'content2']);
-        this.toolTip.show(true);
-        this.toolTip.moveTo(300,200);
-        this.toolTip.setContent(['content11', 'content2334', 'content3434']);
-        this.toolTip.moveTo(400,300);
+        var toolTip = null;
 
         this._createCellObjs = function() {
             obj.width = container.innerWidth();
             obj.height = container.innerHeight();
-            obj.cellCountX = obj.width / conf.cellWidth;
-            obj.cellCountY = Math.floor((obj.height - conf.tlCellHeight)/ conf.infoCellHeight);
+            obj.cellCountX = obj.width / conf.cell.base.width;
+            obj.cellCountY = Math.floor((obj.height - conf.tlCell.height)/ conf.cell.base.height);
             obj.infoCells = [];
             obj.tlCells = [];
             for (var i=0; i<obj.cellCountX; i++) {
                 var cellsY = [];
                 for (var j=0; j<obj.cellCountY; j++) {
-                    cellsY.push(new HisCell(i * conf.cellWidth, j* conf.infoCellHeight,
-                        conf.cellWidth, conf.infoCellHeight, snap));
+                    cellsY.push(new HisCell(snap,
+                        $.extend(true, conf.cell, {
+                            base: {
+                                x: i * conf.cell.base.width,
+                                y: j* conf.cell.base.height,
+                                width: conf.cell.base.width,
+                                height: conf.cell.base.height
+                            }
+                        })
+                    ));
                 }
                 obj.infoCells.push(cellsY);
             }
             for (i=0; i<obj.cellCountX; i++) {
-                obj.tlCells.push(new HisCell(i * conf.cellWidth, obj.cellCountY * conf.infoCellHeight, conf.cellWidth,
-                    conf.tlCellHeight, snap));
+                obj.tlCells.push(new HisCell(snap,
+                    $.extend(true, conf.cell, {
+                        base: {
+                            x: i * conf.cell.base.width,
+                            y: obj.cellCountY * conf.cell.base.height,
+                            width: conf.cell.base.width,
+                            height: conf.tlCell.height
+                        }
+                    })
+                ));
             }
+            // create toolTip
+            toolTip = new ToolTip(snap, {
+                base: {
+                    title: 'is a title',
+                    content: 'sdlfj'
+                }
+            });
+            toolTip.moveTo(200, 200);
         };
 
         /**
@@ -119,14 +216,22 @@
          * @return {[type]} [description]
          */
         this._draw = function() {
-            this.getInfoCell(0, 3)
-            .fillText({content:'test', align:'middle', vAlign:'center'})
+            var cell = this.getInfoCell(0, 3);
+            cell.fillText({base: {
+                content:'test', align:'middle', vAlign:'center'}})
             .drawBorder( {
-                roundRadius: 2,
-                'fill-opacity': 0,
-                stroke: '#0f0',
-                strokeWidht: 2
+                base: {
+                    roundRadius: 2
+                }
             });
+            this.getInfoCell(2, 4)
+            .drawBorder( {
+                base: {
+                    roundRadius: 2
+                }
+            })
+            .drawIcon({base:{content:'&#xf21e'}})
+            .setToolTip(toolTip, {base:{title:'hello'}});
             this.drawTimeLine();
         };
         /**
@@ -155,6 +260,15 @@
             return this.tlCells[x];
         };
 
+        /**
+         * set a tooltip
+         * @param {json} attr see TIMELINECONF.toolTip
+         */
+        this.setCellToolTip = function(cell, attr) {
+            if (cell) {
+                cell.setToolTip(toolTip, attr);
+            }
+        };
         /**
          * get cell count
          * @return {object} {xCount:number(x), yCount:number(y)}
@@ -185,14 +299,23 @@
                 //     strokeWidht: 2
                 // });
                 // 画横线
-                cell.drawLine({x1:0, y1:0, x2:1, y2:0, stroke:conf.tlSpanLineStrokeColor, 'stroke-width': conf.tlSpanLineStrokeWidth} );
-                var tlSpanX = conf.cellWidth / conf.tlSpanCount;
-                var tlSpanHeightScale = conf.tlSpanVLineLength / conf.tlCellHeight;
+                cell.drawLine({
+                    base: {
+                        x1:0, y1:0, x2:1, y2:0
+                    },
+                    attr: conf.tlCell.lineAttr
+                });
+                var tlSpanX = conf.cell.base.width / conf.tlCell.spanCount;
+                var tlSpanHeightScale = conf.tlCell.vLineLength / conf.tlCell.height;
                 // 画刻度
-                for (var j=0; j<conf.tlSpanCount; j++) {
-                    var y2 = j === 0 && i % conf.tlTextSpan === 0 ? tlSpanHeightScale * 2 : tlSpanHeightScale;
-                    cell.drawLine({x1:tlSpanX * j, y1:0, x2: j/conf.tlSpanCount, y2:y2,
-                        stroke:conf.tlSpanVLineStrokeColor, 'strokeWidht': conf.tlSpanVLineStrokeWidth});
+                for (var j=0; j<conf.tlCell.spanCount; j++) {
+                    var y2 = j === 0 && i % conf.tlCell.textSpan === 0 ? tlSpanHeightScale * 2 : tlSpanHeightScale;
+                    cell.drawLine({
+                            base: {
+                                x1:tlSpanX * j, y1:0, x2: j/conf.tlCell.spanCount, y2:y2
+                            },
+                            attr: conf.tlCell.vLineAttr
+                    });
                 }
             }
             obj._drawTimeLineText();
@@ -214,49 +337,43 @@
                     console.log('warning', 'oneSpanTime', oneSpanTime, 'd1', d1, 'd2', d2);
                     return;
                 }
-                console.log(oneSpanTime);
+                // console.log(oneSpanTime);
                 for (var i = 0; i < obj.tlCells.length; i++) {
                     var cell = obj.tlCells[i];
                     // 画文字
                     if (scale === undefined || scale === 0) {
-                        if ( i % conf.tlTextSpan === 0) {
+                        if ( i % conf.tlCell.textSpan === 0) {
                             var date = new Date(d1.getTime() + i * oneSpanTime);
-                            console.log(date);
+                            // console.log(date);
                             var content = date.toFormat('YYYY-MM-DD');
-                            var spanTextAttr = $.extend({}, conf.tlSpanTextAttr);
-                            spanTextAttr = $.extend(spanTextAttr, {content: content, align:'left', vAlign:'bottom'});
-                            cell.fillText(spanTextAttr);
+                            // spanTextAttr = $.extend(spanTextAttr, );
+                            cell.fillText({
+                                base: {content: content, align:'left', vAlign:'bottom'},
+                                attr: conf.tlCell.spanTextAttr
+                            });
                         }
                     }
                 }
             }
-
-
         };
         // call init
         this._init();
         this._draw();
     }
 
-    /**
-     * History cell Class
-     * @param {number} x      x
-     * @param {number} y      y
-     * @param {number} width  width
-     * @param {number} height
-     * @param {snap} snap
-     */
-    function HisCell(x, y, width, height, snap) {
+    function HisCell(snap, attr) {
         var obj = this;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.snap = snap;
+        var conf = $.extend(true, {}, attr);
+        this.x = conf.base.x;
+        this.y = conf.base.y;
+        this.width = conf.base.width;
+        this.height = conf.base.height;
         // all member like this {attr: creatAttr, ele: the element}
         this.textMembers = [];
         this.lineMembers = [];
         this.borderMembers = [];
+        var toolTip = null;
+        var toolTipAttr = null;
 
         this.destroy = function() {
             obj._removeMembers(this.textMembers);
@@ -277,45 +394,37 @@
         };
 
         /**
-         * fill text with attr,
-         * @param  {object} attr like {content:'a content', align:'left|middle|right', vAlign:'top|bottom|center'}
-         * @return {void}
-         */
-        this.fillText = function(attr) {
-            var text = this._fillText(attr);
-            obj.textMembers.push({attr:attr, ele: text});
-            return obj;
-        };
-
-        /**
          * fill text with attr
-         * @param  {object} attr like {content:'a content', align:'left|middle|right', vAlign:'top|bottom|center'}
+         * @param  {object} attr like {base:{content:'a content', align:'left|middle|right', vAlign:'top|bottom|center'}, attr::{}}
          * @return {element} the text element
          */
-        this._fillText = function(attr) {
-            var fontHeight = 6;
+        this.fillText = function(attr) {
+            var textConf = $.extend(true, conf.cellText, attr);
+            var fontSize = 12;
+            if (textConf.attr['font-size']) {
+                fontSize = parseInt(textConf.attr['font-size']);
+            }
             var tx = obj.x + obj.width / 2;
-            var ty = obj.y + obj.height/ 2 + fontHeight;
-            if (attr.align === 'middle') {
-                attr['text-anchor'] = 'middle';
-            } else if (attr.align === 'right') {
+            var ty = obj.y + obj.height/ 2 + fontSize / 2;
+            if (textConf.base.align === 'middle') {
+                textConf.attr['text-anchor'] = 'middle';
+            } else if (textConf.base.align === 'right') {
                 tx = obj.x + obj.width;
-                attr['text-anchor'] = 'end';
+                textConf.attr['text-anchor'] = 'end';
             } else {
                 tx = obj.x;
-                attr['text-anchor'] = 'start';
+                textConf.attr['text-anchor'] = 'start';
             }
-            if (attr.vAlign === 'bottom') {
+            if (textConf.base.vAlign === 'bottom') {
                 ty = obj.y + obj.height;
-            } else if (attr.vAlign === 'top') {
-                ty = obj.y + fontHeight;
+            } else if (textConf.base.vAlign === 'top') {
+                ty = obj.y + fontSize / 2;
             }
 
-            var text = snap.text(tx, ty, attr.content);
-            attr = $.extend({}, attr);
-            delete attr.content;
-            text.attr(attr);
-            return text;
+            var text = snap.text(tx, ty, attr.base.content);
+            text.attr(textConf.attr);
+            obj.textMembers.push({attr:textConf, ele: text});
+            return obj;
         };
 
         /**
@@ -327,58 +436,92 @@
         };
 
         /**
-         * draw a border on rect
-         * @param  {object} attr {roundRadius: number(round radius), ...other attrs}
-         * @return {void}
+         * draw a border of the cell
+         * @param  {json} attr {base:{roundRadius:,}, attr:{}}
+         * @return {[type]}      [description]
          */
         this.drawBorder = function(attr) {
-            var border = this._drawBorder(attr);
-            obj.borderMembers.push({attr:attr, ele: border});
+            var borderConf = $.extend(true, TIMELINECONF.cellBorder, attr);
+            var rect = snap.rect(this.x, this.y, this.width, this.height, borderConf.base.roundRadius ? borderConf.base.roundRadius:0);
+            rect.attr(borderConf.attr);
+            this.border = rect;
+            obj.borderMembers.push({attr:borderConf, ele:rect});
             return obj;
         };
 
         /**
-         * draw a border on rect
-         * @param  {object} attr {roundRadius: number(round radius), ...other attrs}
-         * @return {void} the rect element
-         */
-        this._drawBorder = function(attr) {
-            attr = $.extend({}, attr);
-            var rect = snap.rect(this.x, this.y, this.width, this.height, attr.roundRadius ? attr.roundRadius:0);
-            delete attr.roundRadius;
-            rect.attr(attr);
-            this.border = rect;
-            return rect;
-        };
-
-        this.drawLine = function(attr) {
-            var line = this._drawLine(attr);
-            obj.lineMembers.push({attr:attr, ele:line});
-            return line;
-        };
-
-        /**
          * draw a line
-         * push line to elements
-         * @param  {object} attr x1:0, y1:0, x2:1, y2:0, ...other attr
-         * @return {line}      line
+         * @param  {json} attr {base:{x1:,y1:,x2:,y2}, attr:{}}
+         * @return {this}
          */
-        this._drawLine = function(attr) {
-            attr = $.extend({}, attr);
+        this.drawLine = function(attr) {
+            var lineConf = $.extend({}, attr);
             var x1, x2, y1, y2;
-            x1 = obj.x + attr.x1;
-            x2 = obj.x + obj.width * attr.x2;
-            y1 = obj.y + attr.y1;
-            y2 = obj.y + obj.height * attr.y2;
+            x1 = obj.x + lineConf.base.x1;
+            x2 = obj.x + obj.width * lineConf.base.x2;
+            y1 = obj.y + lineConf.base.y1;
+            y2 = obj.y + obj.height * lineConf.base.y2;
             var line = snap.line(x1, y1, x2, y2);
 
-            delete attr.x1;
-            delete attr.x2;
-            delete attr.y1;
-            delete attr.y2;
-            line.attr(attr);
-            return line;
+            line.attr(lineConf.attr);
+            obj.lineMembers.push({attr:lineConf, ele:line});
+            return obj;
         };
+
+        this.drawIcon = function(attr) {
+            var textConf = $.extend(true, TIMELINECONF.cellIcon, attr);
+            console.log(textConf);
+            var fontSize = 12;
+            if (textConf.attr['font-size']) {
+                fontSize = parseInt(textConf.attr['font-size']);
+            }
+            var tx = obj.x + obj.width / 2;
+            var ty = obj.y + obj.height/ 2 + fontSize / 2;
+            if (textConf.base.align === 'middle') {
+                textConf.attr['text-anchor'] = 'middle';
+            } else if (textConf.base.align === 'right') {
+                tx = obj.x + obj.width;
+                textConf.attr['text-anchor'] = 'end';
+            } else {
+                tx = obj.x;
+                textConf.attr['text-anchor'] = 'start';
+            }
+            if (textConf.base.vAlign === 'bottom') {
+                ty = obj.y + obj.height;
+            } else if (textConf.base.vAlign === 'top') {
+                ty = obj.y + fontSize / 2;
+            }
+
+            var text = snap.text(tx, ty, '');
+            $(text.node).html(textConf.base.content);
+            text.attr(textConf.attr);
+            obj.textMembers.push({attr:textConf, ele:text});
+            return obj;
+        };
+
+        function onmouseover() {
+            var point = obj.getCenter();
+            toolTip.moveTo(point.x, obj.y);
+            toolTip.show(true);
+        }
+
+        function onmouseout() {
+            toolTip.show(false);
+        }
+
+        this.setToolTip = function(paper, attr) {
+            toolTip = paper;
+            toolTipAttr = attr;
+            if (this.textMembers) {
+                for (var i=0; i<this.textMembers.length; i++) {
+                    console.log(this.textMembers[i].ele);
+                    this.textMembers[i].ele.node.onmouseover =onmouseover;
+                    this.textMembers[i].ele.node.onmouseout = onmouseout;
+                }
+            }
+        };
+
+
 
         // console.log('cell x', x);
         // console.log('cell y', y);
@@ -397,43 +540,13 @@
         // var downBorderFormat = 'M{x},{y} h{width} v{height} h -{width1} l -{cornerWidth} {cornerWidth} l -{cornerWidth} -{cornerHeight} h -{width1} z';
         var downBorderFormat = 'M 0,0 l {cornerWidth} -{cornerHeight} h {width1} v -{height} h -{width} v {height} h {width1} z';
         var showed = true;
-        var conf = {
-            base: {
-                x: 120,
-                y: 120,
-                width: 100,
-                height: 100,
-                cornerWidth: 10,
-                cornerHeight: 10
-            },
-            rectAttr: {
-                stroke: '#f7a35c',
-                'stroke-width': 1,
-                fill: 'rgba(249, 249, 249, .85)',
-                transform: ''
-            },
-            titleAttr: {
-                'font-family': '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
-                'font-size'  : 11,
-                'font-weight': 'bold',
-                fill       : '#000',
-                transform: 'translate(5 20)',
-            },
-            contentAttr: {
-                'font-family': '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
-                'font-size'  : 11,
-                fill       : '#000',
-                transform: 'translate(5 40)',
-            },
-        };
-
-        conf = $.extend(true, conf, config);
+        var conf = $.extend(true, TIMELINECONF.toolTip, config);
+        console.log(TIMELINECONF.toolTip);
 
         this._drawBorder = function() {
             var rectAttr = {
                 width1: conf.base.width / 2 - conf.base.cornerHeight
             };
-            console.log(rectAttr);
             rectEle = snap.path(Snap.format(downBorderFormat, $.extend(rectAttr, conf.base)));
             rectEle.attr(conf.rectAttr);
             group.add(rectEle);
