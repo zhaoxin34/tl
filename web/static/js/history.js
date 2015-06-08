@@ -23,7 +23,7 @@
                 x: 0,
                 y: 0,
                 width: 60,
-                height: 30
+                height: 60
             },
             cellText: {
                 base: {
@@ -221,7 +221,7 @@
          * @return {[type]} [description]
          */
         this._draw = function() {
-            var cell = this.getInfoCell(0, 3);
+            var cell = this.getInfoCell(0, 1);
             cell.fillText({base: {
                 content:'test', align:'middle', vAlign:'center'}})
             .drawBorder( {
@@ -229,7 +229,7 @@
                     roundRadius: 2
                 }
             });
-            this.getInfoCell(2, 4)
+            this.getInfoCell(1, 2)
             .drawBorder( {
                 base: {
                     roundRadius: 2
