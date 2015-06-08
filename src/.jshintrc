@@ -17,6 +17,7 @@
     "strict": true,
     "globals": {
      "$": false,
-     "Highcharts": false
+     "Highcharts": false,
+     "jQuery": false
     }
 }

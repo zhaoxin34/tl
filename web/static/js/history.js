@@ -89,9 +89,13 @@
             attr: {
                 'font-family':'FontAwesome',
                 'font-size': 24,
-                fill: '#f00',
+                fill: '#128cd1',
                 transform: 'translate(0, -3)',
                 cursor: 'pointer'
+            },
+            border: {
+                lighter: 50,
+                'font-size': 28
             }
         },
         toolTip:{
@@ -159,7 +163,7 @@
                 var cellsY = [];
                 for (var j=0; j<obj.cellCountY; j++) {
                     cellsY.push(new HisCell(snap,
-                        $.extend(true, conf.cell, {
+                        $.extend(true, {}, conf.cell, {
                             base: {
                                 x: i * conf.cell.base.width,
                                 y: j* conf.cell.base.height,
@@ -173,7 +177,7 @@
             }
             for (i=0; i<obj.cellCountX; i++) {
                 obj.tlCells.push(new HisCell(snap,
-                    $.extend(true, conf.cell, {
+                    $.extend(true, {}, conf.cell, {
                         base: {
                             x: i * conf.cell.base.width,
                             y: obj.cellCountY * conf.cell.base.height,
@@ -209,6 +213,7 @@
                 obj.tlCells[i].destroy();
             }
             obj.tlCells = [];
+            toolTip.destroy();
         };
 
         /**
@@ -230,6 +235,7 @@
                     roundRadius: 2
                 }
             })
+            // .drawIcon({base:{content:'&#xf21e'}, attr: {fill: '#faa', 'font-size': 28}})
             .drawIcon({base:{content:'&#xf21e'}})
             .setToolTip(toolTip, {base:{title:'hello'}});
             this.drawTimeLine();
@@ -311,10 +317,10 @@
                 for (var j=0; j<conf.tlCell.spanCount; j++) {
                     var y2 = j === 0 && i % conf.tlCell.textSpan === 0 ? tlSpanHeightScale * 2 : tlSpanHeightScale;
                     cell.drawLine({
-                            base: {
-                                x1:tlSpanX * j, y1:0, x2: j/conf.tlCell.spanCount, y2:y2
-                            },
-                            attr: conf.tlCell.vLineAttr
+                        base: {
+                            x1:tlSpanX * j, y1:0, x2: j/conf.tlCell.spanCount, y2:y2
+                        },
+                        attr: conf.tlCell.vLineAttr
                     });
                 }
             }
@@ -372,6 +378,7 @@
         this.textMembers = [];
         this.lineMembers = [];
         this.borderMembers = [];
+        var iconGroup = null;
         var toolTip = null;
         var toolTipAttr = null;
 
@@ -441,7 +448,7 @@
          * @return {[type]}      [description]
          */
         this.drawBorder = function(attr) {
-            var borderConf = $.extend(true, TIMELINECONF.cellBorder, attr);
+            var borderConf = $.extend(true, {}, TIMELINECONF.cellBorder, attr);
             var rect = snap.rect(this.x, this.y, this.width, this.height, borderConf.base.roundRadius ? borderConf.base.roundRadius:0);
             rect.attr(borderConf.attr);
             this.border = rect;
@@ -469,33 +476,44 @@
         };
 
         this.drawIcon = function(attr) {
-            var textConf = $.extend(true, TIMELINECONF.cellIcon, attr);
-            console.log(textConf);
+            var textConf = $.extend(true, {}, TIMELINECONF.cellIcon, attr);
             var fontSize = 12;
-            if (textConf.attr['font-size']) {
-                fontSize = parseInt(textConf.attr['font-size']);
+            textConf.attr['text-anchor'] = 'middle';
+
+            // clear last icon
+            if(iconGroup) {
+                iconGroup.remove();
+            }
+            iconGroup = snap.group();
+            // draw icon border
+            if (textConf.border['font-size']) {
+                fontSize = parseInt(textConf.border['font-size']);
             }
             var tx = obj.x + obj.width / 2;
             var ty = obj.y + obj.height/ 2 + fontSize / 2;
-            if (textConf.base.align === 'middle') {
-                textConf.attr['text-anchor'] = 'middle';
-            } else if (textConf.base.align === 'right') {
-                tx = obj.x + obj.width;
-                textConf.attr['text-anchor'] = 'end';
-            } else {
-                tx = obj.x;
-                textConf.attr['text-anchor'] = 'start';
-            }
-            if (textConf.base.vAlign === 'bottom') {
-                ty = obj.y + obj.height;
-            } else if (textConf.base.vAlign === 'top') {
-                ty = obj.y + fontSize / 2;
-            }
-
             var text = snap.text(tx, ty, '');
             $(text.node).html(textConf.base.content);
+            var fill = '#000';
+            if (textConf.attr.fill){
+                fill = textConf.attr.fill;
+            }
+            var lighterColor = $.lighter(fill, textConf.border.lighter);
+            text.attr($.extend(true, {}, textConf.attr, {fill: lighterColor,
+                'font-size': textConf.border['font-size'],
+                'text-anchor': 'middle',
+                'fill-opacity': 0.5}));
+            text.addClass('hidden');
+            iconGroup.add(text);
+
+            if (textConf.attr['font-size']) {
+                fontSize = parseInt(textConf.attr['font-size']);
+            }
+            ty = obj.y + obj.height/ 2 + fontSize / 2;
+            text = snap.text(tx, ty, '');
+            $(text.node).html(textConf.base.content);
+            console.log(textConf.attr);
             text.attr(textConf.attr);
-            obj.textMembers.push({attr:textConf, ele:text});
+            iconGroup.add(text);
             return obj;
         };
 
@@ -503,21 +521,24 @@
             var point = obj.getCenter();
             toolTip.moveTo(point.x, obj.y);
             toolTip.show(true);
+            if (iconGroup && iconGroup.select('text:nth-child(1).hidden')) {
+                iconGroup.select('text:nth-child(1).hidden').removeClass('hidden');
+            }
         }
 
         function onmouseout() {
             toolTip.show(false);
+            if (iconGroup && iconGroup.select('text:nth-child(1)')) {
+                iconGroup.select('text:nth-child(1)').addClass('hidden');
+            }
         }
 
         this.setToolTip = function(paper, attr) {
             toolTip = paper;
             toolTipAttr = attr;
-            if (this.textMembers) {
-                for (var i=0; i<this.textMembers.length; i++) {
-                    console.log(this.textMembers[i].ele);
-                    this.textMembers[i].ele.node.onmouseover =onmouseover;
-                    this.textMembers[i].ele.node.onmouseout = onmouseout;
-                }
+            if (iconGroup && iconGroup.select('text:nth-child(2)')) {
+                iconGroup.select('text:nth-child(2)').node.onmouseover =onmouseover;
+                iconGroup.select('text:nth-child(2)').node.onmouseout = onmouseout;
             }
         };
 
@@ -540,8 +561,7 @@
         // var downBorderFormat = 'M{x},{y} h{width} v{height} h -{width1} l -{cornerWidth} {cornerWidth} l -{cornerWidth} -{cornerHeight} h -{width1} z';
         var downBorderFormat = 'M 0,0 l {cornerWidth} -{cornerHeight} h {width1} v -{height} h -{width} v {height} h {width1} z';
         var showed = true;
-        var conf = $.extend(true, TIMELINECONF.toolTip, config);
-        console.log(TIMELINECONF.toolTip);
+        var conf = $.extend(true, {}, TIMELINECONF.toolTip, config);
 
         this._drawBorder = function() {
             var rectAttr = {
@@ -637,6 +657,9 @@
             group.add(titleEle);
         };
 
+        this.destroy = function() {
+            group.remove();
+        };
         this._init();
     }
 
