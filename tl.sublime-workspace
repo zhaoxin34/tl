@@ -4,6 +4,74 @@
 		"selected_items":
 		[
 			[
+				"toolti",
+				"toolTipAttr"
+			],
+			[
+				"cellcou",
+				"cellCountX"
+			],
+			[
+				"setti",
+				"setTitle"
+			],
+			[
+				"tool",
+				"toolTip"
+			],
+			[
+				"mouse",
+				"mousemove"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"mo",
+				"moveTo"
+			],
+			[
+				"va",
+				"vAlign:'top|bottom|center"
+			],
+			[
+				"ali",
+				"align:'left|middle|right"
+			],
+			[
+				"container",
+				"container-fluid	 bootstrap.css"
+			],
+			[
+				"for",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"tlspanv",
+				"tlSpanVLineStrokeWidth"
+			],
+			[
+				"tlS",
+				"tlSpanX"
+			],
+			[
+				"tl",
+				"tlSpanVLineLength"
+			],
+			[
+				"tlspanlin",
+				"tlSpanLineStrokeWidth"
+			],
+			[
+				"span",
+				"tlSpanLineStroke"
+			],
+			[
+				"getCe",
+				"getCellCount"
+			],
+			[
 				"col-",
 				"col-md-6	 bootstrap.min.css"
 			],
@@ -196,10 +264,6 @@
 				"type〔class〕"
 			],
 			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
 				"filt",
 				"filter.date	filter-date"
 			],
@@ -260,10 +324,34 @@
 	"buffers":
 	[
 		{
+			"file": "web/static/js/history.js",
+			"settings":
+			{
+				"buffer_size": 27060,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "web/index.html",
 			"settings":
 			{
-				"buffer_size": 11309,
+				"buffer_size": 16633,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main/python/server.py",
+			"settings":
+			{
+				"buffer_size": 4086,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/test/python/test.py",
+			"settings":
+			{
+				"buffer_size": 4225,
 				"line_ending": "Unix"
 			}
 		}
@@ -291,17 +379,33 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 267.0,
-		"last_filter": "",
+		"height": 328.0,
+		"last_filter": "uui",
 		"selected_items":
 		[
 			[
-				"css",
-				"CSS Completions: Prune Cache"
+				"uui",
+				"Generate UUID v4"
+			],
+			[
+				"changelist",
+				"Change List: Show"
+			],
+			[
+				"list",
+				"Change List: Show"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
 			],
 			[
 				"remove",
 				"Package Control: Remove Package"
+			],
+			[
+				"css",
+				"CSS Completions: Prune Cache"
 			],
 			[
 				"css pu",
@@ -310,10 +414,6 @@
 			[
 				"upgra",
 				"Package Control: Upgrade Package"
-			],
-			[
-				"list",
-				"Package Control: List Packages"
 			],
 			[
 				":w",
@@ -326,10 +426,6 @@
 			[
 				"html",
 				"Set Syntax: HTML"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"package",
@@ -584,10 +680,6 @@
 				"z:AAAPackageDev: Convert (YAML, JSON, PList) to…"
 			],
 			[
-				"uui",
-				"Generate UUID v4"
-			],
-			[
 				"isntal",
 				"Package Control: Install Package"
 			],
@@ -809,16 +901,36 @@
 	"expanded_folders":
 	[
 		"/Users/xinzhao/working/python/tl",
+		"/Users/xinzhao/working/python/tl/src",
+		"/Users/xinzhao/working/python/tl/src/test/python",
 		"/Users/xinzhao/working/python/tl/web",
 		"/Users/xinzhao/working/python/tl/web/static",
-		"/Users/xinzhao/working/python/tl/web/static/lib"
+		"/Users/xinzhao/working/python/tl/web/static/js",
+		"/Users/xinzhao/working/python/tl/web/static/lib",
+		"/Users/xinzhao/working/python/tl/web/templates"
 	],
 	"file_history":
 	[
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/xinzhao/working/python/tl/web/index.html",
-		"/Users/xinzhao/working/python/tl/web/static/lib/icon-fonts/font-awesome-4.1.0/css/font-awesome.css",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/xinzhao/working/python/tl/src/main/js/lib/lightslider.js",
+		"/Users/xinzhao/working/python/tl/src/main/js/utils/dateutils.js",
+		"/Users/xinzhao/working/python/tl/src/main/js/utils/cssutils.js",
 		"/Users/xinzhao/working/python/tl/web/static/css/main.css",
+		"/Users/xinzhao/working/python/tl/web/index.html",
+		"/Users/xinzhao/working/python/tl/web/history.html",
+		"/Users/xinzhao/working/python/tl/web/static/js/history.js",
+		"/Users/xinzhao/working/python/tl/src/.jshintrc",
+		"/Users/xinzhao/working/python/tl/src/main/js/tl-slider.js",
+		"/Users/xinzhao/working/python/tl/web/static/lib/font-awesome.min.css",
+		"/Users/xinzhao/working/python/tl/web/static/ace/font-awesome.min.css",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/xinzhao/working/python/tl/web/static/lib/snap.svg/snap.svg.js",
+		"/Users/xinzhao/working/python/tl/web/svg-test.html",
+		"/Users/xinzhao/working/python/tl/web/static/.jshintrc",
+		"/Users/xinzhao/working/python/tl/src/main/js/tl-history.js",
+		"/Users/xinzhao/working/python/tl/web/static/lib/icon-fonts/font-awesome-4.1.0/css/font-awesome.css",
 		"/Users/xinzhao/working/python/tl/web/static/bootstrap-3.3.4/css/bootstrap.css",
 		"/Users/xinzhao/working/python/tl/web/static/lib/lightslider/css/lightslider.min.css",
 		"/Users/xinzhao/working/python/tl/web/static/ace/bootstrap.min.css",
@@ -829,18 +941,12 @@
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/css_style_completions.sublime-settings",
 		"/Users/xinzhao/working/python/tl/web/static/lib/lightslider/css/lightslider.css",
 		"/Users/xinzhao/working/python/tl/src/test/python/testbase64.py",
-		"/Users/xinzhao/working/python/tl/src/main/js/tl-slider.js",
-		"/Users/xinzhao/working/python/tl/src/main/js/tl-history.js",
 		"/Users/xinzhao/working/python/tl/web/static/js/timeline.js",
 		"/Users/xinzhao/working/python/tl/src/Gruntfile.js",
 		"/Users/xinzhao/working/python/tl/src/test/python/test.py",
 		"/Users/xinzhao/working/python/tl/src/test/python/pycurltest.py",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
-		"/Users/xinzhao/working/python/tl/src/.jshintrc",
 		"/Users/xinzhao/working/python/tl/web/static/lib/highcharts.js",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
 		"/Users/xinzhao/working/python/tl/src/main/python/server.py",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/Users/xinzhao/working/python/tl/src/main/js/.jshintrc",
 		"/Users/xinzhao/working/python/tl/tl.sublime-project",
 		"/Users/xinzhao/working/python/tl/src/package.json",
@@ -863,7 +969,6 @@
 		"/Users/xinzhao/working/python/tl/web/nav-userinfo.html",
 		"/Users/xinzhao/working/python/tl/web/static/css/style.css",
 		"/Users/xinzhao/working/python/tl/src/conf/bootstrap.less",
-		"/Users/xinzhao/working/python/tl/web/svg-test.html",
 		"/Users/xinzhao/working/python/tl/web/static/bs/3.3.4/css/bootstrap.css",
 		"/Users/xinzhao/working/python/tl/src/server.py",
 		"/usr/local/lib/python3.4/site-packages/tornado/log.py",
@@ -888,7 +993,6 @@
 		"/Users/xinzhao/working/python/tl/web/static/js/ctls/controller.js",
 		"/Users/xinzhao/working/python/tl/web/static/jquery/2.1.1/jquery.min.js",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
-		"/Users/xinzhao/working/python/tl/web/static/ace/font-awesome.min.css",
 		"/Users/xinzhao/working/python/tl/web/static/ace/jquery.mobile.custom.min.js",
 		"/Users/xinzhao/working/python/tl/web/static/ace/html5shiv.min.js",
 		"/Users/xinzhao/working/python/tl/web/static/ace/ace-ie.min.css",
@@ -934,15 +1038,7 @@
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/CSS.sublime-settings",
 		"/Users/xinzhao/working/python/tl/static/bs/3.3.4/js/bootstrap.js",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-js-completions.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-completions.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-completions.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
-		"/Users/xinzhao/working/python/tl/static/ng/test/control.js",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/AngularJS/AngularJS-sublime-package.sublime-settings",
-		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu"
+		"/Users/xinzhao/Library/Application Support/Sublime Text 3/Packages/User/AngularJS-sublime-package.sublime-settings"
 	],
 	"find":
 	{
@@ -963,6 +1059,97 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"onmouseover",
+			"moveto",
+			"textMembers",
+			"console.log",
+			"settooltip",
+			"tooltipAttr",
+			"mouseover",
+			"mousemove",
+			"(\"*\");",
+			"setattr",
+			"tooltip",
+			"clientInfo",
+			"new hisce",
+			"_create",
+			"lighter",
+			"drawicon",
+			"2",
+			"(2)",
+			"children",
+			"[nth-child(0)]",
+			"drawicon",
+			"console.log",
+			"amt",
+			"col",
+			"drawicon",
+			"extend",
+			"drawicon",
+			"toolTipPaper",
+			"settooltip",
+			"tooltip",
+			"ele:",
+			"drawicon",
+			"filltext",
+			"drawborder",
+			"cellborder",
+			"drawborder",
+			"cellborder",
+			"drawborder",
+			"scale",
+			"tlSpanTextAttr",
+			"tlTextSpan",
+			"drawline",
+			"tlSpanLineStrokeWidth",
+			"tlSpanCount",
+			"tlCellHeight",
+			"new his",
+			"filltext",
+			"attr.vAlign",
+			"attr['text-anchor']",
+			"attr.align",
+			"new hiscell",
+			"obj.x",
+			"new Hisce",
+			"infoCellHeight",
+			"cellWidth",
+			"infoCellHeight",
+			"console.log",
+			"fontHeight",
+			"conf.base.y",
+			"base",
+			"conf.base.y",
+			"conf.base.x",
+			"this.contentEles",
+			"obj.contentEles",
+			"obj.titleEle",
+			"obj.textBody",
+			"obj.rectEle",
+			"this.rectEle",
+			"addClass('hidden');",
+			"addClass",
+			"contentEle",
+			"bold",
+			"connerWidth",
+			"connerHeight",
+			"members",
+			"number",
+			"startDateTime",
+			"drawtimel",
+			"console.log",
+			"infoCells",
+			"getCellCount",
+			"getCell",
+			"xs",
+			"this",
+			"cellCountX",
+			"destory",
+			"middel",
+			"cellHeight",
+			"cellHeigt",
+			"cellHeight",
+			"hisPanel",
 			"set_la",
 			"post",
 			"kwargs",
@@ -999,98 +1186,7 @@
 			"log",
 			"refu",
 			"form",
-			"refresh",
-			"os.path.dirname(__file__)",
-			"os.path.join(os.path.dirname(__file__)",
-			"dropdown",
-			"fontawesome",
-			"fontawe",
-			"webfont",
-			"./Dashboard_files",
-			"/v13/",
-			"http://fonts.gstatic.com/s/opensans",
-			"jqstooltip",
-			"jqsfield",
-			"toggle",
-			"col",
-			"super",
-			"keys",
-			"<div class=\"collapse navbar-collapse navbar-tl\" id=\"bs-example-navbar-collapse-1\">",
-			"<div class=\"container-fluid\">",
-			"init",
-			"static",
-			"pep8",
-			"reqeust",
-			"httprequest",
-			"httpreques",
-			"encoding",
-			"user_agent",
-			"setting",
-			"x-www-form-urlencoded",
-			"x-www-form-urlencoded body",
-			"x-www-form-urlencoded",
-			"x-www-form-urlencoded body",
-			"requesthand",
-			"httprequest",
-			"args",
-			"python",
-			"style",
-			"-",
-			"auto_complete_selector",
-			"MyController",
-			"panel-heading",
-			"shadow",
-			"10px",
-			"5CB85C",
-			"transparent",
-			"border-bottom: 8px solid #000;",
-			"2px",
-			"6c6d6f",
-			"#6c6d6f",
-			"D5D5D5",
-			"555",
-			"activ",
-			"5E5E5E",
-			"777",
-			".navbar-default",
-			"navbar-tl-shadow",
-			" <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\">\n            <img alt=\"Brand\" src=\"static/img/watch.png\">\n          </a>\n        </div>\n      </div>\n      <div class=\"container\">\n        <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n          <a class=\"navbar-brand\" href=\"#\">Bootstrap theme</a>\n        </div>\n        <div id=\"navbar\" class=\"navbar-collapse collapse\">\n          <ul class=\"nav navbar-nav\">\n            <li class=\"active\"><a href=\"#\">Home</a></li>\n            <li><a href=\"#about\">About</a></li>\n            <li><a href=\"#contact\">Contact</a></li>\n            <li class=\"dropdown\">\n              <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Dropdown <span class=\"caret\"></span></a>\n              <ul class=\"dropdown-menu\" role=\"menu\">\n                <li><a href=\"#\">Action</a></li>\n                <li><a href=\"#\">Another action</a></li>\n                <li><a href=\"#\">Something else here</a></li>\n                <li class=\"divider\"></li>\n                <li class=\"dropdown-header\">Nav header</li>\n                <li><a href=\"#\">Separated link</a></li>\n                <li><a href=\"#\">One more separated link</a></li>\n              </ul>\n            </li>\n          </ul>\n        </div><!--/.nav-collapse -->\n      </div>",
-			"round",
-			"nav",
-			"response",
-			"serverrequest",
-			"util",
-			"^class request",
-			"request",
-			"tab",
-			"^class ",
-			"stringio",
-			"^class ",
-			"class ",
-			"types",
-			"request",
-			"requst",
-			"get",
-			"on_mjdified_async",
-			"switch",
-			"unichr",
-			"()\n",
-			"requre",
-			"snippets",
-			"__dealAliesName",
-			"print",
-			"trigger",
-			"DEBUG",
-			"[-1]",
-			"_dealProperties",
-			"__dealProperteis",
-			"__dealList",
-			"==",
-			"obj",
-			"parent",
-			"'trigger':",
-			"'type':",
-			"\")"
+			"refresh"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1118,24 +1214,278 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "web/index.html",
+					"file": "web/static/js/history.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11309,
+						"buffer_size": 27060,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								492,
-								492
+								18386,
+								18386
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python"
+								},
+								{
+									"characters": ".",
+									"selector": "source.js"
+								},
+								{
+									"characters": "ng-controller=\"*",
+									"selector": "punctuation.definition.string"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6513.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "web/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16633,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5515,
+								5515
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python"
+								},
+								{
+									"characters": ".",
+									"selector": "source.js"
+								},
+								{
+									"characters": "ng-controller=\"*",
+									"selector": "punctuation.definition.string"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1617.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/main/python/server.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4086,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								414,
+								414
 							]
 						],
 						"settings":
@@ -1166,31 +1516,16 @@
 							],
 							"bh_regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -1206,34 +1541,168 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
 							],
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/test/python/test.py",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python"
+								},
+								{
+									"characters": ".",
+									"selector": "source.js"
+								},
+								{
+									"characters": "ng-controller=\"*",
+									"selector": "punctuation.definition.string"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1320,12 +1789,60 @@
 		"selected_items":
 		[
 			[
+				"server",
+				"src/main/python/server.py"
+			],
+			[
+				"index.h",
+				"web/index.html"
+			],
+			[
+				"history",
+				"web/static/js/history.js"
+			],
+			[
+				"main.css",
+				"web/static/css/main.css"
+			],
+			[
+				"font",
+				"web/static/ace/font-awesome.min.css"
+			],
+			[
 				"index",
 				"web/index.html"
 			],
 			[
-				"font",
-				"web/static/lib/icon-fonts/font-awesome-4.1.0/css/font-awesome.css"
+				"his",
+				"web/static/js/history.js"
+			],
+			[
+				"light",
+				"src/main/js/lib/lightslider.js"
+			],
+			[
+				"main",
+				"web/static/css/main.css"
+			],
+			[
+				"hi",
+				"web/static/js/history.js"
+			],
+			[
+				"histo",
+				"web/static/js/history.js"
+			],
+			[
+				"svg",
+				"web/svg-test.html"
+			],
+			[
+				"sna",
+				"web/static/lib/snap.svg/snap.svg.js"
+			],
+			[
+				"tlslider",
+				"src/main/js/tl-slider.js"
 			],
 			[
 				"bootstrap.min",
@@ -1346,10 +1863,6 @@
 			[
 				"li",
 				"web/static/lib/lightslider/css/lightslider.css"
-			],
-			[
-				"main",
-				"web/static/css/main.css"
 			],
 			[
 				"timelin",
@@ -1382,10 +1895,6 @@
 			[
 				"testbas",
 				"src/test/python/testbase64.py"
-			],
-			[
-				"server",
-				"src/main/python/server.py"
 			],
 			[
 				"tl-sl",

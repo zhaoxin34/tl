@@ -104,8 +104,8 @@
                 y: 0,
                 width: 100,
                 height: 70,
-                cornerWidth: 6,
-                cornerHeight: 6,
+                cornerWidth: 0,
+                cornerHeight: 0,
                 title: 'this is title',
                 content:['content1', 'content2']
             },
@@ -121,12 +121,14 @@
                 'font-weight': 'bold',
                 fill       : '#000',
                 transform: 'translate(5 20)',
+                'style': 'pointer-events: none;'
             },
             contentAttr: {
                 'font-family': '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
                 'font-size'  : 11,
                 fill       : '#000',
                 transform: 'translate(5 40)',
+                'style': 'pointer-events: none;'
             },
         }
     };
@@ -146,6 +148,10 @@
         var container = this.container = $(conf.id);
         this.width = container.innerWidth();
         this.height = container.innerHeight();
+        var clientInfo = {
+            width: this.width,
+            height: this.height
+        };
         this.cellCountX = this.width / conf.cell.base.width;
         this.cellCountY = this.height / conf.cellHeight;
         this.infoCells = [];
@@ -169,7 +175,8 @@
                                 y: j* conf.cell.base.height,
                                 width: conf.cell.base.width,
                                 height: conf.cell.base.height
-                            }
+                            },
+                            clientInfo: clientInfo
                         })
                     ));
                 }
@@ -183,18 +190,11 @@
                             y: obj.cellCountY * conf.cell.base.height,
                             width: conf.cell.base.width,
                             height: conf.tlCell.height
-                        }
+                        },
+                        clientInfo: clientInfo
                     })
                 ));
             }
-            // create toolTip
-            toolTip = new ToolTip(snap, {
-                base: {
-                    title: 'is a title',
-                    content: 'sdlfj'
-                }
-            });
-            toolTip.moveTo(200, 200);
         };
 
         /**
@@ -221,24 +221,30 @@
          * @return {[type]} [description]
          */
         this._draw = function() {
-            var cell = this.getInfoCell(0, 1);
-            cell.fillText({base: {
-                content:'test', align:'middle', vAlign:'center'}})
-            .drawBorder( {
-                base: {
-                    roundRadius: 2
-                }
-            });
-            this.getInfoCell(1, 2)
-            .drawBorder( {
-                base: {
-                    roundRadius: 2
-                }
-            })
-            // .drawIcon({base:{content:'&#xf21e'}, attr: {fill: '#faa', 'font-size': 28}})
-            .drawIcon({base:{content:'&#xf21e'}})
-            .setToolTip(toolTip, {base:{title:'hello'}});
             this.drawTimeLine();
+            // create toolTip
+            toolTip = new ToolTip(snap, {});
+
+            // test
+            // var cell = this.getInfoCell(0, 1);
+            // cell.fillText({base: {
+            //     content:'test', align:'middle', vAlign:'center'}})
+            // .drawBorder( {
+            //     base: {
+            //         roundRadius: 2
+            //     }
+            // });
+            // this.getInfoCell(18, 2)
+            // .drawBorder( {
+            //     base: {
+            //         roundRadius: 2
+            //     }
+            // })
+            // // .drawIcon({base:{content:'&#xf21e'}, attr: {fill: '#faa', 'font-size': 28}})
+            // .drawIcon({base:{content:'&#xf21e'}})
+            // .setToolTip(toolTip,  $.extend(
+            //     true, {}, conf.toolTip,
+            //     {base:{title:'hello', content:['this is content1', 'this is content2']}}));
         };
         /**
          * redraw the panel
@@ -267,12 +273,12 @@
         };
 
         /**
-         * set a tooltip
+         * set a toolTip
          * @param {json} attr see TIMELINECONF.toolTip
          */
         this.setCellToolTip = function(cell, attr) {
             if (cell) {
-                cell.setToolTip(toolTip, attr);
+                cell.setToolTip(toolTip, $.extend(true, {}, conf.toolTip, attr));
             }
         };
         /**
@@ -375,20 +381,27 @@
         this.width = conf.base.width;
         this.height = conf.base.height;
         // all member like this {attr: creatAttr, ele: the element}
-        this.textMembers = [];
+        // text element
+        var textEle;
         this.lineMembers = [];
         this.borderMembers = [];
+        var clientInfo = attr.clientInfo;
+        // Snap.group()
         var iconGroup = null;
         var toolTip = null;
         var toolTipAttr = null;
 
         this.destroy = function() {
-            obj._removeMembers(this.textMembers);
-            obj.textMembers = [];
+            if (textEle){
+                textEle.remove();
+            }
             obj._removeMembers(this.lineMembers);
             obj.lineMembers = [];
             obj._removeMembers(this.borderMembers);
             obj.borderMembers = [];
+            if (iconGroup) {
+                iconGroup.remove();
+            }
         };
 
         this._removeMembers = function(members) {
@@ -406,6 +419,10 @@
          * @return {element} the text element
          */
         this.fillText = function(attr) {
+            // remove last
+            if (textEle){
+                textEle.remove();
+            }
             var textConf = $.extend(true, conf.cellText, attr);
             var fontSize = 12;
             if (textConf.attr['font-size']) {
@@ -430,7 +447,7 @@
 
             var text = snap.text(tx, ty, attr.base.content);
             text.attr(textConf.attr);
-            obj.textMembers.push({attr:textConf, ele: text});
+            textEle = text;
             return obj;
         };
 
@@ -511,38 +528,67 @@
             ty = obj.y + obj.height/ 2 + fontSize / 2;
             text = snap.text(tx, ty, '');
             $(text.node).html(textConf.base.content);
-            console.log(textConf.attr);
             text.attr(textConf.attr);
             iconGroup.add(text);
             return obj;
         };
 
-        function onmouseover() {
+        /**
+         * mouse move on icon
+         * action: show border show toolTip
+         * @return {}
+         */
+        function onmousemove() {
             var point = obj.getCenter();
-            toolTip.moveTo(point.x, obj.y);
+            // get the a panel point
+            if (obj.x < clientInfo.width / 2) {
+               point.x = point.x + obj.width / 2 + toolTipAttr.base.width / 2;
+            } else {
+                point.x = point.x - obj.width / 2 - toolTipAttr.base.width / 2 ;
+            }
+            point.y = obj.y + toolTipAttr.base.height / 2 + obj.width / 2;
+            if (point.y < toolTipAttr.base.height) {
+                point.y = toolTipAttr.base.height + 5;
+            }
+            toolTip.moveTo(point.x, point.y);
+            // toolTip.setAttr(toolTipAttr);
             toolTip.show(true);
             if (iconGroup && iconGroup.select('text:nth-child(1).hidden')) {
                 iconGroup.select('text:nth-child(1).hidden').removeClass('hidden');
             }
         }
 
+        /**
+         * mouse move out the icon event handler
+         *
+         * @return {}
+         */
         function onmouseout() {
-            toolTip.show(false);
-            if (iconGroup && iconGroup.select('text:nth-child(1)')) {
-                iconGroup.select('text:nth-child(1)').addClass('hidden');
-            }
+            // why setTimeout? because i want the mouse have the chance to move on the toolTip at that time
+            window.setTimeout(function() {
+                toolTip.show(false);
+                if (iconGroup && iconGroup.select('text:nth-child(1)')) {
+                    iconGroup.select('text:nth-child(1)').addClass('hidden');
+                }
+            }, 200);
         }
 
+        /**
+         * set tool tip content title and other profile
+         * @param {object} paper the ToolTip object
+         * @param {void} attr
+         */
         this.setToolTip = function(paper, attr) {
             toolTip = paper;
             toolTipAttr = attr;
+            paper.setTitle(attr.base.title);
+            paper.setContent(attr.base.content);
+            // child2 is the icon, child1 is the border
             if (iconGroup && iconGroup.select('text:nth-child(2)')) {
-                iconGroup.select('text:nth-child(2)').node.onmouseover =onmouseover;
+                iconGroup.select('text:nth-child(2)').node.onmousemove =onmousemove;
                 iconGroup.select('text:nth-child(2)').node.onmouseout = onmouseout;
             }
         };
-
-
 
         // console.log('cell x', x);
         // console.log('cell y', y);
@@ -562,6 +608,11 @@
         var downBorderFormat = 'M 0,0 l {cornerWidth} -{cornerHeight} h {width1} v -{height} h -{width} v {height} h {width1} z';
         var showed = true;
         var conf = $.extend(true, {}, TIMELINECONF.toolTip, config);
+        // is the cursor in the rect
+        var cursorIn = false;
+        // use element
+        var toolTipUse = null;
+        group.attr({id:'toolTip'});
 
         this._drawBorder = function() {
             var rectAttr = {
@@ -569,13 +620,31 @@
             };
             rectEle = snap.path(Snap.format(downBorderFormat, $.extend(rectAttr, conf.base)));
             rectEle.attr(conf.rectAttr);
+            rectEle.mousemove(function() {
+                cursorIn = true;
+            });
+            rectEle.mouseout(function() {
+                cursorIn = false;
+                obj.show(false);
+            });
             group.add(rectEle);
         };
 
+        this.getBase = function() {
+
+        };
+
         this.show = function(show) {
-            showed = show;
+            if (cursorIn){
+                return;
+            }
+
             var i = 0;
             if (!show) {
+                if (toolTipUse) {
+                    toolTipUse.remove();
+                    toolTipUse = null;
+                }
                 if (rectEle) {
                     rectEle.addClass('hidden');
                 }
@@ -590,7 +659,21 @@
                         contentEles[i].addClass('hidden');
                     }
                 }
-            } else {
+            } else if (!showed) {
+               // if (uses) {
+               //   for (var i = 0; i < uses.length; i++) {
+               //       var use = uses[i];
+               //       if (use.node.attributes.href && use.node.attributes.href.value === '#toolTip') {
+               //           needUse = false;
+               //           break;
+               //           }
+               //       }
+               //   }
+               //   console.log('need use', needUse);
+
+                if (!toolTipUse) {
+                    toolTipUse = snap.use('toolTip');
+                }
                 if (rectEle) {
                     rectEle.removeClass('hidden');
                 }
@@ -606,12 +689,10 @@
                     }
                 }
             }
+            showed = show;
         };
 
         this.moveTo = function (x, y) {
-            if (!showed){
-                return;
-            }
             group.attr({
                 transform: Snap.format('translate({x}, {y})', {x:x, y:y})
             });
@@ -655,6 +736,7 @@
             titleEle = snap.text(0 - conf.base.width / 2, 0 - conf.base.height - conf.base.cornerHeight, 'title');
             titleEle.attr(conf.titleAttr);
             group.add(titleEle);
+            group.toDefs();
         };
 
         this.destroy = function() {
@@ -666,6 +748,21 @@
     var his = null;
     $(document).ready(function () {
         his = new HisPanel();
+        var start = parseInt('0xf001');
+        var end = parseInt('0xf193');
+        for (var i=0; i<his.cellCountX; i++) {
+            for (var j=0; j<his.cellCountY; j++) {
+                var cell = his.getInfoCell(i, j);
+                if (Math.random()> 0.5) {
+                    var suffix = parseInt(Math.random() * (end - start) + start);
+                    var content = '&#x' + (suffix).toString(16);
+                    console.log(content);
+                    cell.drawIcon({base:{content:content}});
+                    his.setCellToolTip(cell, {title:'a title', content:'wori wori'});
+                }
+            }
+        }
+        his.getInfoCell(2,1).fillText()
         console.log('width=', his.width);
         console.log('height=', his.height);
         console.log('cellCountX=', his.cellCountX);
