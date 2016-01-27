@@ -762,7 +762,7 @@
                 }
             }
         }
-        his.getInfoCell(2,1).fillText()
+        his.getInfoCell(2,1).fillText();
         console.log('width=', his.width);
         console.log('height=', his.height);
         console.log('cellCountX=', his.cellCountX);

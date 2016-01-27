@@ -46,6 +46,7 @@
 </head>
 
 <body ng-app="tlApp" ng-cloak>
+  <!-- {{{ BEGIN navbar -->
   <div id="navbar" class="navbar navbar-default">
     <div class="navbar-container" id="navbar-container">
       <div class="navbar-header pull-left">
@@ -60,7 +61,7 @@
       <ul class="nav navbar-nav navbar-right nav-userinfo" ng-controller="tlLoginCtrl" ng-switch on="loginInfo.status" >
         <li class="dropdown" ng-switch-default ng-switch-default="false">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            <img class="nav-user-photo" src="static/img/ace/user.jpg"> 创建时间线 <span class="caret"></span></a>
+            <img class="nav-user-photo" src="static/img/ace/user.jpg"> </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#" data-toggle="modal" data-target="#loginWindow">登陆</a></li>
             <li><a href="#">注册</a></li>
@@ -104,159 +105,9 @@
       <!-- }}}}}}}} login -->
     </div>
   </div>
-  <!-- /.navbar-container -->
-
-  <div class="navbar-tl-shadow">
-    <div class="navbar-tl-shadow-left"></div>
-    <div class="navbar-tl-shadow-right"></div>
-  </div>
+  <!-- }}} BEGIN nav bar -->
 
   <div class="margin-top-6"></div>
-
-  <!-- {{{ search input-->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="input-group input-group-sm">
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">所有 <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">所有</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-          <input type="text" class="form-control" aria-lable="test"/>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-            <button class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-          </span>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="input-group input-group-sm">
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">所有 <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">所有</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-          <input type="text" class="form-control" aria-lable="test"/>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-            <button class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-          </span>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="input-group input-group-sm">
-          <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">所有 <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">所有</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-          <input type="text" class="form-control" aria-lable="test"/>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
-            <button class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- }}} search input -->
-<div class="margin-top-6"></div>
-<ul id="content-slider" class=" content-slider clearfix">
-  <li>
-    <article>
-      <section style="word-break: break-all">
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      一二三四五六七八九十
-      </section>
-    </article>
-  </li>
-  <li>
-    <article>
-      <section style="word-break: break-all">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
-    </article>
-  </li>
-  <li>
-    <article>
-      <section style="word-break: break-all">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
-    </article>
-  </li>
-  <li>
-    <article>
-      <section style="word-break: break-all">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
-    </article>
-  </li>
-  <li>
-    <article>
-      <section style="word-break: break-all">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
-    </article>
-  </li>
-  <li>
-    <article>
-      <section style="word-break: break-all">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
-    </article>
-  </li>
-  <li>
-    <article>
-      <section style="word-break: break-all">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
-    </article>
-  </li>
-  <li>
-    <article>
-      <section style="word-break: break-all">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </section>
-    </article>
-  </li>
-</ul>
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12" style="over-flow:clip">
-        <svg id="history" width="100%" height="240" style="padding:0 2px;">
-        </svg>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>

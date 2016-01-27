@@ -44,7 +44,7 @@ class HelloHandler(BaseHandler):
         print('get_argument(\'test\', \'defulat\')', colored(self.get_argument('test', 'default'), 'yellow'))
         print('get_argument(\'arg1\', \'defulat\')', colored(self.get_argument('arg1', 'default'), 'yellow'))
         print('request.body', colored(self.request.body, 'yellow'))
-        print('request.bodyaguments', colored(self.request.body_arguments, 'yellow'))
+        print('request.body_aguments', colored(self.request.body_arguments, 'yellow'))
         print('get_body_argument(\'arg1\', \'default\')', colored(self.get_argument('arg1', 'default'), 'yellow'))
         print('applications.settings', colored(self.application.settings, 'yellow'))
         self.write('hello')
@@ -107,5 +107,5 @@ try:
         body=body)
     time.sleep(2)
 finally:
-    # IOLoop.current().stop()
+    IOLoop.current().stop()
     pass

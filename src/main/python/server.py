@@ -63,7 +63,11 @@ class Application(tornado.web.Application):
                 r"/(.*)\.html",
                 HtmlHandler,
                 {"path": os.path.join(options.webroot, "")}),
-            (r"/phone/(.*)", PhoneHandler, dict(), "a rest api from json")
+            (r"/phone/(.*)", PhoneHandler, dict(), "a rest api from json"),
+            (
+                r"/analytics_test/(.*)",
+                tornado.web.StaticFileHandler,
+                {"path": os.path.join(options.webroot, "analytics_test")}),
         ]
         super(Application, self).__init__(handlers, **settings)
 
