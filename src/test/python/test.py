@@ -62,7 +62,7 @@ def make_app():
 
 def main():
     app = make_app()
-    app.listen(8888)
+    app.listen(8899)
     print('listen start aha')
     IOLoop.current().start()
 
@@ -101,7 +101,7 @@ try:
     post_data = {'arg1': '赵鑫test'}
     body = parse.urlencode(post_data)
     visitServer(
-        'http://localhost:8888/?test=113', method="POST", headers={
+        'http://localhost:8899/?test=113', method="POST", headers={
             'header1': 'header1 value', 'Content-Type': 'application/x-www-form-urlencoded'},
         # body='arg1=' + tornado.escape.url_escape('赵鑫'))
         body=body)

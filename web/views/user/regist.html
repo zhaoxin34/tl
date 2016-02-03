@@ -1,0 +1,64 @@
+<!-- {{{{{{{{ regist window -->
+<div id="registWindow" class="modal fade in" aria-hidden="true" role="dialog" tableindex="-1" ng-controller="registCtrl">
+  <div class="modal-dialog">
+    <form id="registForm" name="registForm" class="form-horizontal" role="form" ng-submit="submitRegist()">
+      <div class="modal-content">
+        <div class="modal-body">
+            <h3 class="lighter block ">注册用户</h3>
+            <h5 class="text-danger text-center" id="registFormError">服务器错误</h5>
+            <div class="form-group" ng-class="{ 'has-error': registForm.username.$touched && registForm.username.$invalid }">
+              <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">用户名:</label>
+              <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                  <input type="text" name="username" ng-maxlength="20" ng-minlength="4" ensure-unique="username"
+                    placeholder="4-20位小写字母、数字、下划线的组合" ng-model="username" ng-model-options="{ updateOn: 'blur' }"
+                    class="col-xs-12 col-sm-9" aria-required="true" aria-invalid="true" required>
+                </div>
+                <div ng-show="registForm.$submitted || registForm.username.$touched">
+                  <div class="help-block" ng-show="registForm.username.$error.required">请输入您的用户名，用于登录</div>
+                  <div class="help-block" ng-show="registForm.username.$error.minlength">用户名长度不能小于4个字符</div>
+                  <div class="help-block" ng-show="registForm.username.$error.maxlength">用户名长度不能大于20个字符</div>
+                  <div class="help-block" ng-show="registForm.username.$error.unique">您输入的用户名已被注册，请尝试其他用户名</div>
+                  <div class="help-block" ng-show="registForm.username.$error.checking">验证中...</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': registForm.email.$touched && registForm.email.$invalid }">
+              <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">邮&nbsp;&nbsp;箱:</label>
+              <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                  <input type="email" name="email" ng-maxlength="40" placeholder="请输入您的邮箱" ng-model="email" ensure-unique="email"
+                  ng-model-options="{ updateOn: 'blur' }" class="col-xs-12 col-sm-9" aria-required="true" aria-invalid="true" required>
+                </div>
+                <div ng-show="registForm.$submitted || registForm.email.$touched">
+                  <div class="help-block" ng-show="registForm.email.$error.required">请输入您的邮箱</div>
+                  <div class="help-block" ng-show="registForm.email.$error.email">请输入邮箱的邮箱</div>
+                  <div class="help-block" ng-show="registForm.email.$error.unique">您输入的邮箱已经被使用，请使用其他邮箱</div>
+                  <div class="help-block" ng-show="registForm.email.$error.checking">验证中...</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': registForm.password.$touched && registForm.password.$invalid }">
+              <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">密&nbsp;&nbsp;码:</label>
+              <div class="col-xs-12 col-sm-9">
+                <div class="clearfix">
+                  <input type="password" name="password" ng-maxlength="16" ng-minlength="6"
+                  ng-model-options="{ updateOn: 'blur' }"
+                  placeholder="6-16位字母、数字、符号的组合(区分大小写)" ng-model="password"  class="col-xs-12 col-sm-9" aria-required="true" aria-invalid="true" required>
+                </div>
+                <div ng-show="registForm.$submitted || registForm.password.$touched">
+                  <div class="help-block" ng-show="registForm.password.$error.required">请输入您的密码</div>
+                  <div class="help-block" ng-show="registForm.password.$error.minlength">密码长度不能小于6个字符</div>
+                  <div class="help-block" ng-show="registForm.password.$error.maxlength">密码长度不能大于16个字符</div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" ng-disabled="loading"><i class="ace-icon glyphicon glyphicon-plus"></i>创建用户</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- }}}}}} regist window -->

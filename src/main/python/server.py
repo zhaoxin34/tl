@@ -7,67 +7,38 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 
+import handler.user_handler
 from tornado.options import define, options
-from tornado.log import app_log
+import motor
 # from utils.logger import webLogger
 
 define("port", default=8888, help="run on the given port", type=int)
 define("webroot", default="/Users/xinzhao/working/python/tl/web", help="the web root dir", type=str)
+define("mongodb_host", default="localhost", help="mongodb host", type=str)
+define("mongodb_port", default=27017, help="mongodb port", type=int)
+
 # define("mysql_host", default="127.0.0.1:3306", help="blog database host")
 # define("mysql_database", default="blog", help="blog database name")
 # define("mysql_user", default="blog", help="blog database user")
 # define("mysql_password", default="blog", help="blog database password")
 
 
-class BaseHandler(tornado.web.RequestHandler):
-    """
-    the handler deal the header, remove Content-Encoding, reparse the request body
-    """
-
-    def prepare(self):
-        request = self.request
-        if request.headers and 'Content-Encoding' in request.headers:
-            del request.headers['Content-Encoding']
-        request.body_arguments = {}
-        request.files = {}
-        tornado.httputil.parse_body_arguments(
-            request.headers.get("Content-Type", ""), request.body, request.body_arguments, request.files)
-        for k, v in request.body_arguments.items():
-            request.arguments.setdefault(k, []).extend(v)
-
-    def writeData(self, header=None, body=None):
-        """
-        write response data, based header and body
-        """
-        defaultHeader = {'status': 0}
-        defaultBody = {}
-        self.write({'header': header or defaultHeader, 'body': body or defaultBody})
-
 class Application(tornado.web.Application):
     def __init__(self):
+        db = motor.motor_tornado.MotorClient("mongodb://" + options.mongodb_host + ":" + str(options.mongodb_port), max_pool_size=10)
         settings = dict(
             template_path=os.path.join(options.webroot, "templates"),
             static_path=os.path.join(options.webroot, "static"),
             # xsrf_cookies=True,
-            cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
+            cookie_secret="0eebeaca-0eae-47d7-99cf-d99a449349a8",
             debug=True,
+            db=db
         )
         handlers = [
-            (r"/", HomeHandler),
-            (r"/(login|logout)", LoginHandler),
-            (
-                r"/test-ng/(.*)",
-                tornado.web.StaticFileHandler,
-                {"path": os.path.join(options.webroot, "test-ng")}),
             (
                 r"/(.*)\.html",
                 HtmlHandler,
                 {"path": os.path.join(options.webroot, "")}),
-            (r"/phone/(.*)", PhoneHandler, dict(), "a rest api from json"),
-            (
-                r"/analytics_test/(.*)",
-                tornado.web.StaticFileHandler,
-                {"path": os.path.join(options.webroot, "analytics_test")}),
         ]
         super(Application, self).__init__(handlers, **settings)
 
@@ -80,38 +51,40 @@ class HtmlHandler(tornado.web.StaticFileHandler):
         # Disable cache
         self.set_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
 
-class HomeHandler(BaseHandler):
-    def get(self):
-        self.write('hello')
+# class PhoneHandler(BaseHandler):
+#     data = {
+#         "phones": [
+#             {"name": "苹果", "snippet": "Fast just got faster with Nexus S.", "age": 0},
+#             {"name": "摩托罗拉 XOOM™ with Wi-Fi", "snippet": "The Next, Next Generation tablet.", "age": 1},
+#             {"name": "爱立信 XOOM™", "snippet": "The Next, Next Generation tablet.", "age": 2}
+#         ]
+#     }
 
-class PhoneHandler(BaseHandler):
-    data = {
-        "phones": [
-            {"name": "苹果", "snippet": "Fast just got faster with Nexus S.", "age": 0},
-            {"name": "摩托罗拉 XOOM™ with Wi-Fi", "snippet": "The Next, Next Generation tablet.", "age": 1},
-            {"name": "爱立信 XOOM™", "snippet": "The Next, Next Generation tablet.", "age": 2}
-        ]
-    }
+#     def get(self, key):
+#         if key in self.data:
+#             self.write({'data': PhoneHandler.data[key]})
 
-    def get(self, key):
-        if key in self.data:
-            self.write({'data': PhoneHandler.data[key]})
-
-class LoginHandler(BaseHandler):
-    def post(self, path):
-        # self.set_status(409)
-        if path == 'login':
-            app_log.debug(self.request.body_arguments)
-            self.writeData(None, {'username': 'zhaoxin', 'gender': '男'})
-        elif path == 'logout':
-            app_log.debug(self.request.body_arguments)
-            self.writeData(None, {})
 
 def main():
+    # parse args
     tornado.options.parse_command_line()
-    http_server = tornado.httpserver.HTTPServer(Application())
-    http_server.listen(options.port)
-    tornado.ioloop.IOLoop.current().start()
+
+    # create application and load handlers
+    application = Application()
+    handler.user_handler.addHandlers(application)
+
+    # set process number, set listen port
+    # sockets = tornado.netutil.bind_sockets(options.port)
+    server = tornado.httpserver.HTTPServer(application, xheaders=True)
+    server.listen(options.port)
+
+    # TODO 不debug时打开
+    # server.bind(options.port)
+    # server.start(0)
+
+    # server.add_sockets(sockets)
+
+    tornado.ioloop.IOLoop.instance().start()
 
 
 if __name__ == "__main__":

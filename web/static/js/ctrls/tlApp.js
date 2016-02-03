@@ -1,0 +1,1 @@
+var tlApp = angular.module('tlApp', ['ngRoute', 'ngMessages']);

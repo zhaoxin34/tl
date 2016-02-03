@@ -1,0 +1,38 @@
+<!-- {{{{{{{{ login window -->
+<div id="loginWindow" class="modal fade in" aria-hidden="true" role="dialog" tableindex="-1" ng-controller="loginCtrl">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form class="form-horizontal" name="loginForm" role="form" ng-submit="submitLogin()">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">登陆</h4>
+        </div>
+        <div class="modal-body">
+          <h5 class="text-danger text-center" id="loginFormError">服务器错误</h5>
+          <div class="form-group" ng-class="{ 'has-error': loginForm.username.$touched && loginForm.username.$invalid }">
+            <label class="col-sm-3 control-label no-padding-right">用户名：</label>
+            <div class="col-sm-9">
+              <input type="text" name="username" class="col-xs-10 col-sm-10" ng-model="user.username" required>
+            </div>
+            <div ng-show="loginForm.$submitted || loginForm.username.$touched">
+              <div class="col-xs-offset-3 col-xs-10 col-sm-10 help-block" ng-show="loginForm.username.$error.required">请输入您的用户名</div>
+            </div>
+          </div>
+          <div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+            <label class="col-sm-3 control-label no-padding-right">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+            <div class="col-sm-9">
+              <input type="password" name="password" class="col-xs-10 col-sm-10" ng-model="user.password" required>
+            </div>
+            <div ng-show="loginForm.$submitted || loginForm.password.$touched">
+              <div class="col-xs-offset-3 col-xs-10 col-sm-10 help-block" ng-show="loginForm.password.$error.required">请输入您的密码</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" ng-disabled="loading">&nbsp;&nbsp;&nbsp;&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- }}}}}} login window -->

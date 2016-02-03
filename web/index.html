@@ -15,7 +15,7 @@
   <!-- Bootstrap theme -->
   <!-- <link href="static/bootstrap-3.3.4/css/bootstrap-theme.css" rel="stylesheet" /> -->
   <link rel="stylesheet" type="text/css" href="static/lib/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="static/lib/lightslider/css/lightslider.min.css">
+  <link rel="stylesheet" type="text/css" href="static/ace/ace.min.css">
   <!-- Custom styles for this template -->
   <link href="static/css/main.css" rel="stylesheet" />
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -34,21 +34,23 @@
     <![endif]-->
   <script src="static/ng/1.3.15/angular.js"></script>
   <script src="static/ng/1.3.15/angular-route.js"></script>
+  <script src="static/ng/1.3.15/angular-messages.min.js"></script>
   <script src="static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
   <script src="static/lib/highcharts/highcharts.js"></script>
+  <script type="text/javascript" src="static/jquery/jquery.validate.min.js"></script>
   <!-- <script type="text/javascript" src="static/lib/lightslider/js/lightslider.min.js"></script> -->
-  <script src="static/js/ctrls/controller.js"></script>
-  <script type="text/javascript" src="static/js/timeline.js"></script>
-  <script src="static/lib/snap.svg/snap.svg.js"></script>
-  <script src="static/js/history.js"></script>
+  <script src="static/js/ctrls/tlApp.js"></script>
+  <script src="static/js/ctrls/userCtrls.js"></script>
+  <script src="static/js/ctrls/indexCtrls.js"></script>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <!-- Include all compiled plugins (below), or include individual files as needed -->
 </head>
 
-<body ng-app="tlApp" ng-cloak>
+<body ng-app="tlApp"  ng-controller="indexCtrl" ng-cloak>
   <!-- {{{ BEGIN navbar -->
   <div id="navbar" class="navbar navbar-default">
     <div class="navbar-container" id="navbar-container">
+      <!-- {{{ BEGIN brand logo -->
       <div class="navbar-header pull-left">
         <a class="navbar-brand" href="#">
           <div>
@@ -57,57 +59,56 @@
           </div>
         </a>
       </div>
-      <!-- {{{{{{{ login -->
-      <ul class="nav navbar-nav navbar-right nav-userinfo" ng-controller="tlLoginCtrl" ng-switch on="loginInfo.status" >
-        <li class="dropdown" ng-switch-default ng-switch-default="false">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            <img class="nav-user-photo" src="static/img/ace/user.jpg"> </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#" data-toggle="modal" data-target="#loginWindow">登陆</a></li>
-            <li><a href="#">注册</a></li>
+      <!-- }}} BEGIN brand logo -->
+
+      <!-- {{{ BEGIN regist login button -->
+      <div class="navbar-header pull-right nav-login-regist-button-container" ng-show="!loginInfo.status">
+        <button class="btn btn-sm btn-white btn-round" ng-click="showLogin()" ><i class="ace-icon fa fa-key align-top bigger-110"></i>登&nbsp;&nbsp;&nbsp;&nbsp;陆</button>
+        <button class="btn btn-sm btn-danger btn-round" ng-click="showRegist()"><i class="ace-icon glyphicon glyphicon-user align-top bigger-110"></i>注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+      </div>
+      <!-- }}} BEGIN regist login buuton -->
+
+      <!-- {{{ BEGIN user info -->
+      <ul class="nav navbar-nav navbar-right nav-userinfo" ng-show="loginInfo.status">
+        <li class="light-blue">
+          <a data-toggle="dropdown" href="#" class="dropdown-toggle" aria-expanded="false">
+            <img class="nav-user-photo" src="/static/img/ace/user.jpg" alt="Jason's Photo">
+            <span class="user-info">
+                        <small>Welcome,</small>
+                        Jason
+                      </span>
+            <i class="ace-icon fa fa-caret-down"></i>
+          </a>
+          <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+            <li>
+              <a href="#">
+                <i class="ace-icon fa fa-cog"></i> Settings
+              </a>
+            </li>
+            <li>
+              <a href="profile.html">
+                <i class="ace-icon fa fa-user"></i> Profile
+              </a>
+            </li>
             <li class="divider"></li>
-            <li><i class="glyphicon glyphicon-star" aria-hidden="true"></i><a href="#">&nbsp; 设置</a></li>
+            <li>
+              <a href="#">
+                <i class="ace-icon fa fa-power-off"></i> Logout
+              </a>
+            </li>
           </ul>
         </li>
-        <li class="dropdown" ng-switch-when="true">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            <img class="nav-user-photo" src="static/img/ace/user.jpg" alt="{{user.username}}"> {{user.username}} <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#" data-toggle="modal" data-target="#loginWindow">个人设置</a></li>
-            <li><a href="#">系统设置</a></li>
-            <li class="divider"></li>
-            <li><i class="glyphicon glyphicon-star" aria-hidden="true"></i><a href="#" ng-click="logout();">退出</a></li>
-          </ul>
-        </li>
-        <!-- {{{{{{{{ login window -->
-        <div id="loginWindow" class="modal fade in" aria-hidden="true" role="dialog" tableindex="-1">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body">
-                <form class="form-signin">
-                  <h2 class="form-signin-heading">Please sign in</h2>
-                  <label for="inputEmail" class="sr-only">Email address</label>
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus ng-model="user.username">
-                  <label for="inputPassword" class="sr-only">Password</label>
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" value="1" ng-model="user.rememberme"> Remember me
-                    </label>
-                  </div>
-                  <button class="btn btn-lg btn-primary btn-block" type="button" ng-click="login();">Sign in</button>
-                </form>
-              </div>
-            </div>
-          </div><!-- }}}}}} login window -->
-        </div>
       </ul>
-      <!-- }}}}}}}} login -->
+      <!-- }}} BEGIN user info -->
+      <ng-include src="'views/user/login.html'"></ng-include>
+      <ng-include src="'views/user/regist.html'"></ng-include>
     </div>
   </div>
   <!-- }}} BEGIN nav bar -->
 
+
   <div class="margin-top-6"></div>
+  <ng-include src="'views/message.html'"></ng-include>
 </body>
 
 </html>

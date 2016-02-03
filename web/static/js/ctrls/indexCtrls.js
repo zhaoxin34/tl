@@ -1,0 +1,25 @@
+tlApp.config(['$routeProvider', function($routeProvider) {
+    // $routeProvider
+    // .when('/login', {
+    //     controller: 'tlLoginCtrl',
+    //     templateUrl: 'views/login.html'
+    // })
+    // .otherwise({redirectTo: ''});
+}])
+// 首页控制
+.controller('indexCtrl', ['$scope', '$rootScope',
+    function($scope, $rootScope) {
+        $rootScope.loginInfo = {
+            status: false
+        };
+        $scope.showLogin = function() {
+            $('#loginFormError').css('display', 'none');
+            $('#loginWindow').modal('show');
+        };
+        // 显示注册dialog
+        $scope.showRegist = function() {
+            $('#registFormError').css('display', 'none');
+            $('#registWindow').modal('show');
+        };
+    }
+]);

@@ -4,7 +4,7 @@
 		{
 			"folder_exclude_patterns":
 			[
-				"logs", "node_modules"
+				"logs", "node_modules", "__pycache__"
 			],
 			"file_exclude_patterns":
 			[
@@ -19,6 +19,7 @@
 		{
 			"folders":
 			[
+			"/Users/xinzhao/working/python/tl/web/static/js/ctrls"
 			]
 		},
 		"FuzzyFilePath":
