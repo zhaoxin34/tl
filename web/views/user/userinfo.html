@@ -1,0 +1,56 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>用户信息</h3>
+		</div>
+	</div>
+
+	<div class="row padding-0">
+		<div class="col-md-2 col-sm-3 profile-user-info-container">
+			<span class="profile-picture">
+				<img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="/static/img/ace/profile-pic.jpg"></img>
+			</span>
+		</div>
+		<div class="col-md-10 col-sm-9">
+		<!-- {{{ BEGIN userinfo table -->
+			<div class="profile-user-info">
+				<div class="profile-info-row">
+					<div class="profile-info-name"> 用户名 </div>
+					<div class="profile-info-value">
+						<span class="editable editable-click" id="username">{{user.username}}</span>
+					</div>
+				</div>
+				<div class="profile-info-row">
+					<div class="profile-info-name"> 昵称 </div>
+					<div class="profile-info-value">
+						<!-- <i class="fa fa-map-marker light-orange bigger-110"></i> -->
+						<span class="editable editable-click" id="nickname">{{user.nickname}}</span>
+					</div>
+				</div>
+				<div class="profile-info-row">
+					<div class="profile-info-name"> 邮箱 </div>
+					<div class="profile-info-value">
+						<span class="editable editable-click" id="email">{{user.email}}</span>
+					</div>
+				</div>
+				<div class="profile-info-row">
+					<div class="profile-info-name"> 性别 </div>
+					<div class="profile-info-value">
+						<span class="editable editable-click" id="gender">{{user.gender}}</span>
+					</div>
+				</div>
+				<div class="profile-info-row">
+					<div class="profile-info-name"> 出生日期 </div>
+					<div class="profile-info-value">
+						<span class="editable editable-click" id="birthday">{{user.birthday}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="user-profile-button-container">
+				<button class="btn btn-sm btn-primary">更新</button>
+			</div>
+		<!-- }}} BEGIN userinfo table -->
+		</div>
+	</div>
+	<!-- }}} BEGIN userinfo row -->
+</div>

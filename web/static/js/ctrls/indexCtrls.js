@@ -7,8 +7,8 @@ tlApp.config(['$routeProvider', function($routeProvider) {
     // .otherwise({redirectTo: ''});
 }])
 // 首页控制
-.controller('indexCtrl', ['$scope', '$rootScope',
-    function($scope, $rootScope) {
+.controller('indexCtrl', ['$scope', '$rootScope', '$http', '$location',
+    function($scope, $rootScope, $http, $location) {
         $rootScope.loginInfo = {
             status: false
         };
@@ -20,6 +20,23 @@ tlApp.config(['$routeProvider', function($routeProvider) {
         $scope.showRegist = function() {
             $('#registFormError').css('display', 'none');
             $('#registWindow').modal('show');
+        };
+       // 退出登陆
+        $scope.logout = function() {
+            var req = {
+                method: 'POST',
+                url: '/user/logout',
+                headers: {
+                },
+                data: {}
+            };
+            $http(req).success(function(data) {
+                $scope.user = null;
+                $scope.loginInfo.status = false;
+            });
+            if ($location.url() != '' || $location.url()!= '/') {
+                $location.url('');
+            }
         };
     }
 ]);

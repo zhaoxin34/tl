@@ -5,12 +5,54 @@ from . import base_handler
 from tornado.log import app_log
 # from mongodb_client import client as dbclient
 from tornado import gen
+from config import config
+import hashlib
+import datetime
 
 def addHandlers(application):
     application.add_handlers(r".*", [(r"/user/check", UserCheckHandler)])
     application.add_handlers(r".*", [(r"/user/login", UserLoginHandler)])
+    application.add_handlers(r".*", [(r"/user/logout", UserLogoutHandler)])
     application.add_handlers(r".*", [(r"/user/autologin", UserAutoLoginHandler)])
     application.add_handlers(r".*", [(r"/user/submitRegist", SubmitRegistHandler)])
+    application.add_handlers(r".*", [(r"/user/upload", UserUploadHandler)])
+    application.add_handlers(r".*", [(r"/user/submitTlCreate", SubmitTlCreateHandler)])
+
+class SubmitTlCreateHandler(base_handler.BaseHandler):
+    """
+        提交创建时间事件的处理器
+    """
+
+    def post(self):
+        self.writeData(None, None)
+
+class UserUploadHandler(base_handler.BaseHandler):
+    """
+        upload file
+    """
+
+    def post(self):
+        # app_log.info(self.request.files)
+        file = self.request.files['file'][0]
+        original_fname = file['filename']
+
+        time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        md5 = hashlib.md5()
+        md5.update((time + original_fname).encode())
+        hash_file_name = md5.hexdigest() + '.' + original_fname.split('.')[1]
+        output_file_name = config['upload']['storage_folder'] + hash_file_name
+        with open(output_file_name, 'wb') as fi:
+            fi.write(file['body'])
+        self.writeData(None, {'filename': hash_file_name})
+
+class UserLogoutHandler(base_handler.BaseHandler):
+    """
+        退出登录
+    """
+
+    def post(self):
+        self.clear_all_cookies()
+        self.getSession().clear()
 
 
 class UserAutoLoginHandler(base_handler.BaseHandler):

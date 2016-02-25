@@ -1,0 +1,229 @@
+<div class="container-fluid">
+	<div class="space-10"></div>
+  <div class="row">
+  	<form id="tlCreateForm" name="tlCreateForm" class="form-horizontal" role="form" ng-submit="submitTlCreate()">
+    <!-- {{{ BEGIN 左边输入 -->
+    	<div class="col-sm-4">
+        <div class="form-group" ng-class="{ 'has-error': tlCreateForm.title.$touched && tlCreateForm.title.$invalid }">
+          <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="title">标题:</label>
+          <div class="col-xs-12 col-sm-9">
+            <div class="clearfix">
+              <input type="text" name="title" ng-maxlength="40" ng-minlength="4" placeholder="输入标题" ng-model="tl.title" class="col-xs-12 col-sm-12" aria-required="true" aria-invalid="true" required>
+            </div>
+            <div ng-show="tlCreateForm.$submitted || tlCreateForm.title.$touched">
+              <div class="help-block" ng-show="tlCreateForm.title.$error.required">请输入标题</div>
+              <div class="help-block" ng-show="tlCreateForm.title.$error.minlength">标题长度不能小于4个字符</div>
+              <div class="help-block" ng-show="tlCreateForm.title.$error.maxlength">标题长度不能大于40个字符</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+					<label class="control-label col-xs-12 col-sm-3 no-padding-right">全天事件:</label>
+
+					<div class="col-xs-12 col-sm-9">
+						<div style="margin-top: 6px;">
+							<label>
+								<input name="subscription" value="1" type="checkbox" class="ace" ng-model="tl.isDayEvent"/>
+								<span class="lbl"> 是全天事件 </span>
+							</label>
+						</div>
+					</div>
+				</div>
+
+        <div class="form-group">
+          <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="startDate">开始时间:</label>
+          <div class="col-xs-12 col-sm-9">
+            <div class="clearfix">
+	            <div class="input-group">
+	            	<input id="startDate" name="startDate" type="text" datetimepicker ng-model="tl.startDate" class="form-control col-xs-12 col-sm-9" required>
+								<span class="input-group-addon">
+									<i class="fa fa-clock-o bigger-110"></i>
+								</span>
+							</div>
+            </div>
+            <div ng-show="tlCreateForm.$submitted || tlCreateForm.startDate.$touched">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': tlCreateForm.endDate.$touched && tlCreateForm.endDate.$invalid }" ng-show="!tl.isDayEvent">
+          <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="endDate">结束时间:</label>
+          <div class="col-xs-12 col-sm-9">
+            <div class="clearfix">
+	            <div class="input-group">
+	            	<input id="endDate" type="text" datetimepicker ng-model="tl.endDate" class="form-control col-xs-12 col-sm-9" required>
+								<span class="input-group-addon">
+									<i class="fa fa-clock-o bigger-110"></i>
+								</span>
+							</div>
+            </div>
+            <div ng-show="tlCreateForm.$submitted || tlCreateForm.endDate.$touched">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': tlCreateForm.eventTemplete.$touched && tlCreateForm.eventTemplete.$invalid }">
+          <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="eventTemplete">事件模板:</label>
+          <div class="col-xs-12 col-sm-9">
+            <div class="clearfix">
+            	<select>
+            		<option>option1</option>
+            		<option>option2</option>
+            		<option>option3</option>
+            		<option>option4</option>
+            	</select>
+            </div>
+            <div ng-show="tlCreateForm.$submitted || tlCreateForm.eventTemplete.$touched">
+              <div class="help-block" ng-show="tlCreateForm.eventTemplete.$error.required">请输入标题</div>
+              <div class="help-block" ng-show="tlCreateForm.eventTemplete.$error.minlength">标题长度不能小于4个字符</div>
+              <div class="help-block" ng-show="tlCreateForm.eventTemplete.$error.maxlength">标题长度不能大于20个字符</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': tlCreateForm.eventIcon.$touched && tlCreateForm.eventIcon.$invalid }">
+          <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="eventIcon">事件图标:</label>
+          <div class="col-xs-12 col-sm-9">
+            <div class="clearfix">
+            	<select>
+            		<option>option1</option>
+            		<option>option2</option>
+            		<option>option3</option>
+            		<option>option4</option>
+            	</select>
+            </div>
+            <div ng-show="tlCreateForm.$submitted || tlCreateForm.eventIcon.$touched">
+              <div class="help-block" ng-show="tlCreateForm.eventIcon.$error.required">请输入标题</div>
+              <div class="help-block" ng-show="tlCreateForm.eventIcon.$error.minlength">标题长度不能小于4个字符</div>
+              <div class="help-block" ng-show="tlCreateForm.eventIcon.$error.maxlength">标题长度不能大于20个字符</div>
+            </div>
+          </div>
+        </div>
+	    </div> <!-- }}} END 左边输入 -->
+
+	    <!-- {{{ BEGIN 文本框 -->
+	    <div class="col-sm-4">
+	        <div class="form-group">
+	          <label class="control-label col-xs-12 col-sm-12" style="text-align: left;" for="tlContent">文本内容:</label>
+	          <div class="col-xs-12 col-sm-12">
+              <div class="clearfix tl-content-text-container">
+                <textarea class="tl-content-text" id="tlContent" name="content" ng-model="tl.content"></textarea>
+  	          </div>
+            </div>
+	        </div>
+	    </div> <!-- }}} END 文本框 -->
+
+	    <!-- {{{ BEGIN 图片框 -->
+	    <div class="col-sm-4" >
+	    	<div class="form-group" ng-class="{ 'has-error': !isUploadSuccess && isUploaded, 'has-success': isUploadSuccess && isUploaded}">
+	    		<label class="control-label col-xs-12 col-sm-12" style="text-align: left;">图片内容:</label>
+					<div class="col-sm-12">
+						<div class="clearfix tl-content-image-container">
+							<div class="tl-image-upload-container" ngf-select ng-model="tl.image" accept="image/*" ng-show="!tl.image">
+								<h3>上传图片</h3>
+								<span><i class=" ace-icon ace-icon fa fa-cloud-upload" ></i></span>
+							</div> <!-- }}} END image container -->
+							<img class="img-responsive tl-content-image" ng-show="tl.image" ngf-src="tl.image"/>
+
+              <span class="btn btn-xs btn-primary" ng-click="uploadImage()" ng-show="tl.image && !isUploading && !isUploaded">
+                上传
+                <i class="ace-icon fa fa-upload icon-on-right"></i>
+              </span>
+							<span class="btn btn-xs btn-danger" ng-click="clearUploadImage()" ng-show="tl.image">
+                清除
+								<i class="ace-icon fa fa-remove icon-on-right"></i>
+							</span>
+						</div>
+            <div ng-show="isUploaded">
+              <div class="help-block" ng-show="isUploadSuccess">上传成功！</div>
+              <div class="help-block" ng-show="!isUploadSuccess">上传失败-_-!</div>
+            </div>
+					</div>
+				</div><!-- }}} END for group -->
+	    </div><!-- }}} END col -->
+      <div class="col-sm-12 text-right">
+          <button type="submit" class="btn btn-primary" ng-disabled="loading"><i class="ace-icon glyphicon glyphicon-plus"></i>创建时间事件</button>
+      </div>
+	  </form>
+	</div><!-- }}} END row -->
+
+  <div class="row">
+  	<div class="col-sm-2"></div>
+    <!-- {{{ BEGIN 右边时间框 -->
+    <div class="col-sm-8">
+    	<div class="container-fluid">
+    		<div class="row tl-event-container">
+          <!-- {{{ BEGIN tl right -->
+          <div class="col-md-6 left">
+            <article>
+              <header>
+                <h4 class="date" ng-style="{'visibility': !tl.isDayEvent?'visible':'hidden'}">{{ tl.startDate | toDate | date: 'yyyy年MM月dd日'}}</h4>
+                <h5 class="time" ng-style="{'visibility': !tl.isDayEvent?'visible':'hidden'}">{{ tl.startDate | toDate | date: 'HH:mm'}}</h5>
+                <section class="image-container">
+                  <span><img class="img-responsive image" ng-show="tl.image" ngf-src="tl.image"/></span>
+                </section>
+              </header>
+              <section>
+              </section>
+            </article>
+          </div><!-- }}} END tl right -->
+    			<!-- {{{ BEGIN tl left -->
+    			<div class="col-md-6 right">
+    				<article>
+    					<header>
+    						<h4 class="date">{{ tl.endDate | toDate | date: 'yyyy年MM月dd日'}}</h4>
+    						<h5 class="time">{{ tl.endDate | toDate | date: 'HH:mm'}}</h5>
+    					</header>
+              <section class="content-container" >
+                <h4 class="title"> {{tl.title}} </h4>
+                <p class="content" ng-bind="tl.content"> </p>
+              </section>
+    				</article>
+    			</div><!-- }}} END tl left -->
+    		</div>
+    	</div>
+    </div>
+    <!-- }}} END 右边时间框 -->
+  	<div class="col-sm-2"></div>
+  </div><!-- }}} END row -->
+</div><!-- }}} END container -->
+<link href="/static/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<script src="/static/lib/bootstrap-datetimepicker/moment-with-locales.js"></script>
+<script src="/static/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+			// $('#startDate').datetimepicker({
+			// 	locale: 'zh-cn',
+			// 	format: 'YYYY-MM-DD HH:mm'
+			//   //   defaultDate: "11/1/2013",
+			//   //   disabledDates: [
+			//   //       moment("12/25/2013"),
+			//   //       new Date(2013, 11 - 1, 21),
+			//   //       "11/22/2013 00:53"
+			//   //   ],
+			// 		// icons: {
+   //   //        time: "fa fa-clock-o",
+   //   //        date: "fa fa-calendar",
+   //   //        up: "fa fa-arrow-up",
+   //   //        down: "fa fa-arrow-down"
+   //   //    }
+   //    });
+			// $('#enddate').datetimepicker({});
+			// $('#tlContent').summernote({
+			//   toolbar: [
+			//     // [groupName, [list of button]]
+			//     ['style', ['bold', 'italic', 'underline', 'clear']],
+			//     ['font', ['strikethrough', 'superscript', 'subscript']],
+			//     ['fontsize', ['fontsize']],
+			//     ['color', ['color']],
+			//     ['para', ['ul', 'ol', 'paragraph']],
+			//     ['height', ['height']]
+			//   ],
+			//   // focus: true,
+			//   height:250,
+			//   // airMode: true
+			// });
+    });
+</script>

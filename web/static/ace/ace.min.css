@@ -1380,9 +1380,10 @@ pre.prettyprint {
     color: #fff;
     font-size: 24px;
     text-shadow: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: auto
+    height: auto;
+}
+.navbar-brand {
+    padding:0 !important;
 }
 
 .navbar .navbar-brand:hover,
@@ -1392,8 +1393,8 @@ pre.prettyprint {
 
 @media only screen and (min-width: 992px) {
     .navbar-container {
-        padding-left: 10px;
-        padding-right: 10px
+        padding-left: 30px;
+        padding-right: 30px
     }
 }
 

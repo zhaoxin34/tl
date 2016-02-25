@@ -38,8 +38,8 @@ class BaseHandler(tornado.web.RequestHandler):
             md5.update((ua + ip + time).encode())
             cookieId = md5.hexdigest()
             Session.createSession(cookieId)
-            app_log.debug('set cookie id ' + cookieId)
-            self.set_cookie('cookie_id', cookieId, expires_days=30)
+            app_log.info('set cookie id ' + cookieId)
+            self.set_cookie('cookie_id', cookieId, path="/", expires_days=30)
 
         self.cookieId = cookieId
         self.db = self.settings['db']

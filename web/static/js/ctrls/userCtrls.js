@@ -24,8 +24,8 @@ tlApp.directive('ensureUnique', function($http) {
     };
 })
 // 登陆退出以及用户信息controller
-.controller('loginCtrl', ['$scope', '$http', '$rootScope',
-    function($scope, $http, $rootScope) {
+.controller('loginCtrl', ['$scope', '$http', '$rootScope', '$location',
+    function($scope, $http, $rootScope, $location) {
         // 初始化参数
     	$scope.user = {username: '', password: ''};
         $scope.loginInfo = {
@@ -57,20 +57,7 @@ tlApp.directive('ensureUnique', function($http) {
                 }
             });
         };
-        // 退出登陆
-        $scope.logout = function() {
-            var req = {
-                method: 'POST',
-                url: '/user/logout',
-                headers: {
-                },
-                data: {}
-            };
-            $http(req).success(function(data) {
-                $scope.user = {username: '', password: ''};
-                $scope.loginInfo.status = false;
-            });
-        };
+
         // 尝试自动登录
         $scope.tryAutoLogin = function() {
             var req = {
@@ -87,6 +74,8 @@ tlApp.directive('ensureUnique', function($http) {
                     $rootScope.loginInfo = {status: true};
                     $('#loginWindow').modal('hide');
                     $scope.loading = false;
+                } else if ($location.url() != '' || $location.url()!= '/') {
+                    $location.url('');
                 }
             });
         };
