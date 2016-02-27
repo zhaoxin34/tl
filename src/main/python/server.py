@@ -7,8 +7,10 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 
-import handler.user_handler
+# import handler.user_handler
+from handler.base_handler import BaseHandler
 from tornado.options import define, options
+from tornado.log import app_log
 import motor
 # from utils.logger import webLogger
 
@@ -45,6 +47,7 @@ class Application(tornado.web.Application):
 
 class HtmlHandler(tornado.web.StaticFileHandler):
     def get(self, path, include_body=True):
+        app_log.debug('HtmlHandler deal {0}'.format(path))
         tornado.web.StaticFileHandler.get(self, path + ".html", include_body)
 
     def set_extra_headers(self, path):
@@ -71,7 +74,8 @@ def main():
 
     # create application and load handlers
     application = Application()
-    handler.user_handler.addHandlers(application)
+    application.add_handlers(r".*", [(r"/.*\.do", BaseHandler)])
+    # handler.user_handler.addHandlers(application)
 
     # set process number, set listen port
     # sockets = tornado.netutil.bind_sockets(options.port)
@@ -84,7 +88,8 @@ def main():
 
     # server.add_sockets(sockets)
 
-    tornado.ioloop.IOLoop.instance().start()
+    app_log.info('IOLoop starting...')
+    tornado.ioloop.IOLoop.current().start()
 
 
 if __name__ == "__main__":

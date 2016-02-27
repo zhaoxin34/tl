@@ -31,6 +31,7 @@ tlApp.config(['$routeProvider', function($routeProvider) {
         }
 	});
 }])
+// 初始化时间控件
 .config([
     'datetimepickerProvider',
     function (datetimepickerProvider) {
@@ -46,6 +47,7 @@ tlApp.config(['$routeProvider', function($routeProvider) {
         });
     }
 ])
+// 将时间字符串转化成时间类型
 .filter('toDate', function() {
   return function(input) {
     if (!input)
@@ -53,32 +55,57 @@ tlApp.config(['$routeProvider', function($routeProvider) {
     return new Date(input);
   };
 })
-.config(function($provide) {
-    $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions) { // $delegate is the taOptions we are decorating
-        taRegisterTool('test', {
-            buttontext: 'Test',
-            action: function() {
-                alert('Test Pressed')
+// 处理ajax 系统级别的错误
+.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push(function ($q, $rootScope) {
+        return {
+            'response': function (response) {
+                if (response.data && response.data.header) {
+                    console.log(response.data);
+                    // 系统错误, 如数据库连接不上
+                    if (response.data.header.status <= -100) {
+                        $rootScope.message = response.data.header.errorMsg;
+                        $('#messageWindow').modal('show');
+                    }
+                }
+                return response;
+            },
+            // optional method
+            // 系统错误，如服务器连接不上
+           'responseError': function(rejection) {
+                $rootScope.message = '系统繁忙!';
+                $('#messageWindow').modal('show');
             }
-        });
-        taOptions.toolbar[1].push('test');
-        taRegisterTool('colourRed', {
-            iconclass: "fa fa-square red",
-            action: function() {
-                this.$editor().wrapSelection('forecolor', 'red');
-            }
-        });
-        // add the button to the default toolbar definition
-        taOptions.toolbar[1].push('colourRed');
-        taOptions.toolbar = [
-            ['h1', 'h2', 'h3', 'h4', 'p', 'pre', 'quote'],
-            ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
-            ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
-            ['insertImage','insertLink']
-        ];
-        taOptions.classes = {
-            toolbarButton: "btn btn-default btn-sm btn-white"
         };
-        return taOptions;
-    }]);
-});
+    });
+}]);
+// 富文本编辑器 配置项 目前暂时不用了
+// .config(function($provide) {
+//     $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions) { // $delegate is the taOptions we are decorating
+//         taRegisterTool('test', {
+//             buttontext: 'Test',
+//             action: function() {
+//                 alert('Test Pressed')
+//             }
+//         });
+//         taOptions.toolbar[1].push('test');
+//         taRegisterTool('colourRed', {
+//             iconclass: "fa fa-square red",
+//             action: function() {
+//                 this.$editor().wrapSelection('forecolor', 'red');
+//             }
+//         });
+//         // add the button to the default toolbar definition
+//         taOptions.toolbar[1].push('colourRed');
+//         taOptions.toolbar = [
+//             ['h1', 'h2', 'h3', 'h4', 'p', 'pre', 'quote'],
+//             ['bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear'],
+//             ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+//             ['insertImage','insertLink']
+//         ];
+//         taOptions.classes = {
+//             toolbarButton: "btn btn-default btn-sm btn-white"
+//         };
+//         return taOptions;
+//     }]);
+// });

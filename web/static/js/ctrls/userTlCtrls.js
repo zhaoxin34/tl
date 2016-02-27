@@ -18,14 +18,19 @@ tlApp.controller('userTlCtrls', ['$scope', '$http', '$rootScope', '$location', '
     	$scope.uploadImage = function() {
             $scope.isUploading = true;
     		Upload.upload({
-    		    url: '/user/upload',
+    		    url: '/user/tl@upload.do',
     		    data: {file: $scope.tl.image}
     		}).then(function (resp) {
-                $scope.tl.uploadedFilename = resp.data.body.filename;
-                $scope.isUploading = false;
-                $scope.isUploaded = true;
-                $scope.isUploadSuccess = true;
-                console.log($scope.tl);
+                if (resp.data.header.status == 0) {
+                    $scope.tl.uploadedFilename = resp.data.body.filename;
+                    $scope.isUploading = false;
+                    $scope.isUploaded = true;
+                    $scope.isUploadSuccess = true;
+                } else {
+                    $scope.isUploading = false;
+                    $scope.isUploaded = true;
+                    $scope.isUploadSuccess = false;
+                }
     		}, function (resp) {
                 $scope.isUploading = false;
                 $scope.isUploadSuccess = false;
@@ -39,7 +44,7 @@ tlApp.controller('userTlCtrls', ['$scope', '$http', '$rootScope', '$location', '
             $scope.loading = true;
             var req = {
                 method: 'POST',
-                url: '/user/submitTlCreate',
+                url: '/user/tl@submitTlCreate.do',
                 headers: {
                 },
                 data: $scope.tl

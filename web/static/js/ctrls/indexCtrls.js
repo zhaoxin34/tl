@@ -25,7 +25,7 @@ tlApp.config(['$routeProvider', function($routeProvider) {
         $scope.logout = function() {
             var req = {
                 method: 'POST',
-                url: '/user/logout',
+                url: '/user@logout.do',
                 headers: {
                 },
                 data: {}

@@ -7,7 +7,7 @@ tlApp.directive('ensureUnique', function($http) {
                 ngModel.$setValidity('checking', false);
                 $http({
                     method: 'POST',
-                    url: '/user/check',
+                    url: '/common@check.do',
                     data: {
                         field: attrs.ensureUnique,
                         value: ngModel.$modelValue
@@ -35,7 +35,7 @@ tlApp.directive('ensureUnique', function($http) {
         $scope.submitLogin = function() {
             var req = {
                 method: 'POST',
-                url: '/user/login',
+                url: '/user@login.do',
                 headers: {
                 },
                 data: $scope.user
@@ -62,7 +62,7 @@ tlApp.directive('ensureUnique', function($http) {
         $scope.tryAutoLogin = function() {
             var req = {
                 method: 'POST',
-                url: '/user/autologin',
+                url: '/user@autologin.do',
                 headers: {
                 },
                 data: {}
@@ -88,7 +88,7 @@ tlApp.directive('ensureUnique', function($http) {
             $scope.loading = true;
             var req = {
                 method: 'POST',
-                url: '/user/submitRegist',
+                url: '/user@regist',
                 headers: {
                 },
                 data: {
