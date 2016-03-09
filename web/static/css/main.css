@@ -9,19 +9,19 @@ body {
 	border-color: #fff !important;
 }
 .navbar-brand {
-	line-height: 50px;
+	line-height: 40px;
 }
 .nav-login-regist-button-container {
-	line-height: 50px;
+	line-height: 40px;
 }
 .nav-login-regist-button-container > .btn {
 	width: 100px;
 	margin-left: 15px;
 }
 .navbar .navbar-nav>li>a {
-	height: 50px;
-	line-height: 50px;
-	padding: 0 10px 0 10px;
+	height: 40px;
+	line-height: 40px;
+	// padding: 0 10px 0 10px;
 }
 a.nav-create-tl {
 }
@@ -38,7 +38,7 @@ a.nav-create-tl {
     max-width: 40px;
 }
 .user-info {
-	padding-top: 8px;
+	padding-top: 4px;
 }
 .nav-userinfo > li.green > a {
 	background-color: #2e8965;

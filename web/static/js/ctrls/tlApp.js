@@ -1,4 +1,4 @@
-var tlApp = angular.module('tlApp', ['ngRoute', 'ngMessages','datetimepicker', 'textAngular', 'ngFileUpload']);
+var tlApp = angular.module('tlApp', ['ngRoute', 'ngMessages','datetimepicker',  'ngFileUpload']);
 tlApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
@@ -12,6 +12,10 @@ tlApp.config(['$routeProvider', function($routeProvider) {
         .when('/user/tl/create', {
             templateUrl: '/views/user/tl/create.html',
             controller: 'userTlCtrls'
+        })
+        .when('/timeline', {
+            templateUrl: '/views/timeline.html',
+            controller: 'timeline'
         })
         .otherwise({
             redirectTo: ''
@@ -61,7 +65,6 @@ tlApp.config(['$routeProvider', function($routeProvider) {
         return {
             'response': function (response) {
                 if (response.data && response.data.header) {
-                    console.log(response.data);
                     // 系统错误, 如数据库连接不上
                     if (response.data.header.status <= -100) {
                         $rootScope.message = response.data.header.errorMsg;

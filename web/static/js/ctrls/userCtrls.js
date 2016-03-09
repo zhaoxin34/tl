@@ -74,7 +74,8 @@ tlApp.directive('ensureUnique', function($http) {
                     $rootScope.loginInfo = {status: true};
                     $('#loginWindow').modal('hide');
                     $scope.loading = false;
-                } else if ($location.url() != '' || $location.url()!= '/') {
+                } // 登录失败
+                else if ($location.url() != '' || $location.url()!= '/') {
                     $location.url('');
                 }
             });

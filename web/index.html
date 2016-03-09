@@ -17,7 +17,6 @@
   <link rel="stylesheet" type="text/css" href="static/ace/ace.min.css">
   <!-- Bootstrap theme -->
   <!-- <link href="static/bootstrap-3.3.4/css/bootstrap-theme.css" rel="stylesheet" /> -->
-  <link href="/static/lib/textAngular/textAngular.css" rel="stylesheet" type="text/css">
   <link href="static/css/main.css" rel="stylesheet" />
   <!-- Custom styles for this template -->
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -40,10 +39,17 @@
   <script src="static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
   <!-- <script type="text/javascript" src="static/lib/lightslider/js/lightslider.min.js"></script> -->
   <script src="/static/lib/ng-file-upload/ng-file-upload.min.js"></script>
-  <script src="/static/lib/textAngular/textAngular-sanitize.min.js"></script>
+<!--   <script src="/static/lib/textAngular/textAngular-sanitize.min.js"></script>
   <script src="/static/lib/textAngular/textAngular-rangy.min.js"></script>
   <script src="/static/lib/textAngular/textAngular.min.js"></script>
-  <script src="/static/lib/bootstrap-datetimepicker/angular-bootstrap-datetimepicker-directive.js"></script>
+ -->  <script src="/static/lib/bootstrap-datetimepicker/angular-bootstrap-datetimepicker-directive.js"></script>
+
+  <!-- {{{ BEGIN timeline
+  <link rel="stylesheet" href="/static/lib/timelinejs/css/timeline.css">
+  <link rel="stylesheet" href="/static/lib/timelinejs/css/fonts/font.default.css">
+  <script src="/static/lib/timelinejs/js/timeline.js"></script>
+  <script src="/static/js/ctrls/timeline.js"></script>
+ -->
   <script src="/static/js/ctrls/tlApp.js"></script>
   <script src="/static/js/ctrls/userCtrls.js"></script>
   <script src="/static/js/ctrls/indexCtrls.js"></script>
@@ -75,36 +81,61 @@
       <!-- }}} BEGIN regist login buuton -->
 
       <!-- {{{ BEGIN user info -->
-      <ul class="nav navbar-nav navbar-right nav-userinfo" ng-show="loginInfo.status">
-        <li class="green">
-          <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);" aria-expanded="false">
-            <i class="ace-icon fa fa-envelope"></i>
-            <span class="badge badge-success">5</span>
-          </a>
-        </li>
-        <li class="light-blue">
-          <a data-toggle="dropdown" href="javascript:void(0);" class="dropdown-toggle" aria-expanded="false">
-            <img class="nav-user-photo" src="/static/img/ace/user.jpg" alt="Jason's Photo">
-            <span class="user-info"> <small>Welcome,</small> {{user.username}} </span>
-            <i class="ace-icon fa fa-caret-down"></i>
-          </a>
-          <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-            <li>
-              <a href="#/user/tl/create"> <i class="ace-icon glyphicon glyphicon-plus"></i> 创建时间事件 </a>
-            </li>
-            <li>
-              <a href="#/user/userinfo"> <i class="ace-icon fa fa-user"></i> 用户信息 </a>
-            </li>
-            <li>
-              <a href="profile.html"> <i class="ace-icon fa fa-cog"></i> 重置密码 </a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="javascript:void(0);" ng-click="logout()"> <i class="ace-icon fa fa-power-off"></i> 退出 </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div class="navbar-buttons navbar-header pull-right nav-userinfo" role="navigation">
+        <ul class="nav ace-nav " ng-show="loginInfo.status">
+          <li class="blue">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#/user/tl/create">
+              <i class="ace-icon glyphicon glyphicon-plus"></i>
+              故事
+            </a>
+          </li>
+          <!-- {{{ BEGIN 粉丝 -->
+          <li class="pink">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="ace-icon fa fa-users icon-animated-bell"></i>
+              <span class="badge badge-pink">8</span>
+            </a>
+            <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close"></ul>
+          </li>
+          <!-- {{{ BEGIN 新信息 -->
+          <li class="green">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);" aria-expanded="false">
+              <i class="ace-icon fa fa-envelope"></i>
+              <span class="badge badge-success">5</span>
+            </a>
+          </li>
+          <!-- {{{ BEGIN 新粉丝 -->
+          <li class="red">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+              <i class="ace-icon fa fa-heart icon-animated-wrench"></i>
+              <span class="badge badge-danger">99</span>
+            </a>
+            <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close"></ul>
+          </li>
+          <li class="light-blue">
+            <a data-toggle="dropdown" href="javascript:void(0);" class="dropdown-toggle" aria-expanded="false">
+              <img class="nav-user-photo" src="/static/img/ace/user.jpg" alt="Jason's Photo">
+              <span class="user-info"> <small>时间的朋友,</small> {{user.username}} </span>
+              <i class="ace-icon fa fa-caret-down"></i>
+            </a>
+            <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+              <li>
+                <a href="#/user/userinfo"> <i class="ace-icon fa fa-user"></i> 用户信息 </a>
+              </li>
+              <li>
+                <a href="profile.html"> <i class="ace-icon fa fa-cog"></i> 重置密码 </a>
+              </li>
+              <li>
+                <a href="#/timeline"> <i class="ace-icon fa fa-cog"></i> 时间线 </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="javascript:void(0);" ng-click="logout()"> <i class="ace-icon fa fa-power-off"></i> 退出 </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
       <!-- }}} BEGIN user info -->
       <ng-include src="'views/user/login.html'"></ng-include>
       <ng-include src="'views/user/regist.html'"></ng-include>

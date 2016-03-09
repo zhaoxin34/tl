@@ -31,8 +31,8 @@ tlApp.config(['$routeProvider', function($routeProvider) {
                 data: {}
             };
             $http(req).success(function(data) {
-                $scope.user = null;
-                $scope.loginInfo.status = false;
+                $rootScope.user = null;
+                $rootScope.loginInfo.status = false;
             });
             if ($location.url() != '' || $location.url()!= '/') {
                 $location.url('');
