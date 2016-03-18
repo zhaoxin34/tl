@@ -141,3 +141,45 @@ img#avatar {
 	right: 0;
     margin: auto;
 }
+
+/****************** <<<<                        timeline  css                 ********************/
+.tl-his {
+	background-color: #aaa;
+}
+.tl-timeline {
+	background-color: #dda;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #999;
+}
+.tl-story {
+	background-color: #dee;
+}
+.tl-story-flag-roll {
+	background-color: #f00;
+}
+.tl-story-flag {
+	border: 1px solid #ff0;
+}
+.tl-story-eventbox {
+	background-color: #aaa;
+}
+.tl-story-flag-top {
+	border: 2px solid #000;
+}
+.tl-story-flag-separator {
+	height: 42px; width: 4px; border-radius: 2px; background-color: #aaa;position: absolute; top:5px; left: 5px;
+}
+.tl-story-flag-title {
+	margin-top: 5px; margin-left: 10px;font-size: 16px;font-family: 黑体;
+	height: 24px;
+	line-height: 24px;
+	overflow: hidden;
+}
+.tl-story-flag-timestamp {
+	margin-left: 10px;font-size: 8px; font-family: arial;
+}
+.tl-story-flag-content {
+	overflow: hidden;
+}
+/****************** >>>>>                       timeline  css                 ********************/
