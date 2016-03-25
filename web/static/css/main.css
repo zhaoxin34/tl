@@ -144,42 +144,97 @@ img#avatar {
 
 /****************** <<<<                        timeline  css                 ********************/
 .tl-his {
-	background-color: #aaa;
+	background-color: #616D7D;
 }
 .tl-timeline {
-	background-color: #dda;
+	background-color: #242A30;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
 	font-size: 11px;
-	color: #999;
+	color: #fff;
+}
+.tl-timeline-unit {
+	background-color: #616D7D;
 }
 .tl-story {
-	background-color: #dee;
+	background-color: #2D353C;
 }
 .tl-story-flag-roll {
-	background-color: #f00;
+	background-color: #555;
+}
+.tl-story-flag-tail {
+	border-right-color: #616D7D !important;
 }
 .tl-story-flag {
-	border: 1px solid #ff0;
+	border: 1px solid #555;
+	background-color: #555;
 }
 .tl-story-eventbox {
-	background-color: #aaa;
+	background-color: #616D7D;
 }
 .tl-story-flag-top {
-	border: 2px solid #000;
+	border: 2px solid #555;
 }
 .tl-story-flag-separator {
 	height: 42px; width: 4px; border-radius: 2px; background-color: #aaa;position: absolute; top:5px; left: 5px;
 }
 .tl-story-flag-title {
-	margin-top: 5px; margin-left: 10px;font-size: 16px;font-family: 黑体;
+	margin-top: 5px; margin-left: 12px;font-size: 14px;font-family: 黑体;
 	height: 24px;
 	line-height: 24px;
 	overflow: hidden;
+	color: #fff;
 }
 .tl-story-flag-timestamp {
-	margin-left: 10px;font-size: 8px; font-family: arial;
+	margin-left: 12px;font-size: 8px; font-family: arial;
+	color:#fff;
 }
-.tl-story-flag-content {
+.tl-story-flag-event {
+	background-color: #fff;
 	overflow: hidden;
+}
+.tl-story-flag-event-image {
+	width:60px; height: 60px; float: left; margin-left: 4px; margin-top: 8px;
+}
+.tl-story-flag-event-content {
+	margin-top: 6px;
+	height: 65px;
+	margin-left: 70px;
+	overflow: hidden;
+}
+ul.tl-zoom {
+  list-style: none;
+  font-size: 0;
+}
+ul.tl-zoom > li {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  background-color: #fff;
+  cursor: pointer;
+  vertical-align: top;
+}
+ul.tl-zoom > li > i {
+  line-height: 28px;
+  font-size: 18px;
+  font-weight: 0;
+  color: #aaa;
+}
+ul.tl-zoom > li:first-child {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  text-align: left;
+  padding-left: 12px;
+}
+ul.tl-zoom > li:last-child {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  text-align: right;
+  padding-right: 12px;
 }
 /****************** >>>>>                       timeline  css                 ********************/

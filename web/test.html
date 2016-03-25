@@ -54,7 +54,7 @@
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+<style >/* Copyright 2014 Evernote Corporation. All rights reserved. */
 .en-markup-crop-options {
     top: 18px !important;
     left: 50% !important;
@@ -66,6 +66,38 @@
 
 .en-markup-crop-options div div:first-of-type {
     margin-left: 0px !important;
+}
+ul#zoom {
+  list-style: none;
+  font-size: 0;
+}
+ul#zoom > li {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+}
+ul#zoom > li > i {
+  line-height: 28px;
+  font-size: 18px;
+  font-weight: 0;
+}
+ul#zoom > li:first-child {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  text-align: left;
+  padding-left: 12px;
+}
+ul#zoom > li:last-child {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  text-align: right;
+  padding-right: 12px;
 }
 </style></head>
 
@@ -82,8 +114,19 @@
   <div style="width: 400px; height:80px; border: 1px solid #000;">
   <div class="tl-story-flag-content">
     <img src="http://localhost:8888/static/img/ace/user.jpg" style="width:60px; height: 60px; float: left; margin-left: 8px; margin-top: 8px;">
-    <div style="margin-left: 80px; margin-top: 8px;">安东尼奥，真的，我不知道我为什么这样闷闷不乐安东尼奥，真的，我不知道我为什么这样闷闷不乐安东尼奥，真的，我不知道我为什么这样闷闷不乐</div>
+    <div style="margin-left: 80px; margin-top: 8px;">
+
+    安东尼奥，真的，我不知道我为什么这样闷闷不乐安东尼奥，真的，我不知道我为什么这样闷闷不乐安东尼奥，真的，我不知道我为什么这样闷闷不乐</div>
+
   </div>
   </div>
+  <ul id="zoom">
+    <li>
+      <i class="fa fa-plus-circle"></i>
+    </li>
+    <li>
+      <i class="fa fa-minus-circle"></i>
+    </li>
+  </ul>
 </body>
 </html>

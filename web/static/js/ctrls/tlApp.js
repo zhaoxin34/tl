@@ -15,7 +15,7 @@ tlApp.config(['$routeProvider', function($routeProvider) {
         })
         .when('/timeline', {
             templateUrl: '/views/timeline.html',
-            controller: 'timeline'
+            controller: 'timelineCtrls'
         })
         .otherwise({
             redirectTo: ''

@@ -9,13 +9,22 @@ tlApp.directive('timeline', function($compile) {
             height: 400,
             maxDatetime: '2016-01-01',
             minDatetime: '2000-01-01',
-            currentDatetime: null, // 现在时间, null 代表现在
+            currentDatetime: '2016-03-19', // 现在时间, null 代表现在
             css: {},
             'clazz': 'tl-his',
 
+            zoomOptions: {
+                top: 0,
+                width: 120,
+                height: 32,
+                zoomScales:['hours', 'days', 'weeks', 'months', 'years'],
+                css: {
+                    'z-index': 100001
+                }
+            },
             /** @type {options} timeline options */
             timelineOptions: {
-                height:40,
+                height: 38,
                 css: {
                     overflow: 'hidden',
                     cursor: 'move'
@@ -28,8 +37,8 @@ tlApp.directive('timeline', function($compile) {
                     timeUnitVLineWidthPx: 2, // 刻度竖线宽度
                     timeUnitVLineHeightPx: 10, // 刻度竖线高度
                     timeUnitCss: {
-                        'background-color': '#aaa'
                     },
+                    timeUnitClazz: 'tl-timeline-unit',
                     css: {
 
                     }
@@ -46,15 +55,15 @@ tlApp.directive('timeline', function($compile) {
                     css: {},
                     // 旗杆
                     flagRoll: {
-                        minLength: 20,
+                        minLength: 8,
                         css: {},
                         clazz: 'tl-story-flag-roll'
                     },
                     // 旗
                     flag: {
-                        width: 200,
+                        width: 180,
                         tailWidth: 20,
-                        tailColor: '#aaa',
+                        tailClazz: 'tl-story-flag-tail',
                         height: 80,
                         css: {
                             'padding-right': '20px',
@@ -63,15 +72,16 @@ tlApp.directive('timeline', function($compile) {
                         clazz: 'tl-story-flag'
                     },
                     eventBox: {
-                        perEventWidth: 150,
+                        perEventWidth: 200,
+                        margin:4,
                         css: {
                             'overflow': 'hidden'
                         },
                         clazz: 'tl-story-eventbox'
                     },
                     flagTop: {
-                        bulgeLength: 10,
-                        ballRadius: 13,
+                        bulgeLength: 5,
+                        ballRadius: 8,
                         ballCss: {
                             'border-radius': '50%'
                         },
@@ -248,10 +258,10 @@ tlApp.directive('timeline', function($compile) {
             });
         },
         destory: function() {
-            this.client.remove();
             this.childrenPanel.foreach(function(panel){
                 panel.destory();
             });
+            this.client.remove();
         },
         createRect: function(rect, css, clazz) {
             var rectEle = $('<div></div>');
@@ -294,6 +304,28 @@ tlApp.directive('timeline', function($compile) {
             clientInfo.width = options.width? options.width : clientInfo.width;
             this.loadStoryCallback = options.handlers.loadStory;
             this._super(id, null, container, clientInfo, options);
+        },
+        create: function() {
+            this._super();
+            var clientInfo = this.clientInfo;
+            var options = this.options;
+            // 设置现在、开始、结束时间
+            this.currentDatetime = new Date();
+            if (options.currentDatetime) {
+                this.currentDatetime = new Date(options.currentDatetime);
+            }
+            if (options.maxDatetime) {
+                this.maxDatetime = new Date(options.maxDatetime);
+            }
+            if (this.maxDatetime && this.maxDatetime.getTime() < this.currentDatetime.getTime()) {
+                this.maxDatetime = this.currentDatetime;
+            }
+            if (options.minDatetime) {
+                this.minDatetime = new Date(options.minDatetime);
+            }
+            if (this.minDatetime && this.minDatetime.getTime() > this.currentDatetime.getTime()) {
+                this.minDatetime = this.currentDatetime;
+            }
 
             var timelineOptions = options.timelineOptions;
             var timelineClientInfo = {
@@ -317,23 +349,16 @@ tlApp.directive('timeline', function($compile) {
             var timelinePanel = new TimelinePanel('timeline', this, this.client, timelineClientInfo, timelineOptions);
             this.addChildPanel(timelinePanel);
 
-            // 设置现在、开始、结束时间
-            this.currentDatetime = new Date();
-            if (options.currentDatetime) {
-                this.currentDatetime = new Date(options.currentDatetime);
-            }
-            if (options.maxDatetime) {
-                this.maxDatetime = new Date(options.maxDatetime);
-            }
-            if (this.maxDatetime && this.maxDatetime.getTime() < this.currentDatetime.getTime()) {
-                this.maxDatetime = this.currentDatetime;
-            }
-            if (options.minDatetime) {
-                this.minDatetime = new Date(options.minDatetime);
-            }
-            if (this.minDatetime && this.minDatetime.getTime() > this.currentDatetime.getTime()) {
-                this.minDatetime = this.currentDatetime;
-            }
+            var zoomOptions = options.zoomOptions;
+            var zoomClientInfo = {
+                left: clientInfo.width / 2 - zoomOptions.width / 2,
+                top: zoomOptions.top,
+                width: zoomOptions.width,
+                height: zoomOptions.height
+            };
+
+            var zoomPanel = new ZoomPanel('zoom', this, this.client, zoomClientInfo, zoomOptions);
+            this.addChildPanel(zoomPanel);
         },
         onLoadTimeline: function(startMoment, endMoment, left, right){
             var storyList = this.loadStoryCallback(startMoment, endMoment);
@@ -350,6 +375,51 @@ tlApp.directive('timeline', function($compile) {
         },
         onTimelineDragEnd: function(e) {
             this.storyPanel.onDragEnd(e);
+        },
+        onZoom: function(inOrOut) {
+            var zoomScales = this.options.zoomOptions.zoomScales;
+            var curZoomScale = this.options.timelineOptions.timelineSliceOptions.timeUnitSpan;
+            var i=0;
+            for (i=0; i<zoomScales.length; i++) {
+                if (zoomScales[i] == curZoomScale){
+                    break;
+                }
+            }
+            if (inOrOut) {
+                i++;
+            } else{
+                i--;
+            }
+            if (i<0 || i>= zoomScales.length){
+                return;
+            }
+
+            this.options.timelineOptions.timelineSliceOptions.timeUnitSpan = zoomScales[i];
+
+            this.destory();
+            this.create();
+        }
+    });
+
+    var ZoomPanel = Panel.extend({
+        template: '  <ul class="tl-zoom"><li><i class="fa fa-minus-circle"></i></li><li><i class="fa fa-plus-circle"></i></li></ul>',
+        create: function() {
+            this._super();
+            var obj = this;
+            var client = this.client;
+            var ele = $(this.template);
+            client.append(ele);
+            ele.find('li').hover(function(){
+                $(this).find('.fa').css('font-size', '24px');
+            }, function() {
+                $(this).find('.fa').css('font-size', '18px');
+            });
+            ele.find('.fa-minus-circle').parent().click(function() {
+                obj.fireFatherEvent('onZoom', [true]);
+            });
+            ele.find('.fa-plus-circle').parent().click(function() {
+                obj.fireFatherEvent('onZoom', [false]);
+            });
         }
     });
 
@@ -482,7 +552,7 @@ tlApp.directive('timeline', function($compile) {
                     width: options.timeUnitVLineWidthPx,
                     height:options.timeUnitVLineHeightPx
                 };
-                var rectEle = this.createRect(scaleRect, options.timeUnitCss);
+                var rectEle = this.createRect(scaleRect, options.timeUnitCss, options.timeUnitClazz);
                 // 把刻度加入数组
                 var scale = {
                     i: i,
@@ -562,7 +632,9 @@ tlApp.directive('timeline', function($compile) {
         loadStory: function(startMoment, endMoment, left, right, storyList) {
             var clientInfo = this.clientInfo;
             var options = this.options;
-            var storyVCount = parseInt(clientInfo.height / (options.storyWidgetOptions.flag.height + options.storyWidgetOptions.flagRoll.minLength));
+            var storyVCount = parseInt(clientInfo.height / (options.storyWidgetOptions.flag.height +
+                    options.storyWidgetOptions.flagRoll.minLength + options.storyWidgetOptions.flagTop.ballRadius*2 +
+                    options.storyWidgetOptions.flagTop.bulgeLength));
             var oneFloorHeight = parseInt(clientInfo.height / storyVCount);
             if (!this.story2Arr) {
                 this.story2Arr = [];
@@ -607,7 +679,7 @@ tlApp.directive('timeline', function($compile) {
                 var flagWidgetClientInfo = {
                     left: storyLeft,
                     top: clientInfo.height - flagWidgetHeight,
-                    width: storyRight - storyLeft,
+                    width: Math.max((storyRight - storyLeft), (options.storyWidgetOptions.flag.width + options.storyWidgetOptions.eventBox.perEventWidth)),
                     height: flagWidgetHeight
                 };
                 if (!(floor in story2Arr)) {
@@ -618,7 +690,7 @@ tlApp.directive('timeline', function($compile) {
                 var  storyWidgetPanel = new StoryWidgetPanel('story_widget_' + story.id, this, this.client,
                         flagWidgetClientInfo, options.storyWidgetOptions, story,
                         {startMoment: startMoment, endMoment: endMoment, left: left, right: right});
-                storyWidgetPanel.drag();
+                // storyWidgetPanel.drag();
                 this.addChildPanel(storyWidgetPanel);
             }
         },
@@ -658,6 +730,7 @@ tlApp.directive('timeline', function($compile) {
         }
     }); // StoryPanel
 
+    var zindex = 100000;
     var StoryWidgetPanel = Panel.extend({
         /**
          * init
@@ -671,6 +744,7 @@ tlApp.directive('timeline', function($compile) {
         },
         create: function() {
             this._super();
+            this.client.css('z-index', zindex--);
             var clientInfo = this.clientInfo;
             var options = this.options;
             var story = this.story;
@@ -678,22 +752,22 @@ tlApp.directive('timeline', function($compile) {
             // draw flag roll
             this.createRect({
                 left: 0,
-                top: 0,
+                top: 2 * options.flagTop.ballRadius,
                 width: 1,
-                height: clientInfo.height
+                height: clientInfo.height - 2 * options.flagTop.ballRadius + options.flagTop.bulgeLength
             }, options.flagRoll.css, options.flagRoll.clazz);
 
             // draw flag ball
             this.createCircle({
                 x: 1,
-                y: 0 - options.flagTop.ballRadius,
+                y: 0 + options.flagTop.ballRadius,
                 r: options.flagTop.ballRadius
             }, options.flagTop.ballCss, options.flagTop.clazz);
 
             // draw flag face
             var flag = this.createRect({
                 left: 0,
-                top: options.flagTop.bulgeLength,
+                top: options.flagTop.bulgeLength + 2 * options.flagTop.ballRadius,
                 width: options.flag.width,
                 height: options.flag.height
             }, options.flag.css, options.flag.clazz);
@@ -706,22 +780,21 @@ tlApp.directive('timeline', function($compile) {
             //draw flag tail
             this.createRect({
                 left: options.flag.width - options.flag.tailWidth,
-                top:  options.flagTop.bulgeLength,
+                top: options.flagTop.bulgeLength + 2 * options.flagTop.ballRadius,
                 width: 0,
                 height: 0
             }, {
                 'border-top': options.flag.height / 2 + 'px solid transparent',
                 'border-bottom': options.flag.height/ 2 + 'px solid transparent',
-                'border-right': options.flag.tailWidth + 'px solid ' + options.flag.tailColor
-            });
+                'border-right': options.flag.tailWidth + 'px solid'
+            }, options.flag.tailClazz);
             // draw event box
             var box = this.createRect({
                 left: options.flag.width,
-                top: options.flagTop.bulgeLength,
+                top: options.flagTop.bulgeLength + 2 * options.flagTop.ballRadius,
                 width: clientInfo.width - options.flag.width,
                 height: options.flag.height
             }, options.eventBox.css, options.eventBox.clazz);
-
 
             // draw box content
             for (var i=0; i<story.events.length; i++) {
@@ -732,13 +805,14 @@ tlApp.directive('timeline', function($compile) {
                 var eleLeft = getXByDate(timelineInfo.startMoment, timelineInfo.endMoment, timelineInfo.left, timelineInfo.right, startDatetime);
                 eleLeft = eleLeft - clientInfo.left - options.flag.width;
                 var eventClientInfo = {
-                    left: Math.max(0, eleLeft),
-                    top: 0,
-                    width: options.eventBox.perEventWidth,
-                    height: options.flag.height
+                    left: Math.max(0, eleLeft) + options.eventBox.margin,
+                    top: 0 + options.eventBox.margin,
+                    width: options.eventBox.perEventWidth - options.eventBox.margin * 2,
+                    height: options.flag.height - options.eventBox.margin * 2
                 };
                 ele.css($.extend({}, eventClientInfo, {'position': 'absolute'}));
-                ele.text(e.content);
+                ele.find('.tl-story-flag-event-content').text(e.content);
+                ele.find('.tl-story-flag-event-image').attr('src', e.image);
             }
         }
     }); // end StoryWidgetPanel
@@ -751,7 +825,10 @@ tlApp.directive('timeline', function($compile) {
         '</div>';
 
     var flagStoryEventTemplate =
-        '<div class="tl-story-flag-content"></div>';
+        '<div class="tl-story-flag-event">' +
+        '<img src="" class="tl-story-flag-event-image">' +
+        '<div class="tl-story-flag-event-content">' +
+        '</div>';
     // Runs during compile
     return {
         // name: 'timeline',
@@ -762,8 +839,8 @@ tlApp.directive('timeline', function($compile) {
             $scope.loadStory = function(startMoment, endMoment) {
                 return [{
                     id: '1',
-                    startDatetime: '2016-03-16',
-                    endDatetime: '2016-03-18',
+                    startDatetime: '2016-03-19',
+                    endDatetime: '2016-03-20',
                     title: '桂林三日游',
                     events: [{
                         id: '1',
@@ -775,6 +852,25 @@ tlApp.directive('timeline', function($compile) {
                         id: '2',
                         startDatetime: '2016-03-17',
                         endDatetime: '2016-03-18',
+                        image: 'http://localhost:8888/static/img/ace/user.jpg',
+                        content: '安东尼奥，真的，我不知道我为什么这样闷闷不乐'
+                    }]
+                },
+                {
+                    id: '2',
+                    startDatetime: '2016-03-19 14:00',
+                    endDatetime: '2016-03-20 02:00',
+                    title: '桂林三日游桂林三日游桂林三日游桂林三日游',
+                    events: [{
+                        id: '1',
+                        startDatetime: '2016-03-18',
+                        endDatetime: '2016-03-18',
+                        image: 'http://localhost:8888/static/img/ace/user.jpg',
+                        content: '安安安安东尼奥，真的，我不知道我为什么这样闷闷不乐东尼奥，真的，我不知道我为什么这样闷闷不乐东尼奥，真的，我不知道我为什么这样闷闷不乐东尼奥，真的，我不知道我为什么这样闷闷不乐'
+                    }, {
+                        id: '2',
+                        startDatetime: '2016-03-19',
+                        endDatetime: '2016-03-20',
                         image: 'http://localhost:8888/static/img/ace/user.jpg',
                         content: '安东尼奥，真的，我不知道我为什么这样闷闷不乐'
                     }]
@@ -801,7 +897,7 @@ tlApp.directive('timeline', function($compile) {
                 ];
             };
         },
-        require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
+        require: '?ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
         restrict: 'AE', // E = Element, A = Attribute, C = Class, M = Comment
         template: '',
         // templateUrl: '',
