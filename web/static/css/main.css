@@ -143,6 +143,49 @@ img#avatar {
 }
 
 /****************** <<<<                        timeline  css                 ********************/
+.story-main {
+	float: left;
+	width: 360px;
+	background-color: #fafafa;
+}
+.story-main-header {
+	height: 65px;
+	width: 100%;
+}
+.timeline-main {
+	margin-left: 360px;
+}
+.timeline-main-inner {
+	width: 100%;
+	float: left;
+	min-height: 100%;
+}
+.timeline-main-inner-header {
+	height: 65px;
+	background-color: #fafafa;
+}
+.timeline-main-inner-header > ul {
+	display: inline;
+	list-style: none;
+	height: 65px;
+}
+.timeline-main-inner-header > ul > li {
+	display: inline-block;
+	height: 65px;
+	vertical-align: middle;
+}
+.timeline-main-inner-header > ul > li > img {
+	margin-top: 8px;
+	height: 48px;
+	width: 48px;
+	border-radius: 100%;
+	border: 2px solid #fff;
+}
+
+#timeline {
+	border: 1px solid #000;
+}
+
 .tl-his {
 	background-color: #616D7D;
 }
@@ -158,22 +201,7 @@ img#avatar {
 .tl-story {
 	background-color: #2D353C;
 }
-.tl-story-flag-roll {
-	background-color: #555;
-}
-.tl-story-flag-tail {
-	border-right-color: #616D7D !important;
-}
-.tl-story-flag {
-	border: 1px solid #555;
-	background-color: #555;
-}
-.tl-story-eventbox {
-	background-color: #616D7D;
-}
-.tl-story-flag-top {
-	border: 2px solid #555;
-}
+
 .tl-story-flag-separator {
 	height: 42px; width: 4px; border-radius: 2px; background-color: #aaa;position: absolute; top:5px; left: 5px;
 }
