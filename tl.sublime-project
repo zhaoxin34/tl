@@ -1,16 +1,27 @@
 {
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"/Library/Frameworks/Python.framework/Versions/2.7/bin/python\" -u \"$file\""
+		}
+	],
 	"folders":
 	[
 		{
-			"folder_exclude_patterns":
-			[
-				"logs", "node_modules", "__pycache__"
-			],
 			"file_exclude_patterns":
 			[
 				"*.log"
 			],
-			"path": "/Users/xinzhao/working/python/tl/"
+			"folder_exclude_patterns":
+			[
+				"logs",
+				"node_modules",
+				"__pycache__"
+			],
+			"path": "/Users/zhaoxin/working/python/tl/"
 		}
 	],
 	"settings":
@@ -19,12 +30,12 @@
 		{
 			"folders":
 			[
-			"/Users/xinzhao/working/python/tl/web/static/js/ctrls"
+				"/Users/zhaoxin/working/python/tl/web/static/js/ctrls"
 			]
 		},
 		"FuzzyFilePath":
 		{
 		},
-		"python_interpreter": "/usr/local/bin/python3"
+		"python_interpreter": "/Library/Frameworks/Python.framework/Versions/2.7/bin/python"
 	}
 }

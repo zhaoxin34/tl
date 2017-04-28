@@ -50,6 +50,12 @@ tlApp.directive('timeline', function($compile) {
                 },
                 clazz: 'tl-story',
                 storyWidgetOptions: {
+                	eventBoxWidth:150,
+                	eventBoxHeight: 60,
+                	eventBoxCss: {
+                    	border: '1px solid #fff'
+                	},
+                	eventBoxClazz: 'tl-story-widget-event-box',
 	                minWidth: 190,
 	                marginLeft: 10,
 	                marginRight: 10,
@@ -158,6 +164,11 @@ tlApp.directive('timeline', function($compile) {
 
     var Panel = Class.extend({
         init: function(id, panel, container, clientInfo, options) {
+            if (panel) {
+                this.topPanel = panel.topPanel;
+            } else {
+                this.topPanel = this;
+            }
             this.fatherPanel = panel;
             this.clientInfo = $(clientInfo);
             this.options = options;
@@ -800,6 +811,24 @@ tlApp.directive('timeline', function($compile) {
             var options = this.options;
             var story = this.story;
             var timelineInfo = this.timelineInfo;
+            this._createEventBoxs();
+        },
+        _createEventBoxs: function(clientInfo, options, story, timelineInfo) {
+            var clientInfo = this.clientInfo;
+            var options = this.options;
+            var story = this.story;
+            var timelineInfo = this.timelineInfo;
+            console.log(clientInfo);
+            for(var i=0; i<story.events.length; i++) {
+                var rect = {
+                    left: parseInt(clientInfo.width / 2) - parseInt(options.eventBoxWidth / 2),
+                    width: options.eventBoxWidth,
+                    top: this.topPanel.queryYPosByDate(new Date(story.events[i].startDatetime)) - clientInfo.top,
+                    height: options.eventBoxHeight
+                };
+                console.log(rect);
+                this.createRect(rect, options.eventBoxCss, options.eventBoxClazz);
+            }
         }
     }); // end StoryWidgetPanel
 
@@ -832,7 +861,7 @@ tlApp.directive('timeline', function($compile) {
                 },
                 {
                     id: '2',
-                    startDatetime: '2016-03-15 14:00',
+                    startDatetime: '2016-03-15',
                     endDatetime: '2016-03-16 02:00',
                     title: '桂林三日游桂林三日游桂林三日游桂林三日游',
                     events: [{
